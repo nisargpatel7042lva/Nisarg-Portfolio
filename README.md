@@ -1,73 +1,60 @@
-# Welcome to your Lovable project
+# 🌐 Nisarg Patel — Developer Portfolio
 
-## Project info
+Welcome to my personal portfolio website! This site showcases my skills, projects, and experiences as a developer, designer, and tech enthusiast. Built using modern web technologies, this portfolio is a reflection of my journey, creativity, and commitment to building impactful digital experiences.
 
-**URL**: https://lovable.dev/projects/77f762ed-f468-43fd-9796-bd47517af1a5
+## 🚀 Live Website
 
-## How can I edit this code?
+👉 [Visit my portfolio](https://nisargpatel7042lva.github.io/Nisarg-Portfolio/)
 
-There are several ways of editing your application.
+## 📸 Preview
 
-**Use Lovable**
+![Portfolio Screenshot](./preview.png) <!-- Add a real screenshot here if available -->
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/77f762ed-f468-43fd-9796-bd47517af1a5) and start prompting.
+## 🛠️ Built With
 
-Changes made via Lovable will be committed automatically to this repo.
+- **HTML5**
+- **CSS3**
+- **JavaScript**
+- **Responsive Web Design**
 
-**Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## ✨ Features
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Clean and modern UI
+- Responsive design for all devices
+- Interactive sections (projects, contact, etc.)
+- Fast-loading and lightweight
+- Simple animations to enhance UX
 
-Follow these steps:
+## 👨‍💻 About Me
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+I'm Nisarg Patel — a web designer, developer, and share market trader passionate about technology, design, and building cool things. From UI/UX design to web development and Web3 explorations, I'm always on the lookout for exciting challenges.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🧠 What I Learned
 
-# Step 3: Install the necessary dependencies.
-npm i
+- Structuring and deploying a responsive portfolio
+- Writing clean and maintainable HTML/CSS/JS
+- Enhancing user experience with subtle animations
+- Showcasing personal brand effectively
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 📬 Contact Me
 
-**Edit a file directly in GitHub**
+Feel free to connect with me:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Twitter: [NisargXplores](https://x.com/NisargPatel5563)
+- LinkedIn: [Nisarg Patel](www.linkedin.com/in/nisarg-patel-7b799a277)
+- Portfolio: [Nisarg Patel](https://nisargxplores-portfolio.vercel.app/)
 
-**Use GitHub Codespaces**
+## 📌 Future Improvements
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Add project filtering by tech stack
+- Include a blog section for tech articles
+- Add dark mode toggle
 
-## What technologies are used for this project?
+## 🧾 License
 
-This project is built with:
+This project is open-source and free to use for inspiration and learning purposes. Attribution appreciated!
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/77f762ed-f468-43fd-9796-bd47517af1a5) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+🌟 _If you like it, leave a ⭐ on the repo and connect with me!_
