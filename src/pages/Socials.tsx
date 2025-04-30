@@ -103,7 +103,8 @@ const Socials = () => {
           <div className="flex flex-wrap justify-center gap-4 py-8">
             <div className="relative">
               <Avatar className="w-16 h-16 border-2 border-github-accent animate-float">
-                <AvatarImage src="/lovable-uploads/87f3a012-39ac-4a42-a5e2-4c155d9d450f.png" alt="Nisarg Patel" />
+                <AvatarImage src="/src/assets/me3.jpg" alt="Nisarg Patel" />
+
                 <AvatarFallback>NP</AvatarFallback>
               </Avatar>
               <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-github-accent rounded-full flex items-center justify-center text-xs font-bold border-2 border-github-secondary">
