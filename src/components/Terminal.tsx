@@ -50,7 +50,7 @@ const Terminal: React.FC = () => {
       label: 'help',
       description: 'Display available commands',
       action: () => {
-        setHistory(prev => [...prev, '$ help', 'Available commands:', ...Object.keys(commands).map(cmd => `  ${cmd}: ${commands[cmd].description}`), '']);
+        setHistory(prev => [...prev, 'Available commands:', ...Object.keys(commands).map(cmd => `  ${cmd}: ${commands[cmd].description}`), '']);
       }
     },
     clear: {
@@ -106,7 +106,7 @@ const Terminal: React.FC = () => {
       label: 'home',
       description: 'Go to home page',
       action: () => {
-        navigate('/');
+        navigate('/home');
       }
     },
     exit: {
@@ -159,12 +159,22 @@ const Terminal: React.FC = () => {
     if (!input.trim()) return;
     
     const trimmedInput = input.trim().toLowerCase();
+    // Add the command to history with the $ prefix
     setHistory(prev => [...prev, `$ ${input}`]);
     setInput('');
     
-    // Check if command exists
+    // Check if command exists and execute action without adding command to history again
     if (commands[trimmedInput]) {
-      commands[trimmedInput].action();
+      // For help command, modify the action to not include the command itself
+      if (trimmedInput === 'help') {
+        setHistory(prev => [...prev, 'Available commands:', ...Object.keys(commands).map(cmd => `  ${cmd}: ${commands[cmd].description}`), '']);
+      } else if (trimmedInput === 'clear') {
+        // Special handling for clear command
+        setHistory(['Terminal cleared. Type "help" to see available commands.']);
+      } else {
+        // Execute the command's action
+        commands[trimmedInput].action();
+      }
     } else {
       setHistory(prev => [...prev, `Command not found: ${trimmedInput}. Type "help" for available commands.`, '']);
     }
