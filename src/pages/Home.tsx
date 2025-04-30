@@ -24,7 +24,7 @@ const Home = () => {
             <div className="md:w-2/3 text-center md:text-left">
               <h1 className="text-3xl font-bold mb-3 text-github-accent">Nisarg Patel</h1>
               <p className="text-xl text-github-text mb-6">
-                Software Developer & GitHub Enthusiast
+                Tech ennthusiast | Open Source Contributor | Web 3 Explorer | UI/UX Designer  
               </p>
               <p className="mb-6">
                 Welcome to my terminal-inspired portfolio. Explore my projects, experience, and more
