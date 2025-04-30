@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import meImage from '@/assets/me3.jpg'; // Use alias if set, else use relative path
 
 const Home = () => {
   return (
@@ -16,11 +17,7 @@ const Home = () => {
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="md:w-1/3">
               <div className="rounded-full overflow-hidden border-4 border-github-accent w-48 h-48 mx-auto animate-float">
-                <img
-                  src="/src/assets/me3.jpg"
-                  alt="Nisarg Patel"
-                  className="w-full h-full object-cover"
-                />
+                <img src={meImage} alt="Nisarg Patel" className="w-full h-full object-cover" />
               </div>
             </div>
             
