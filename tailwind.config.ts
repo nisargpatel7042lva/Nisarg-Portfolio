@@ -63,12 +63,12 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// GitHub theme colors
+				// GitHub theme colors - Updated with darker black and green
 				github: {
-					dark: '#0d1117',
-					secondary: '#161b22',
+					dark: '#000000',
+					secondary: '#0d1117',
 					text: '#c9d1d9',
-					accent: '#58a6ff',
+					accent: '#2ea043', // Green accent
 					border: '#30363d',
 					success: '#2ea043',
 					danger: '#f85149',
@@ -107,6 +107,14 @@ export default {
 					from: { width: '0' },
 					to: { width: '100%' },
 				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				'glow': {
+					'0%, 100%': { boxShadow: '0 0 5px #2ea043' },
+					'50%': { boxShadow: '0 0 20px #2ea043, 0 0 30px #2ea043' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -114,6 +122,8 @@ export default {
 				'blink': 'blink 1s step-end infinite',
 				'carousel': 'carousel 30s linear infinite',
 				'typing': 'typing 2.5s steps(30, end)',
+				'float': 'float 6s ease-in-out infinite',
+				'glow': 'glow 3s ease-in-out infinite',
 			}
 		}
 	},

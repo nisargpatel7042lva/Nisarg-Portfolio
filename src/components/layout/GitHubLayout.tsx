@@ -21,16 +21,16 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
   ];
   
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-github-dark">
       {/* GitHub Header */}
       <header className="github-header">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
-            <h1 className="text-lg font-semibold">Nisarg Patel</h1>
+            <h1 className="text-lg font-semibold text-github-accent">Nisarg Patel</h1>
           </div>
           
           <Link to="/">
-            <Button variant="outline" size="sm" className="flex items-center gap-2">
+            <Button variant="outline" size="sm" className="flex items-center gap-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white">
               <Terminal size={16} />
               Terminal Mode
             </Button>

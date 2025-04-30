@@ -5,33 +5,33 @@
 
 @layer base {
   :root {
-    --background: 215 14% 8%;
+    --background: 215 14% 4%;  /* Darker background */
     --foreground: 210 17% 82%;
 
-    --card: 222 18% 11%;
+    --card: 222 18% 7%;  /* Darker card */
     --card-foreground: 210 17% 82%;
 
-    --popover: 222 18% 11%;
+    --popover: 222 18% 7%;
     --popover-foreground: 210 17% 82%;
 
-    --primary: 212 100% 67%;
+    --primary: 142 70% 42%;  /* Green primary */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 19% 27%;
+    --secondary: 217 19% 17%;  /* Darker secondary */
     --secondary-foreground: 210 17% 82%;
 
-    --muted: 217 19% 27%;
+    --muted: 217 19% 17%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 217 19% 27%;
+    --accent: 142 70% 42%;  /* Green accent */
     --accent-foreground: 210 17% 82%;
 
     --destructive: 0 72% 61%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 14% 34%;
-    --input: 217 19% 27%;
-    --ring: 212 100% 67%;
+    --border: 215 14% 24%;
+    --input: 217 19% 17%;
+    --ring: 142 70% 42%;  /* Green ring */
 
     --radius: 0.5rem;
   }
@@ -112,5 +112,24 @@
 
   .social-icon {
     @apply text-github-text hover:text-github-accent transition-colors;
+  }
+  
+  .skill-tag {
+    @apply px-2 py-1 bg-github-dark rounded-full text-sm border border-github-accent text-github-accent transition-all duration-300 hover:bg-github-accent hover:text-white;
+  }
+  
+  .animated-border {
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    background: linear-gradient(#0d1117, #0d1117) padding-box,
+                linear-gradient(90deg, #2ea043, #0d1117, #2ea043) border-box;
+    background-size: 200% 100%;
+    animation: border-flow 4s linear infinite;
+  }
+  
+  @keyframes border-flow {
+    0% { background-position: 0 0; }
+    100% { background-position: 200% 0; }
   }
 }
