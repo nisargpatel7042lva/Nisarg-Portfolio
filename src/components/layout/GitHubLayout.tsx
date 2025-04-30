@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Terminal, ExternalLink, LogOut } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,11 @@ interface GitHubLayoutProps {
 
 const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
   const location = useLocation();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [displayText, setDisplayText] = useState<string>("Nisarg Patel");
+  const [isTyping, setIsTyping] = useState<boolean>(true);
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
+  const [textIndex, setTextIndex] = useState<number>(0);
   
   const navItems = [
     { path: '/home', label: 'Overview' },
@@ -32,7 +37,42 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
     { path: '/socials', label: 'Socials' },
   ];
   
+  const textOptions = [
+    "Nisarg Patel",
+    "Tech Enthusiast | UI/UX Designer | Web3 Explorer | Share Market Trader"
+  ];
+  
+  useEffect(() => {
+    const typingTimeout = setTimeout(() => {
+      if (isTyping && !isDeleting) {
+        // Typing forward
+        if (displayText === textOptions[textIndex]) {
+          // Finished typing current text, wait and then delete
+          setTimeout(() => {
+            setIsDeleting(true);
+          }, 2000);
+        } else {
+          // Continue typing
+          setDisplayText(textOptions[textIndex].substring(0, displayText.length + 1));
+        }
+      } else if (isDeleting) {
+        // Deleting
+        if (displayText === '') {
+          // Finished deleting, move to next text
+          setIsDeleting(false);
+          setTextIndex((textIndex + 1) % textOptions.length);
+        } else {
+          // Continue deleting
+          setDisplayText(displayText.substring(0, displayText.length - 1));
+        }
+      }
+    }, isTyping ? 100 : 50);
+
+    return () => clearTimeout(typingTimeout);
+  }, [displayText, isTyping, isDeleting, textIndex, textOptions]);
+  
   const handleExitWebsite = () => {
+    setIsLoading(true);
     toast.success("Signing out. See you soon!", {
       duration: 2000,
       onAutoClose: () => {
@@ -43,14 +83,26 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
       }
     });
   };
+
+  const isHomePage = location.pathname === '/home';
   
   return (
     <div className="min-h-screen flex flex-col bg-github-dark">
+      {/* Loading Overlay */}
+      {isLoading && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
+          <div className="text-github-accent text-2xl">Signing out...</div>
+        </div>
+      )}
+      
       {/* GitHub Header */}
       <header className="github-header">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
-            <h1 className="text-lg font-semibold text-github-accent">Nisarg Patel</h1>
+            <h1 className="text-lg font-semibold text-github-accent flex items-center">
+              <span>{displayText}</span>
+              <span className="cursor"></span>
+            </h1>
           </div>
           
           <div className="flex items-center gap-2">
@@ -61,31 +113,33 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
               </Button>
             </Link>
             
-            <AlertDialog>
-              <AlertDialogTrigger asChild>
-                <Button variant="destructive" size="sm" className="flex items-center gap-2">
-                  <LogOut size={16} />
-                  Exit
-                </Button>
-              </AlertDialogTrigger>
-              <AlertDialogContent className="bg-github-secondary border-github-border">
-                <AlertDialogHeader>
-                  <AlertDialogTitle className="text-github-accent">Exit Website</AlertDialogTitle>
-                  <AlertDialogDescription className="text-github-text">
-                    Are you sure you want to exit? This will close the current tab.
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                  <AlertDialogCancel className="bg-github-dark text-github-text hover:bg-github-border">Cancel</AlertDialogCancel>
-                  <AlertDialogAction 
-                    onClick={handleExitWebsite}
-                    className="bg-github-accent text-white hover:bg-github-accent/90"
-                  >
-                    Yes, Exit
-                  </AlertDialogAction>
-                </AlertDialogFooter>
-              </AlertDialogContent>
-            </AlertDialog>
+            {!isHomePage && (
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button variant="destructive" size="sm" className="flex items-center gap-2">
+                    <LogOut size={16} />
+                    Exit
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent className="bg-github-secondary border-github-border">
+                  <AlertDialogHeader>
+                    <AlertDialogTitle className="text-github-accent">Exit Website</AlertDialogTitle>
+                    <AlertDialogDescription className="text-github-text">
+                      Are you sure you want to exit? This will close the current tab.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel className="bg-github-dark text-github-text hover:bg-github-border">Cancel</AlertDialogCancel>
+                    <AlertDialogAction 
+                      onClick={handleExitWebsite}
+                      className="bg-github-accent text-white hover:bg-github-accent/90"
+                    >
+                      Yes, Exit
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            )}
           </div>
         </div>
       </header>

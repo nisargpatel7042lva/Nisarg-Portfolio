@@ -27,11 +27,13 @@ const Terminal: React.FC = () => {
   const [input, setInput] = useState<string>('');
   const [history, setHistory] = useState<string[]>(['Welcome to Nisarg Patel\'s portfolio. Type "help" to see available commands.']);
   const [typingEffect, setTypingEffect] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const historyRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
   const handleExitWebsite = () => {
+    setIsLoading(true);
     toast.success("Signing out. See you soon!", {
       duration: 2000,
       onAutoClose: () => {
@@ -170,6 +172,13 @@ const Terminal: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-radial from-github-secondary to-github-dark p-4">
+      {/* Loading Overlay */}
+      {isLoading && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
+          <div className="text-github-accent text-2xl">Signing out...</div>
+        </div>
+      )}
+    
       <div className="flex justify-end mb-4">
         <AlertDialog>
           <AlertDialogTrigger asChild>
