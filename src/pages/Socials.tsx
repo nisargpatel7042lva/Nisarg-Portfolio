@@ -18,42 +18,42 @@ const Socials = () => {
     {
       name: "LinkedIn",
       username: "@nisargpatel",
-      url: "https://linkedin.com/in/nisargpatel",
+      url: "www.linkedin.com/in/nisarg-patel-7b799a277",
       icon: Linkedin,
       bgColor: "bg-[#0077b5]"
     },
     {
       name: "Twitter",
       username: "@nisargpatel",
-      url: "https://twitter.com/nisargpatel",
+      url: "https://x.com/NisargPatel5563",
       icon: Twitter,
       bgColor: "bg-[#1da1f2]"
     },
     {
       name: "Instagram",
       username: "@nisargpatel",
-      url: "https://instagram.com/nisargpatel",
+      url: "https://www.instagram.com/nisargxplores/",
       icon: Instagram,
       bgColor: "bg-[#e1306c]"
     },
     {
       name: "Discord",
-      username: "nisargpatel",
+      username: "nisargpatel_7042lva",
       url: "#",
       icon: MessageSquare,
       bgColor: "bg-[#5865F2]"
     },
     {
       name: "Telegram",
-      username: "@nisargpatel",
+      username: "@nisargpatel7042",
       url: "https://t.me/nisargpatel",
       icon: MessagesSquare,
       bgColor: "bg-[#0088cc]"
     },
     {
       name: "Email",
-      username: "nisargpatel7042lva@gmail.com",
-      url: "mailto:nisargpatel7042lva@gmail.com",
+      username: "nisargpatel_5565@outlook.com",
+      url: "mailto:nisargpatel_5565@outlook.com",
       icon: Mail,
       bgColor: "bg-[#ea4335]"
     }
