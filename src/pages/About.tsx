@@ -1,7 +1,8 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { Code2, Cpu, Palette, Wrench } from 'lucide-react';
 
 const About = () => {
