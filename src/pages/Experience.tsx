@@ -7,51 +7,93 @@ interface ExperienceItem {
   id: number;
   role: string;
   company: string;
-  period: string;
+  period?: string;
   description: string[];
-  technologies: string[];
 }
 
 const Experience = () => {
   const experiences: ExperienceItem[] = [
     {
       id: 1,
-      role: "Senior Software Engineer",
-      company: "Tech Company Inc.",
-      period: "Jan 2022 - Present",
+      role: "Student Ambassador",
+      company: "Designare",
       description: [
-        "Led the development of a customer-facing web application that increased user engagement by 40%",
-        "Implemented CI/CD pipelines which reduced deployment time by 60%",
-        "Mentored junior developers and conducted code reviews to ensure high code quality",
-        "Collaborated with product managers and designers to refine product requirements"
-      ],
-      technologies: ["React", "Node.js", "AWS", "Docker", "TypeScript"]
+        "Represent and contribute to a community of designers and innovators.",
+        "Engage with the Designare ecosystem to build and nurture connections.",
+        "Promote Designare's initiatives through branding, content creation, and event participation."
+      ]
     },
     {
       id: 2,
-      role: "Software Developer",
-      company: "Digital Solutions Ltd.",
-      period: "Mar 2020 - Dec 2021",
+      role: "Joint Finance Secretary",
+      company: "Students' Central Committee, SVIT-Vasad",
       description: [
-        "Developed and maintained multiple web applications for clients in various industries",
-        "Optimized database queries resulting in a 30% performance improvement",
-        "Integrated third-party APIs to enhance application functionality",
-        "Participated in agile development processes including daily stand-ups and sprint planning"
-      ],
-      technologies: ["JavaScript", "React", "Express", "MongoDB", "GraphQL"]
+        "Oversee financial operations, budget tracking, and expenditure monitoring.",
+        "Ensure transparency in financial transactions for student-driven initiatives."
+      ]
     },
     {
       id: 3,
-      role: "Junior Developer",
-      company: "Startup Innovations",
-      period: "Jun 2018 - Feb 2020",
+      role: "Joint Web Designer",
+      company: "Indian Society for Technical Education (ISTE)",
       description: [
-        "Assisted in the development of a mobile-responsive web application",
-        "Fixed bugs and implemented new features based on user feedback",
-        "Wrote clean, maintainable code following best practices",
-        "Collaborated with team members using version control and project management tools"
-      ],
-      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "jQuery"]
+        "Design and maintain ISTE's student chapter website, ensuring an intuitive UI/UX.",
+        "Collaborate with teams to optimize web performance and content management."
+      ]
+    },
+    {
+      id: 4,
+      role: "Social Media Manager & Customer Relations Manager",
+      company: "The A.I.M. Club",
+      description: [
+        "Develop and manage strategic social media campaigns to increase engagement.",
+        "Lead customer relations efforts, ensuring exceptional service and retention."
+      ]
+    },
+    {
+      id: 5,
+      role: "UI/UX Designer Intern",
+      company: "CoderOne",
+      description: [
+        "Create user-centric interface designs, prototypes, and wireframes.",
+        "Conduct user research and usability testing for improved design experiences."
+      ]
+    },
+    {
+      id: 6,
+      role: "Open-Source Contributor",
+      company: "GirlScript Summer of Code",
+      description: [
+        "Collaborate with global teams on real-world open-source projects.",
+        "Enhance project functionality, UI, and overall user experience."
+      ]
+    },
+    {
+      id: 7,
+      role: "Social Media Manager",
+      company: "AWS User Group Vadodara",
+      description: [
+        "Manage and optimize AWS community outreach via social media.",
+        "Organize AWS events, meetups, and workshops for knowledge sharing."
+      ]
+    },
+    {
+      id: 8,
+      role: "Founder",
+      company: "Mysterio Fashion",
+      description: [
+        "Designed and launched a print-on-demand e-commerce platform.",
+        "Managed digital marketing, branding, and creative product design."
+      ]
+    },
+    {
+      id: 9,
+      role: "Community Growth Associate",
+      company: "PhicsIT",
+      description: [
+        "Analyzed website traffic and audience behavior to optimize growth strategies.",
+        "Targeted specific demographics and communities to drive traffic to GeekClash."
+      ]
     }
   ];
 
@@ -61,7 +103,7 @@ const Experience = () => {
         <div>
           <h1 className="text-2xl font-bold mb-6">Work Experience</h1>
           <p className="mb-8">
-            My professional journey spans various roles in software development, 
+            My professional journey spans various roles in design, development, and community management,
             where I've honed my skills across different technologies and domains.
           </p>
         </div>
@@ -79,7 +121,7 @@ const Experience = () => {
                   <h2 className="text-xl font-semibold text-github-accent">{exp.role}</h2>
                   <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                     <h3 className="font-medium">{exp.company}</h3>
-                    <span className="text-github-text text-sm">{exp.period}</span>
+                    {exp.period && <span className="text-github-text text-sm">{exp.period}</span>}
                   </div>
                 </div>
                 
@@ -91,20 +133,6 @@ const Experience = () => {
                     ))}
                   </ul>
                 </div>
-                
-                <div className="mt-4">
-                  <h4 className="font-medium mb-2">Technologies:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech) => (
-                      <span 
-                        key={tech} 
-                        className="px-2 py-1 bg-github-dark rounded-full text-xs"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
               </Card>
             </div>
           ))}
@@ -114,10 +142,10 @@ const Experience = () => {
         <div>
           <h2 className="text-xl font-semibold mb-4">Education</h2>
           <Card className="p-6 bg-github-secondary border-github-border">
-            <h3 className="font-semibold text-lg">Bachelor of Technology in Computer Science</h3>
-            <p className="text-github-text">University Name, 2014-2018</p>
+            <h3 className="font-semibold text-lg">Bachelor of Engineering in Computer Science</h3>
+            <p className="text-github-text">SVIT Vasad</p>
             <p className="mt-2">
-              Graduated with honors. Specialized in web development and software engineering.
+              Specialized in web development and UI/UX design.
               Participated in various coding competitions and hackathons.
             </p>
           </Card>

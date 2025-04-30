@@ -2,7 +2,7 @@
 import React from 'react';
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Twitter, Linkedin, Instagram, MessageSquare, Mail, Telegram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Socials = () => {
@@ -17,37 +17,44 @@ const Socials = () => {
     {
       name: "LinkedIn",
       username: "@nisargpatel",
-      url: "#",
-      icon: ExternalLink,
+      url: "https://linkedin.com/in/nisargpatel",
+      icon: Linkedin,
       bgColor: "bg-[#0077b5]"
     },
     {
       name: "Twitter",
       username: "@nisargpatel",
-      url: "#",
-      icon: ExternalLink,
+      url: "https://twitter.com/nisargpatel",
+      icon: Twitter,
       bgColor: "bg-[#1da1f2]"
     },
     {
-      name: "Medium",
+      name: "Instagram",
       username: "@nisargpatel",
-      url: "#",
-      icon: ExternalLink,
-      bgColor: "bg-[#12100e]"
+      url: "https://instagram.com/nisargpatel",
+      icon: Instagram,
+      bgColor: "bg-[#e1306c]"
     },
     {
-      name: "Dev.to",
-      username: "@nisargpatel",
+      name: "Discord",
+      username: "nisargpatel",
       url: "#",
-      icon: ExternalLink,
-      bgColor: "bg-[#0a0a0a]"
+      icon: MessageSquare,
+      bgColor: "bg-[#5865F2]"
     },
     {
-      name: "Stack Overflow",
-      username: "user:nisargpatel",
-      url: "#",
-      icon: ExternalLink,
-      bgColor: "bg-[#f48024]"
+      name: "Telegram",
+      username: "@nisargpatel",
+      url: "https://t.me/nisargpatel",
+      icon: Telegram,
+      bgColor: "bg-[#0088cc]"
+    },
+    {
+      name: "Email",
+      username: "nisargpatel7042lva@gmail.com",
+      url: "mailto:nisargpatel7042lva@gmail.com",
+      icon: Mail,
+      bgColor: "bg-[#ea4335]"
     }
   ];
 

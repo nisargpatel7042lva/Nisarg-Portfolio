@@ -10,30 +10,30 @@ const Projects = () => {
   const featuredProjects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce platform with user authentication, product management, cart functionality, and payment integration.",
-      technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe"],
+      title: "Nisarg Portfolio",
+      description: "A personal portfolio website built with React and Next.js, featuring my projects, skills, and experience.",
+      technologies: ["React", "Next.js", "Tailwind CSS", "Vercel"],
       githubLink: "https://github.com/nisargpatel7042lva",
-      demoLink: "#",
-      imageUrl: "https://via.placeholder.com/600x300/161b22/58a6ff?text=E-Commerce+Platform"
+      demoLink: "https://nisarg-portfolio.vercel.app/",
+      imageUrl: "https://via.placeholder.com/600x300/161b22/58a6ff?text=Nisarg+Portfolio"
     },
     {
       id: 2,
-      title: "Task Management App",
-      description: "A productivity application for managing tasks, projects, and deadlines with collaborative features.",
-      technologies: ["React", "Firebase", "Material UI", "Redux"],
+      title: "GPT Engineer",
+      description: "An AI-powered web application that helps generate code and solutions for engineering problems.",
+      technologies: ["React", "TypeScript", "OpenAI API", "Vercel"],
       githubLink: "https://github.com/nisargpatel7042lva",
-      demoLink: "#",
-      imageUrl: "https://via.placeholder.com/600x300/161b22/58a6ff?text=Task+Management+App"
+      demoLink: "https://gpt-engineer-one.vercel.app/",
+      imageUrl: "https://via.placeholder.com/600x300/161b22/58a6ff?text=GPT+Engineer"
     },
     {
       id: 3,
-      title: "Weather Dashboard",
-      description: "A weather application that displays current conditions and forecasts for multiple locations.",
-      technologies: ["JavaScript", "OpenWeather API", "Chart.js", "HTML/CSS"],
+      title: "Lovable Projects",
+      description: "Collection of web applications and projects built using Lovable.dev platform with AI assistance.",
+      technologies: ["React", "Tailwind CSS", "TypeScript", "Vercel"],
       githubLink: "https://github.com/nisargpatel7042lva",
-      demoLink: "#",
-      imageUrl: "https://via.placeholder.com/600x300/161b22/58a6ff?text=Weather+Dashboard"
+      demoLink: "https://vercel.com/nisargpatel7042lvas-projects",
+      imageUrl: "https://via.placeholder.com/600x300/161b22/58a6ff?text=Lovable+Projects"
     }
   ];
 
@@ -43,8 +43,8 @@ const Projects = () => {
         <div>
           <h1 className="text-2xl font-bold mb-6">My Projects</h1>
           <p className="mb-8">
-            Here are some of the projects I've worked on. From web applications to mobile apps,
-            I enjoy building software that solves real problems. Feel free to check out the code or live demos!
+            Here are some of the projects I've worked on. From web applications to UI/UX designs,
+            I enjoy building software and designs that solve real problems. Feel free to check out the code or live demos!
           </p>
         </div>
         

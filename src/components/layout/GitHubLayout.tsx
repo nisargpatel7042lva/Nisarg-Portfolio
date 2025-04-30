@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Github, Terminal, ExternalLink } from 'lucide-react';
+import { Terminal, ExternalLink } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 interface GitHubLayoutProps {
@@ -26,9 +26,6 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
       <header className="github-header">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
-            <Link to="/" className="text-github-text hover:text-github-accent">
-              <Github size={24} />
-            </Link>
             <h1 className="text-lg font-semibold">Nisarg Patel</h1>
           </div>
           
@@ -68,7 +65,6 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
       <footer className="border-t border-github-border py-6">
         <div className="container mx-auto px-4 text-sm text-center text-github-text">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <Github size={16} />
             <span>© {new Date().getFullYear()} Nisarg Patel</span>
           </div>
           <a 

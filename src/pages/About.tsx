@@ -5,10 +5,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const About = () => {
   const skills = [
-    { category: "Languages", items: ["JavaScript", "TypeScript", "Python", "Java", "HTML", "CSS"] },
-    { category: "Frameworks", items: ["React", "Node.js", "Express", "Next.js", "Django"] },
-    { category: "Tools", items: ["Git", "Docker", "AWS", "Firebase", "MongoDB", "PostgreSQL"] },
-    { category: "Design", items: ["Figma", "Adobe XD", "UI/UX Design"] },
+    { category: "Languages", items: ["JavaScript", "TypeScript", "HTML", "CSS", "Python"] },
+    { category: "Frameworks", items: ["React", "Next.js", "Node.js", "Express", "TailwindCSS"] },
+    { category: "Tools", items: ["Git", "GitHub", "VS Code", "Figma", "Adobe XD", "AWS"] },
+    { category: "Design", items: ["UI/UX Design", "Wireframing", "Prototyping", "Responsive Design"] },
   ];
 
   return (
@@ -21,23 +21,24 @@ const About = () => {
             <div>
               <h2 className="text-xl font-semibold mb-3 text-github-accent">Who am I?</h2>
               <p className="mb-4">
-                Hello! I'm Nisarg Patel, a passionate software developer with a strong focus on creating 
-                intuitive and efficient applications. My journey in tech started with a curiosity about 
-                how digital products work, and it has evolved into a career where I get to build those products.
+                Hello! I'm Nisarg Patel, a passionate developer and UI/UX designer with a strong focus on creating 
+                intuitive and efficient web applications. I'm currently pursuing my degree in Computer Engineering
+                and have been actively involved in various web development and design projects.
               </p>
               <p>
-                I believe in writing clean, maintainable code and staying up-to-date with the latest 
-                technologies and best practices. When I'm not coding, you can find me exploring new 
-                tech, contributing to open-source projects, or learning something new.
+                I believe in combining creativity with technical skills to build products that not only work well
+                but also provide an excellent user experience. When I'm not coding, you can find me exploring new 
+                design trends, contributing to open-source projects, or learning new technologies.
               </p>
             </div>
             
             <div>
               <h2 className="text-xl font-semibold mb-3 text-github-accent">My Approach</h2>
               <p>
-                I approach each project with a holistic mindset, considering not just the code but 
-                also the user experience, performance, and scalability. I enjoy solving complex problems 
-                and creating solutions that make a positive impact on users' lives.
+                I approach each project with a user-centered design philosophy, considering not just the code but 
+                also the user experience, accessibility, and performance. I enjoy solving complex problems 
+                and creating solutions that make a positive impact on users' lives. My experience in both development
+                and design allows me to bridge the gap between technical requirements and aesthetic presentation.
               </p>
             </div>
           </div>
@@ -74,16 +75,16 @@ const About = () => {
           <h2 className="text-xl font-semibold mb-4">Education & Certifications</h2>
           <div className="space-y-4">
             <div className="github-card">
-              <h3 className="font-semibold">Bachelor of Technology in Computer Science</h3>
-              <p className="text-github-text">University Name, 2016-2020</p>
+              <h3 className="font-semibold">Bachelor of Engineering in Computer Science</h3>
+              <p className="text-github-text">SVIT Vasad</p>
             </div>
             <div className="github-card">
-              <h3 className="font-semibold">Full Stack Web Development Certification</h3>
-              <p className="text-github-text">Certification Provider, 2020</p>
+              <h3 className="font-semibold">AWS Certified Cloud Practitioner</h3>
+              <p className="text-github-text">Amazon Web Services</p>
             </div>
             <div className="github-card">
-              <h3 className="font-semibold">AWS Certified Developer</h3>
-              <p className="text-github-text">Amazon Web Services, 2021</p>
+              <h3 className="font-semibold">UI/UX Design Certification</h3>
+              <p className="text-github-text">Google UX Design Professional Certificate</p>
             </div>
           </div>
         </div>

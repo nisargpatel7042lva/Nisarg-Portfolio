@@ -4,7 +4,7 @@ import GitHubLayout from '@/components/layout/GitHubLayout';
 import ContactForm from '@/components/ContactForm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { MailIcon, MapPin, ExternalLink } from 'lucide-react';
+import { MailIcon, MapPin, ExternalLink, Github } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -39,10 +39,10 @@ const Contact = () => {
                     </div>
                     <div className="pl-6">
                       <a 
-                        href="mailto:youremail@example.com" 
+                        href="mailto:nisargpatel7042lva@gmail.com" 
                         className="text-github-accent hover:underline flex items-center"
                       >
-                        youremail@example.com
+                        nisargpatel7042lva@gmail.com
                         <ExternalLink size={14} className="ml-1" />
                       </a>
                     </div>
@@ -54,7 +54,7 @@ const Contact = () => {
                       <span className="text-sm">location</span>
                     </div>
                     <div className="pl-6">
-                      <span>City, Country</span>
+                      <span>Vadodara, India</span>
                     </div>
                   </div>
                   
@@ -81,11 +81,11 @@ const Contact = () => {
                 <div className="space-y-2">
                   <h3 className="font-medium">Email</h3>
                   <a 
-                    href="mailto:youremail@example.com" 
+                    href="mailto:nisargpatel7042lva@gmail.com" 
                     className="flex items-center text-github-accent hover:underline"
                   >
                     <MailIcon size={16} className="mr-2" />
-                    youremail@example.com
+                    nisargpatel7042lva@gmail.com
                   </a>
                 </div>
                 
@@ -93,7 +93,7 @@ const Contact = () => {
                   <h3 className="font-medium">Location</h3>
                   <div className="flex items-start">
                     <MapPin size={16} className="mr-2 mt-1" />
-                    <span>City, Country</span>
+                    <span>Vadodara, India</span>
                   </div>
                 </div>
                 
