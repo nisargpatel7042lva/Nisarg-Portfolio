@@ -2,7 +2,7 @@
 import React from 'react';
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Github, ExternalLink, Twitter, Linkedin, Instagram, MessageSquare, Mail, Telegram } from 'lucide-react';
+import { Github, ExternalLink, Twitter, Linkedin, Instagram, MessageSquare, Mail, MessagesSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Socials = () => {
@@ -46,7 +46,7 @@ const Socials = () => {
       name: "Telegram",
       username: "@nisargpatel",
       url: "https://t.me/nisargpatel",
-      icon: Telegram,
+      icon: MessagesSquare,
       bgColor: "bg-[#0088cc]"
     },
     {
