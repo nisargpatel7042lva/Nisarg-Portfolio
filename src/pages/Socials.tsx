@@ -4,7 +4,8 @@ import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Github, ExternalLink, Twitter, Linkedin, Instagram, MessageSquare, Mail, MessagesSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { Avatar } from '../assets/me3.jpg';
 
 const Socials = () => {
   const socialLinks = [
