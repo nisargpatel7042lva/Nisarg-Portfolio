@@ -17,7 +17,7 @@ const Home = () => {
             <div className="md:w-1/3">
               <div className="rounded-full overflow-hidden border-4 border-github-accent w-48 h-48 mx-auto animate-float">
                 <img
-                  src="me3.jpg"
+                  src="/me3.jpg"
                   alt="Nisarg Patel"
                   className="w-full h-full object-cover"
                 />
