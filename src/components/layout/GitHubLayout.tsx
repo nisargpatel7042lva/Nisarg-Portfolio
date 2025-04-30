@@ -1,8 +1,20 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Terminal, ExternalLink } from 'lucide-react';
+import { Terminal, ExternalLink, LogOut } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { 
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogAction,
+  AlertDialogCancel
+} from "@/components/ui/alert-dialog";
+import { toast } from "sonner";
 
 interface GitHubLayoutProps {
   children: React.ReactNode;
@@ -20,6 +32,18 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
     { path: '/socials', label: 'Socials' },
   ];
   
+  const handleExitWebsite = () => {
+    toast.success("Signing out. See you soon!", {
+      duration: 2000,
+      onAutoClose: () => {
+        // Close the tab after toast is shown
+        setTimeout(() => {
+          window.close();
+        }, 500);
+      }
+    });
+  };
+  
   return (
     <div className="min-h-screen flex flex-col bg-github-dark">
       {/* GitHub Header */}
@@ -29,12 +53,40 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
             <h1 className="text-lg font-semibold text-github-accent">Nisarg Patel</h1>
           </div>
           
-          <Link to="/">
-            <Button variant="outline" size="sm" className="flex items-center gap-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white">
-              <Terminal size={16} />
-              Terminal Mode
-            </Button>
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link to="/">
+              <Button variant="outline" size="sm" className="flex items-center gap-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white">
+                <Terminal size={16} />
+                Terminal Mode
+              </Button>
+            </Link>
+            
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button variant="destructive" size="sm" className="flex items-center gap-2">
+                  <LogOut size={16} />
+                  Exit
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent className="bg-github-secondary border-github-border">
+                <AlertDialogHeader>
+                  <AlertDialogTitle className="text-github-accent">Exit Website</AlertDialogTitle>
+                  <AlertDialogDescription className="text-github-text">
+                    Are you sure you want to exit? This will close the current tab.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel className="bg-github-dark text-github-text hover:bg-github-border">Cancel</AlertDialogCancel>
+                  <AlertDialogAction 
+                    onClick={handleExitWebsite}
+                    className="bg-github-accent text-white hover:bg-github-accent/90"
+                  >
+                    Yes, Exit
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </div>
         </div>
       </header>
       

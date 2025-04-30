@@ -2,7 +2,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Terminal as TerminalIcon, Github } from 'lucide-react';
+import { Terminal as TerminalIcon, Github, LogOut } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogAction,
+  AlertDialogCancel
+} from "@/components/ui/alert-dialog";
 
 interface CommandProps {
   label: string;
@@ -17,6 +30,18 @@ const Terminal: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const historyRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  const handleExitWebsite = () => {
+    toast.success("Signing out. See you soon!", {
+      duration: 2000,
+      onAutoClose: () => {
+        // Close the tab after toast is shown
+        setTimeout(() => {
+          window.close();
+        }, 500);
+      }
+    });
+  };
 
   const commands: Record<string, CommandProps> = {
     help: {
@@ -88,6 +113,13 @@ const Terminal: React.FC = () => {
       action: () => {
         navigate('/home');
       }
+    },
+    quit: {
+      label: 'quit',
+      description: 'Close the website',
+      action: () => {
+        handleExitWebsite();
+      }
     }
   };
 
@@ -137,41 +169,71 @@ const Terminal: React.FC = () => {
   };
 
   return (
-    <div 
-      className="terminal min-h-[400px] w-full max-w-3xl mx-auto flex flex-col"
-      onClick={handleTerminalClick}
-    >
-      <div className="flex items-center gap-2 mb-4 border-b border-github-border pb-2">
-        <TerminalIcon size={18} className="text-github-accent" />
-        <span className="font-semibold">portfolio.sh</span>
+    <div className="min-h-screen flex flex-col bg-gradient-radial from-github-secondary to-github-dark p-4">
+      <div className="flex justify-end mb-4">
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button variant="destructive" size="sm" className="flex items-center gap-2">
+              <LogOut size={16} />
+              Exit
+            </Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent className="bg-github-secondary border-github-border">
+            <AlertDialogHeader>
+              <AlertDialogTitle className="text-github-accent">Exit Website</AlertDialogTitle>
+              <AlertDialogDescription className="text-github-text">
+                Are you sure you want to exit? This will close the current tab.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel className="bg-github-dark text-github-text hover:bg-github-border">Cancel</AlertDialogCancel>
+              <AlertDialogAction 
+                onClick={handleExitWebsite}
+                className="bg-github-accent text-white hover:bg-github-accent/90"
+              >
+                Yes, Exit
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
-      
-      <div ref={historyRef} className="flex-1 overflow-y-auto mb-4 space-y-1">
-        {history.map((line, i) => (
-          <div key={i} className={cn(
-            "font-mono whitespace-pre-wrap", 
-            { "animate-typing overflow-hidden whitespace-nowrap border-r-2 border-github-accent": typingEffect && i === 0 },
-            line.startsWith('$') ? 'text-github-green' : '',
-            line.includes('not found') ? 'text-github-danger' : ''
-          )}>
-            {line}
-          </div>
-        ))}
+    
+      <div 
+        className="terminal min-h-[400px] w-full max-w-3xl mx-auto flex flex-col"
+        onClick={handleTerminalClick}
+      >
+        <div className="flex items-center gap-2 mb-4 border-b border-github-border pb-2">
+          <TerminalIcon size={18} className="text-github-accent" />
+          <span className="font-semibold">portfolio.sh</span>
+        </div>
+        
+        <div ref={historyRef} className="flex-1 overflow-y-auto mb-4 space-y-1">
+          {history.map((line, i) => (
+            <div key={i} className={cn(
+              "font-mono whitespace-pre-wrap", 
+              { "animate-typing overflow-hidden whitespace-nowrap border-r-2 border-github-accent": typingEffect && i === 0 },
+              line.startsWith('$') ? 'text-github-green' : '',
+              line.includes('not found') ? 'text-github-danger' : ''
+            )}>
+              {line}
+            </div>
+          ))}
+        </div>
+        
+        <form onSubmit={handleSubmit} className="flex items-center">
+          <span className="terminal-prompt mr-2">$</span>
+          <input
+            ref={inputRef}
+            type="text"
+            className="terminal-input"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            autoFocus
+            spellCheck="false"
+            autoComplete="off"
+          />
+        </form>
       </div>
-      
-      <form onSubmit={handleSubmit} className="flex items-center">
-        <span className="terminal-prompt mr-2">$</span>
-        <input
-          ref={inputRef}
-          type="text"
-          className="terminal-input"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          autoFocus
-          spellCheck="false"
-          autoComplete="off"
-        />
-      </form>
     </div>
   );
 };
