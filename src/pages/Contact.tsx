@@ -17,7 +17,6 @@ const Contact = () => {
             Feel free to reach out using the form below or through my social media channels.
           </p>
         </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="md:col-span-2">
             <Tabs defaultValue="form">
@@ -96,7 +95,6 @@ const Contact = () => {
                     <span>Vadodara, India</span>
                   </div>
                 </div>
-                
                 <div className="space-y-2">
                   <h3 className="font-medium">GitHub</h3>
                   <a 
