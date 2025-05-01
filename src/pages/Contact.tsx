@@ -39,10 +39,10 @@ const Contact = () => {
                     </div>
                     <div className="pl-6">
                       <a 
-                        href="mailto:nisargpatel7042lva@gmail.com" 
+                        href="mailto:nisargpatel_5565@outlook.com
                         className="text-github-accent hover:underline flex items-center"
                       >
-                        nisargpatel7042lva@gmail.com
+                        nisargpatel_5565@outlook.com
                         <ExternalLink size={14} className="ml-1" />
                       </a>
                     </div>
@@ -81,11 +81,11 @@ const Contact = () => {
                 <div className="space-y-2">
                   <h3 className="font-medium">Email</h3>
                   <a 
-                    href="mailto:nisargpatel7042lva@gmail.com" 
+                    href="mailto:nisargpatel_5565@outlook.com
                     className="flex items-center text-github-accent hover:underline"
                   >
                     <MailIcon size={16} className="mr-2" />
-                    nisargpatel7042lva@gmail.com
+                    nisargpatel_5565@outlook.com
                   </a>
                 </div>
                 

@@ -42,7 +42,7 @@ I'm Nisarg Patel — a web designer, developer, and share market trader passiona
 Feel free to connect with me:
 
 - Twitter: [NisargXplores](https://x.com/NisargPatel5563)
-- LinkedIn: [Nisarg Patel](www.linkedin.com/in/nisarg-patel-7b799a277)
+- LinkedIn: [Nisarg Patel](https://www.linkedin.com/in/nisarg-patel-7b799a277)
 - Portfolio: [Nisarg Patel](https://nisargxplores-portfolio.vercel.app/)
 
 ## 📌 Future Improvements

@@ -19,7 +19,7 @@ const Socials = () => {
     {
       name: "LinkedIn",
       username: "@nisargpatel",
-      url: "www.linkedin.com/in/nisarg-patel-7b799a277",
+      url: "https://www.linkedin.com/in/nisarg-patel-7b799a277",
       icon: Linkedin,
       bgColor: "bg-[#0077b5]"
     },
@@ -127,7 +127,7 @@ const Socials = () => {
           <div className="mt-4 text-center">
             <p className="mb-6 text-github-text">Let's connect and collaborate on exciting projects!</p>
             <Button 
-              onClick={() => window.open('mailto:nisargpatel7042lva@gmail.com', '_blank')}
+              onClick={() => window.open('mailto:nisargpatel_5565@outlook.com', '_blank')}
               className="bg-github-accent hover:bg-github-accent/80 flex items-center gap-2"
             >
               <Mail size={18} />
