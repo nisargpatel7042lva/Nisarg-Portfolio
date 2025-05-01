@@ -8,7 +8,7 @@ Welcome to my personal portfolio website! This site showcases my skills, project
 
 ## 📸 Preview
 
-![Portfolio Screenshot](./preview.png) <!-- Add a real screenshot here if available -->
+![Portfolio Screenshot](./src/assets/image.png) <!-- Add a real screenshot here if available -->
 
 ## 🛠️ Built With
 

@@ -1,10 +1,10 @@
-
 import React from 'react';
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import RepoCarousel from '@/components/RepoCarousel';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import projectImage from '../assets/image.png'; // Import the image
 
 const Projects = () => {
   const featuredProjects = [
@@ -15,7 +15,7 @@ const Projects = () => {
       technologies: ["React", "Next.js", "Tailwind CSS", "Vercel"],
       githubLink: "https://github.com/nisargpatel7042lva",
       demoLink: "https://nisargxplores-portfolio.vercel.app/",
-      imageUrl: "https://via.placeholder.com/600x300/161b22/58a6ff?text=Nisarg+Portfolio"
+      imageUrl: projectImage // Use the imported image
     }
   ];
 
