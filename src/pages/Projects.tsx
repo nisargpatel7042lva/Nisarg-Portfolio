@@ -16,24 +16,6 @@ const Projects = () => {
       githubLink: "https://github.com/nisargpatel7042lva",
       demoLink: "https://nisargxplores-portfolio.vercel.app/",
       imageUrl: "https://via.placeholder.com/600x300/161b22/58a6ff?text=Nisarg+Portfolio"
-    },
-    {
-      id: 2,
-      title: "GPT Engineer",
-      description: "An AI-powered web application that helps generate code and solutions for engineering problems.",
-      technologies: ["React", "TypeScript", "OpenAI API", "Vercel"],
-      githubLink: "https://github.com/nisargpatel7042lva",
-      demoLink: "https://gpt-engineer-one.vercel.app/",
-      imageUrl: "https://via.placeholder.com/600x300/161b22/58a6ff?text=GPT+Engineer"
-    },
-    {
-      id: 3,
-      title: "Lovable Projects",
-      description: "Collection of web applications and projects built using Lovable.dev platform with AI assistance.",
-      technologies: ["React", "Tailwind CSS", "TypeScript", "Vercel"],
-      githubLink: "https://github.com/nisargpatel7042lva",
-      demoLink: "https://vercel.com/nisargpatel7042lvas-projects",
-      imageUrl: "https://via.placeholder.com/600x300/161b22/58a6ff?text=Lovable+Projects"
     }
   ];
 
