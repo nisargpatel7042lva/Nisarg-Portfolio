@@ -14,7 +14,7 @@ const Projects = () => {
       description: "A personal portfolio website built with React and Next.js, featuring my projects, skills, and experience.",
       technologies: ["React", "Next.js", "Tailwind CSS", "Vercel"],
       githubLink: "https://github.com/nisargpatel7042lva",
-      demoLink: "https://nisarg-portfolio.vercel.app/",
+      demoLink: "https://nisargxplores-portfolio.vercel.app/",
       imageUrl: "https://via.placeholder.com/600x300/161b22/58a6ff?text=Nisarg+Portfolio"
     },
     {

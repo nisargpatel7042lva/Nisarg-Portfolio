@@ -4,7 +4,7 @@ Welcome to my personal portfolio website! This site showcases my skills, project
 
 ## 🚀 Live Website
 
-👉 [Visit my portfolio](https://nisargpatel7042lva.github.io/Nisarg-Portfolio/)
+👉 [Visit my portfolio](https://nisargxplores-portfolio.vercel.app/)
 
 ## 📸 Preview
 
