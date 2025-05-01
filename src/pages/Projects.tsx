@@ -5,6 +5,8 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import projectImage from '../assets/image.png'; // Import the image
+import projectImage2 from '../assets/image2.png'; // Import the image
+import projectImage3 from '../assets/image3.png'; // Import the image
 
 const Projects = () => {
   const featuredProjects = [
@@ -12,11 +14,32 @@ const Projects = () => {
       id: 1,
       title: "Nisarg Portfolio",
       description: "A personal portfolio website built with React and Next.js, featuring my projects, skills, and experience.",
-      technologies: ["React", "Next.js", "Tailwind CSS", "Vercel"],
-      githubLink: "https://github.com/nisargpatel7042lva",
+      technologies: ["Typescript", "Next.js", "Tailwind CSS", "Vercel"],
+      githubLink: "https://github.com/nisargpatel7042lva/Nisarg-Portfolio",
       demoLink: "https://nisargxplores-portfolio.vercel.app/",
       imageUrl: projectImage // Use the imported image
+    },
+    
+    {
+      id: 2,
+      title: "Aura Verify",
+      description: "AuraVerify is a decentralized biometric identity verification system built on the Solana blockchain. It combines wallet-based identity, biometric facial recognition, and blockchain immutability to enable secure, trustless, and reusable digital identity verification.",
+      technologies: ["TypeScript", "Next.js", "Tailwind CSS", "Vercel", "Solana Wallet Adapter", "Flask", "OpenCV", "Biometric Face Scan API", "Jupiter API"],
+      githubLink: "https://github.com/nisargpatel7042lva/aura-verify-web3",
+      demoLink: "https://aura-verify-web3.vercel.app/",
+      imageUrl: projectImage2 // Use the imported image
+    }, 
+
+    {
+      id: 3,
+      title: "Rewind",
+      description: "REWIND is a meticulously crafted web experience that takes you back to the golden era of personal computing. This project captures the authentic look and feel of Windows 98-era interfaces, complete with pixelated graphics, classic color schemes, and that unmistakable retro charm that defined the early internet.",
+      technologies: ["TypeScript", "Next.js", "Tailwind CSS", "Vercel", "React", "Google Photos API"],
+      githubLink: "https://github.com/nisargpatel7042lva/retro-website",
+      demoLink: "https://rewind-ten.vercel.app/",
+      imageUrl: projectImage3 // Use the imported image
     }
+    
   ];
 
   return (
