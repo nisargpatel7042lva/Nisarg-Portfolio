@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Code2, Cpu, Palette, Wrench } from 'lucide-react';
 
+
 const About = () => {
   const skills = [
     { 
