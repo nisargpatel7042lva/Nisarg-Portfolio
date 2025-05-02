@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import ContactForm from '@/components/ContactForm';
@@ -38,7 +37,7 @@ const Contact = () => {
                     </div>
                     <div className="pl-6">
                       <a 
-                        href="mailto:nisargpatel_5565@outlook.com
+                        href="mailto:nisargpatel_5565@outlook.com"
                         className="text-github-accent hover:underline flex items-center"
                       >
                         nisargpatel_5565@outlook.com
@@ -80,7 +79,7 @@ const Contact = () => {
                 <div className="space-y-2">
                   <h3 className="font-medium">Email</h3>
                   <a 
-                    href="mailto:nisargpatel_5565@outlook.com
+                    href="mailto:nisargpatel_5565@outlook.com"
                     className="flex items-center text-github-accent hover:underline"
                   >
                     <MailIcon size={16} className="mr-2" />
