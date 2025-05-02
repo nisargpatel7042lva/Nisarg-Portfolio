@@ -1,5 +1,3 @@
-
-import React from 'react';
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Github, ExternalLink, Twitter, Linkedin, Instagram, MessageSquare, Mail, MessagesSquare } from 'lucide-react';

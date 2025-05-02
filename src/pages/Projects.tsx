@@ -1,4 +1,3 @@
-import React from 'react';
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import RepoCarousel from '@/components/RepoCarousel';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';

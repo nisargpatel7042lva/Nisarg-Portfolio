@@ -1,5 +1,3 @@
-
-import React from 'react';
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card } from '@/components/ui/card';
 

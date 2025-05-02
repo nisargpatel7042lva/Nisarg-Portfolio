@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import ContactForm from '@/components/ContactForm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
