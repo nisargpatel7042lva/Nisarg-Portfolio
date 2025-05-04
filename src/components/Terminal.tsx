@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Terminal as TerminalIcon, Github, LogOut } from 'lucide-react';
+import { Terminal as TerminalIcon, Github, LogOut, FileDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import {
@@ -43,6 +43,29 @@ const Terminal: React.FC = () => {
         }, 500);
       }
     });
+  };
+
+  const downloadResume = () => {
+    try {
+      const link = document.createElement('a');
+      link.href = '/assets/resume.pdf';
+      link.download = 'Nisarg_Patel_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Show success toast
+      toast.success("Resume download started!", {
+        description: "Thank you for your interest in my profile.",
+        icon: <FileDown className="text-github-accent" />
+      });
+      
+      // Add confirmation to terminal history
+      setHistory(prev => [...prev, 'Resume download initiated. Check your downloads folder.', '']);
+    } catch (error) {
+      console.error('Download error:', error);
+      setHistory(prev => [...prev, 'Error downloading resume. Please try again later.', '']);
+    }
   };
 
   const commands: Record<string, CommandProps> = {
@@ -122,6 +145,17 @@ const Terminal: React.FC = () => {
       action: () => {
         handleExitWebsite();
       }
+    },
+    'download resume': {
+      label: 'download resume',
+      description: 'Download my resume as PDF',
+      action: downloadResume
+    },
+    // Add alias for convenience
+    'resume': {
+      label: 'resume',
+      description: 'Download my resume as PDF',
+      action: downloadResume
     }
   };
 
