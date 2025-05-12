@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Terminal as TerminalIcon, Github, LogOut, FileDown, Sparkle, Gamepad } from 'lucide-react';
+import { Terminal as TerminalIcon, Github, LogOut, FileDown, Sparkle, Gamepad, GitBranch } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import {
@@ -159,12 +159,12 @@ const Terminal: React.FC = () => {
     // Updated fun command
     'fun': {
       label: 'fun',
-      description: 'Play the memory matching game',
+      description: 'Play the Git Commit Game',
       action: () => {
         navigate('/fun');
-        toast.success("Loading memory game...", {
-          description: "Test your memory by finding all matching pairs!",
-          icon: <Gamepad className="text-github-accent" />
+        toast.success("Loading Git Commit Game...", {
+          description: "Learn git workflows through interactive play!",
+          icon: <GitBranch className="text-github-accent" />
         });
       }
     }
