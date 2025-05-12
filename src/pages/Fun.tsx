@@ -1,92 +1,168 @@
 
 import React from 'react';
 import GitHubLayout from '@/components/layout/GitHubLayout';
-import GitCommitGame from '@/components/GitCommitGame';
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
-import { Sparkle, GitBranch, GitCommitHorizontal } from 'lucide-react';
+import { Sparkle, Gamepad, Puzzle } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { toast } from "sonner";
 
 const Fun = () => {
+  const notifyComingSoon = () => {
+    toast.info("Coming Soon!", {
+      description: "This fun activity will be available in the next update!",
+      icon: <Gamepad className="text-github-accent" />
+    });
+  };
+
   return (
     <GitHubLayout>
       <div className="space-y-8">
         <div className="bg-github-secondary border border-github-border rounded-md p-6 mb-8 animated-border">
           <h1 className="text-3xl font-bold mb-3 text-github-accent flex items-center gap-2">
             <Sparkle className="text-github-accent" />
-            Git Commit Game
+            Fun Interactive Activities
           </h1>
           <p className="text-github-text mb-4">
-            Experience the git workflow through an interactive visualization game. Create commits,
-            branch your code, and merge changes to advance through the levels.
+            Take a break from the serious stuff and enjoy these fun interactive elements.
+            More activities will be added regularly to keep things fresh and entertaining!
           </p>
           
           <div className="flex flex-wrap gap-2 mt-4">
             <HoverCard>
               <HoverCardTrigger>
-                <span className="skill-tag">Git Learning</span>
+                <span className="skill-tag">Interactive</span>
               </HoverCardTrigger>
               <HoverCardContent className="bg-github-dark border-github-border w-80">
                 <p className="text-sm">
-                  Learn git concepts like committing, branching, and merging through interactive play.
+                  Engage with various interactive elements designed to be both fun and educational.
                 </p>
               </HoverCardContent>
             </HoverCard>
             
             <HoverCard>
               <HoverCardTrigger>
-                <span className="skill-tag">Visualization</span>
+                <span className="skill-tag">Games</span>
               </HoverCardTrigger>
               <HoverCardContent className="bg-github-dark border-github-border w-80">
                 <p className="text-sm">
-                  See how git workflows can be visualized and understand the underlying concepts better.
+                  Play simple browser games to take a break and have some fun.
                 </p>
               </HoverCardContent>
             </HoverCard>
 
             <HoverCard>
               <HoverCardTrigger>
-                <span className="skill-tag">Dev Fun</span>
+                <span className="skill-tag">Creative</span>
               </HoverCardTrigger>
               <HoverCardContent className="bg-github-dark border-github-border w-80">
                 <p className="text-sm">
-                  A fun way to practice git concepts for both beginners and experienced developers.
+                  Express your creativity with various tools and activities.
                 </p>
               </HoverCardContent>
             </HoverCard>
           </div>
         </div>
         
-        <Tabs defaultValue="gameplay" className="w-full">
+        <Tabs defaultValue="coming-soon" className="w-full">
           <TabsList className="grid grid-cols-2 mb-4">
-            <TabsTrigger value="gameplay" className="flex items-center gap-2">
-              <GitCommitHorizontal size={16} />
-              Git Game
+            <TabsTrigger value="coming-soon" className="flex items-center gap-2">
+              <Puzzle size={16} />
+              Coming Soon
             </TabsTrigger>
-            <TabsTrigger value="instructions" className="flex items-center gap-2">
-              <GitBranch size={16} />
-              How To Play
+            <TabsTrigger value="suggestions" className="flex items-center gap-2">
+              <Gamepad size={16} />
+              Suggest Activities
             </TabsTrigger>
           </TabsList>
           
-          <TabsContent value="gameplay" className="space-y-6">
-            <GitCommitGame />
+          <TabsContent value="coming-soon" className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="p-6 bg-github-secondary border-github-border hover:border-github-accent transition-colors">
+                <h3 className="text-lg font-semibold mb-2 text-github-accent flex items-center gap-2">
+                  <Puzzle className="text-github-accent" size={18} />
+                  Puzzle Game
+                </h3>
+                <p className="text-github-text mb-4">
+                  A fun puzzle game where you can arrange pieces to complete an image. Test your spatial thinking!
+                </p>
+                <Button onClick={notifyComingSoon} variant="default" className="bg-github-accent hover:bg-github-accent/80">
+                  Coming Soon
+                </Button>
+              </Card>
+              
+              <Card className="p-6 bg-github-secondary border-github-border hover:border-github-accent transition-colors">
+                <h3 className="text-lg font-semibold mb-2 text-github-accent flex items-center gap-2">
+                  <Gamepad className="text-github-accent" size={18} />
+                  Memory Match
+                </h3>
+                <p className="text-github-text mb-4">
+                  Test your memory by matching pairs of cards. How quickly can you find all matches?
+                </p>
+                <Button onClick={notifyComingSoon} variant="default" className="bg-github-accent hover:bg-github-accent/80">
+                  Coming Soon
+                </Button>
+              </Card>
+              
+              <Card className="p-6 bg-github-secondary border-github-border hover:border-github-accent transition-colors">
+                <h3 className="text-lg font-semibold mb-2 text-github-accent flex items-center gap-2">
+                  <Sparkle className="text-github-accent" size={18} />
+                  Creative Canvas
+                </h3>
+                <p className="text-github-text mb-4">
+                  Draw and create digital artwork with this simple but fun drawing canvas.
+                </p>
+                <Button onClick={notifyComingSoon} variant="default" className="bg-github-accent hover:bg-github-accent/80">
+                  Coming Soon
+                </Button>
+              </Card>
+              
+              <Card className="p-6 bg-github-secondary border-github-border hover:border-github-accent transition-colors">
+                <h3 className="text-lg font-semibold mb-2 text-github-accent flex items-center gap-2">
+                  <Gamepad className="text-github-accent" size={18} />
+                  Code Quiz
+                </h3>
+                <p className="text-github-text mb-4">
+                  Test your programming knowledge with this interactive quiz on various coding topics.
+                </p>
+                <Button onClick={notifyComingSoon} variant="default" className="bg-github-accent hover:bg-github-accent/80">
+                  Coming Soon
+                </Button>
+              </Card>
+            </div>
           </TabsContent>
           
-          <TabsContent value="instructions" className="space-y-6">
-            <div className="github-card p-6">
-              <h3 className="text-xl font-semibold mb-3 text-github-accent">How To Play</h3>
-              <ul className="space-y-2 list-disc pl-5">
-                <li>Start by creating commits on the main branch by clicking "Commit"</li>
-                <li>Use "Create Branch" to make a new feature branch from any commit</li>
-                <li>Add commits to different branches to see how they diverge</li>
-                <li>Use "Merge" to combine changes from one branch to another</li>
-                <li>Complete challenges by creating specific git structures</li>
-                <li>Learn about git workflow as you play!</li>
-              </ul>
-              <p className="mt-4 text-github-text italic">
-                Tip: You can also access this via the terminal by typing "fun"
+          <TabsContent value="suggestions" className="space-y-6">
+            <Card className="p-6 bg-github-secondary border-github-border">
+              <h3 className="text-xl font-semibold mb-3 text-github-accent">Suggest an Activity</h3>
+              <p className="mb-4 text-github-text">
+                Have an idea for a fun interactive element that would be great for this page? 
+                I'm always looking for creative new additions to make my portfolio more engaging.
               </p>
-            </div>
+              <div className="bg-github-dark/20 border border-dashed border-github-border rounded-md p-4 mb-4">
+                <p className="text-github-text mb-2">Some ideas you might suggest:</p>
+                <ul className="list-disc pl-5 text-github-text">
+                  <li>Small browser games</li>
+                  <li>Interactive visualizations</li>
+                  <li>Creative tools</li>
+                  <li>Coding challenges</li>
+                  <li>Educational activities</li>
+                </ul>
+              </div>
+              <p className="text-github-text italic">
+                Use the contact form to send your suggestions!
+              </p>
+              <Button 
+                variant="default" 
+                className="bg-github-accent hover:bg-github-accent/80 mt-4"
+                onClick={() => {
+                  window.location.href = "/contact";
+                }}
+              >
+                Go to Contact Page
+              </Button>
+            </Card>
           </TabsContent>
         </Tabs>
       </div>
