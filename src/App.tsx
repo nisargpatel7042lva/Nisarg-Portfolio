@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,6 +11,7 @@ import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
 import Contact from "./pages/Contact";
 import Socials from "./pages/Socials";
+import Fun from "./pages/Fun";
 import NotFound from "./pages/NotFound";
 
 // Create a client
@@ -30,6 +32,7 @@ const App = () => {
             <Route path="/experience" element={<Experience />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/socials" element={<Socials />} />
+            <Route path="/fun" element={<Fun />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

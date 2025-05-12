@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Terminal as TerminalIcon, Github, LogOut, FileDown } from 'lucide-react';
+import { Terminal as TerminalIcon, Github, LogOut, FileDown, Sparkle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import {
@@ -156,6 +155,18 @@ const Terminal: React.FC = () => {
       label: 'resume',
       description: 'Download my resume as PDF',
       action: downloadResume
+    },
+    // New fun command
+    'fun': {
+      label: 'fun',
+      description: 'Try the interactive contribution grid',
+      action: () => {
+        navigate('/home');
+        toast.success("Loading interactive grid...", {
+          description: "Have fun creating patterns!",
+          icon: <Sparkle className="text-github-accent" />
+        });
+      }
     }
   };
 
