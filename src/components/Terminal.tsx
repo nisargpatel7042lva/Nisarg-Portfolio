@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -156,14 +157,14 @@ const Terminal: React.FC = () => {
       description: 'Download my resume as PDF',
       action: downloadResume
     },
-    // New fun command
+    // Updated fun command
     'fun': {
       label: 'fun',
-      description: 'Try the interactive contribution grid',
+      description: 'Try the interactive design tools',
       action: () => {
-        navigate('/home');
-        toast.success("Loading interactive grid...", {
-          description: "Have fun creating patterns!",
+        navigate('/fun');
+        toast.success("Loading design tools...", {
+          description: "Create and download custom patterns for your projects!",
           icon: <Sparkle className="text-github-accent" />
         });
       }

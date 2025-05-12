@@ -1,14 +1,19 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Sparkle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
-const InteractiveGrid: React.FC = () => {
+interface InteractiveGridProps {
+  onCanvasRef?: (canvas: HTMLCanvasElement | null) => void;
+}
+
+const InteractiveGrid: React.FC<InteractiveGridProps> = ({ onCanvasRef }) => {
   const [grid, setGrid] = useState<number[][]>([]);
   const [isRainbowMode, setIsRainbowMode] = useState(false);
   const [contributionCount, setContributionCount] = useState(0);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   
   // Colors based on contribution count (GitHub style)
   const getColor = (value: number, rainbowMode: boolean) => {
@@ -27,6 +32,26 @@ const InteractiveGrid: React.FC = () => {
       if (value === 3) return "bg-github-accent/60";
       if (value === 4) return "bg-github-accent/80";
       return "bg-github-accent";
+    }
+  };
+
+  // Get color value for canvas
+  const getCanvasColor = (value: number, rainbowMode: boolean) => {
+    if (rainbowMode) {
+      // Rainbow mode colors for canvas
+      const rainbowColors = [
+        "#f87171", "#fb923c", "#facc15", 
+        "#4ade80", "#60a5fa", "#818cf8", "#c084fc"
+      ];
+      return value === 0 ? "#2d3748" : rainbowColors[value % rainbowColors.length];
+    } else {
+      // GitHub-style colors for canvas
+      if (value === 0) return "#2d3748";
+      if (value === 1) return "rgba(139, 92, 246, 0.2)";
+      if (value === 2) return "rgba(139, 92, 246, 0.4)";
+      if (value === 3) return "rgba(139, 92, 246, 0.6)";
+      if (value === 4) return "rgba(139, 92, 246, 0.8)";
+      return "#8b5cf6"; // github-accent color
     }
   };
 
@@ -62,6 +87,9 @@ const InteractiveGrid: React.FC = () => {
         });
       }
     }
+    
+    // Update canvas
+    updateCanvas(newGrid);
   };
 
   // Generate a random pattern
@@ -79,6 +107,9 @@ const InteractiveGrid: React.FC = () => {
       description: `${contributions} squares filled`,
       icon: <Sparkle className="text-github-accent" />
     });
+    
+    // Update canvas
+    updateCanvas(newGrid);
   };
 
   // Clear the grid
@@ -92,6 +123,9 @@ const InteractiveGrid: React.FC = () => {
     toast("Grid cleared", {
       description: "Start creating your pattern!"
     });
+    
+    // Update canvas
+    updateCanvas(emptyGrid);
   };
 
   // Toggle rainbow mode
@@ -100,7 +134,53 @@ const InteractiveGrid: React.FC = () => {
     toast(isRainbowMode ? "GitHub mode activated" : "Rainbow mode activated!", {
       icon: isRainbowMode ? undefined : <Sparkle className="text-github-accent" />
     });
+    
+    // Update canvas with new color scheme
+    updateCanvas(grid, !isRainbowMode);
   };
+
+  // Update canvas for exporting
+  const updateCanvas = (currentGrid: number[][], rainbowMode = isRainbowMode) => {
+    if (!canvasRef.current) return;
+    
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    
+    const cellSize = 30;
+    const padding = 5;
+    canvas.width = currentGrid[0].length * (cellSize + padding) - padding;
+    canvas.height = currentGrid.length * (cellSize + padding) - padding;
+    
+    // Clear canvas with dark background
+    ctx.fillStyle = '#1a1f2c';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw cells
+    currentGrid.forEach((row, rowIndex) => {
+      row.forEach((cell, colIndex) => {
+        ctx.fillStyle = getCanvasColor(cell, rainbowMode);
+        ctx.fillRect(
+          colIndex * (cellSize + padding),
+          rowIndex * (cellSize + padding),
+          cellSize,
+          cellSize
+        );
+      });
+    });
+    
+    // Pass canvas reference to parent component if callback exists
+    if (onCanvasRef) {
+      onCanvasRef(canvas);
+    }
+  };
+
+  // Update canvas when component mounts
+  useEffect(() => {
+    if (grid.length > 0 && grid[0].length > 0) {
+      updateCanvas(grid);
+    }
+  }, [grid.length]);
 
   return (
     <div className="github-card p-6 animated-border">
@@ -163,6 +243,13 @@ const InteractiveGrid: React.FC = () => {
           Clear Grid
         </Button>
       </div>
+      
+      {/* Hidden canvas for exporting */}
+      <canvas 
+        ref={canvasRef} 
+        className="hidden" 
+        aria-hidden="true"
+      />
     </div>
   );
 };
