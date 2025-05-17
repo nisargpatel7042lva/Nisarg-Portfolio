@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Terminal, ExternalLink, LogOut, GitHub } from 'lucide-react';
+import { Terminal, ExternalLink, LogOut, Github } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { 
   AlertDialog,
@@ -100,7 +99,7 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <h1 className="text-lg font-semibold text-github-accent flex items-center">
-              <GitHub size={24} className="mr-2 text-github-accent" />
+              <Github size={24} className="mr-2 text-github-accent" />
               <span>{displayText}</span>
               <span className="cursor"></span>
             </h1>
