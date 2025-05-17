@@ -222,11 +222,6 @@ const Terminal: React.FC = () => {
     setInput('');
   };
 
-  // Filter commands for mobile display (show most important ones)
-  const mobileCommands = [
-    "help", "about", "projects", "experience", "contact", "resume", "home", "fun"
-  ];
-
   return (
     <div className="min-h-screen flex flex-col bg-gradient-radial from-github-secondary to-github-dark p-4">
       {/* Loading Overlay */}
@@ -310,26 +305,6 @@ const Terminal: React.FC = () => {
             </Button>
           )}
         </form>
-
-        {/* Command buttons for mobile devices */}
-        {isMobile && (
-          <div className="mt-6">
-            <h3 className="text-github-accent mb-2 text-sm font-medium">Available Commands:</h3>
-            <div className="flex flex-wrap gap-2">
-              {mobileCommands.map((cmd) => (
-                <Button
-                  key={cmd}
-                  size="sm"
-                  variant="outline"
-                  className="border-github-accent text-github-accent hover:bg-github-accent hover:text-white"
-                  onClick={() => executeCommand(cmd)}
-                >
-                  {cmd}
-                </Button>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
