@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { Terminal as TerminalIcon, Github, LogOut, FileDown, Sparkle, Gamepad, GitBranch, Puzzle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { useIsMobile } from "@/hooks/use-mobile";
 import {
   AlertDialog,
   AlertDialogTrigger,
@@ -30,6 +31,7 @@ const Terminal: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const historyRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
 
   const handleExitWebsite = () => {
     setIsLoading(true);
@@ -170,6 +172,19 @@ const Terminal: React.FC = () => {
     }
   };
 
+  const executeCommand = (commandName: string) => {
+    const trimmedCommandName = commandName.trim().toLowerCase();
+    // Add the command to history with the $ prefix
+    setHistory(prev => [...prev, `$ ${trimmedCommandName}`]);
+    
+    // Execute command if it exists
+    if (commands[trimmedCommandName]) {
+      commands[trimmedCommandName].action();
+    } else {
+      setHistory(prev => [...prev, `Command not found: ${trimmedCommandName}. Type "help" for available commands.`, '']);
+    }
+  };
+
   // Auto-scroll to bottom when history changes
   useEffect(() => {
     if (historyRef.current) {
@@ -179,7 +194,7 @@ const Terminal: React.FC = () => {
 
   // Auto-focus on input
   useEffect(() => {
-    if (inputRef.current) {
+    if (inputRef.current && !isMobile) {
       inputRef.current.focus();
     }
     
@@ -189,11 +204,11 @@ const Terminal: React.FC = () => {
     }, 2000);
     
     return () => clearTimeout(timer);
-  }, []);
+  }, [isMobile]);
 
   // Handle clicking anywhere in the terminal to focus on input
   const handleTerminalClick = () => {
-    if (inputRef.current) {
+    if (inputRef.current && !isMobile) {
       inputRef.current.focus();
     }
   };
@@ -203,27 +218,14 @@ const Terminal: React.FC = () => {
     
     if (!input.trim()) return;
     
-    const trimmedInput = input.trim().toLowerCase();
-    // Add the command to history with the $ prefix
-    setHistory(prev => [...prev, `$ ${input}`]);
+    executeCommand(input);
     setInput('');
-    
-    // Check if command exists and execute action without adding command to history again
-    if (commands[trimmedInput]) {
-      // For help command, modify the action to not include the command itself
-      if (trimmedInput === 'help') {
-        setHistory(prev => [...prev, 'Available commands:', ...Object.keys(commands).map(cmd => `  ${cmd}: ${commands[cmd].description}`), '']);
-      } else if (trimmedInput === 'clear') {
-        // Special handling for clear command
-        setHistory(['Terminal cleared. Type "help" to see available commands.']);
-      } else {
-        // Execute the command's action
-        commands[trimmedInput].action();
-      }
-    } else {
-      setHistory(prev => [...prev, `Command not found: ${trimmedInput}. Type "help" for available commands.`, '']);
-    }
   };
+
+  // Filter commands for mobile display (show most important ones)
+  const mobileCommands = [
+    "help", "about", "projects", "experience", "contact", "resume", "home", "fun"
+  ];
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-radial from-github-secondary to-github-dark p-4">
@@ -292,11 +294,31 @@ const Terminal: React.FC = () => {
             className="terminal-input"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            autoFocus
+            autoFocus={!isMobile}
             spellCheck="false"
             autoComplete="off"
           />
         </form>
+
+        {/* Command buttons for mobile devices */}
+        {isMobile && (
+          <div className="mt-6">
+            <h3 className="text-github-accent mb-2 text-sm font-medium">Available Commands:</h3>
+            <div className="flex flex-wrap gap-2">
+              {mobileCommands.map((cmd) => (
+                <Button
+                  key={cmd}
+                  size="sm"
+                  variant="outline"
+                  className="border-github-accent text-github-accent hover:bg-github-accent hover:text-white"
+                  onClick={() => executeCommand(cmd)}
+                >
+                  {cmd}
+                </Button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
