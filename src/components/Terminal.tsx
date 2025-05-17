@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Terminal as TerminalIcon, Github, LogOut, FileDown, Sparkle, Gamepad, GitBranch, Puzzle } from 'lucide-react';
+import { Terminal as TerminalIcon, Github, LogOut, FileDown, Sparkle, Gamepad, GitBranch, Puzzle, Play } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -291,13 +291,24 @@ const Terminal: React.FC = () => {
           <input
             ref={inputRef}
             type="text"
-            className="terminal-input"
+            className="terminal-input flex-1"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             autoFocus={!isMobile}
             spellCheck="false"
             autoComplete="off"
           />
+          {isMobile && (
+            <Button 
+              type="submit" 
+              size="sm" 
+              variant="outline" 
+              className="ml-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white"
+            >
+              <Play size={16} />
+              Run
+            </Button>
+          )}
         </form>
 
         {/* Command buttons for mobile devices */}
