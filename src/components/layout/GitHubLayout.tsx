@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Terminal, ExternalLink, LogOut } from 'lucide-react';
+import { Terminal, ExternalLink, LogOut, GitHub } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { 
   AlertDialog,
@@ -87,19 +87,20 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
   const isHomePage = location.pathname === '/home';
   
   return (
-    <div className="min-h-screen flex flex-col bg-github-dark">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-github-dark via-github-dark/95 to-github-dark">
       {/* Loading Overlay */}
       {isLoading && (
         <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
-          <div className="text-github-accent text-2xl">Signing out...</div>
+          <div className="text-github-accent text-2xl animate-pulse">Signing out...</div>
         </div>
       )}
       
       {/* GitHub Header */}
-      <header className="github-header">
+      <header className="github-header sticky top-0 z-20">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <h1 className="text-lg font-semibold text-github-accent flex items-center">
+              <GitHub size={24} className="mr-2 text-github-accent" />
               <span>{displayText}</span>
               <span className="cursor"></span>
             </h1>
@@ -107,7 +108,7 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
           
           <div className="flex items-center gap-2">
             <Link to="/">
-              <Button variant="outline" size="sm" className="flex items-center gap-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white">
+              <Button variant="outline" size="sm" className="flex items-center gap-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white shadow-md hover:shadow-lg transition-all">
                 <Terminal size={16} />
                 Terminal Mode
               </Button>
@@ -116,12 +117,12 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
             {!isHomePage && (
               <AlertDialog>
                 <AlertDialogTrigger asChild>
-                  <Button variant="destructive" size="sm" className="flex items-center gap-2">
+                  <Button variant="destructive" size="sm" className="flex items-center gap-2 shadow-md hover:shadow-lg transition-all">
                     <LogOut size={16} />
                     Exit
                   </Button>
                 </AlertDialogTrigger>
-                <AlertDialogContent className="bg-github-secondary border-github-border">
+                <AlertDialogContent className="bg-github-secondary border-github-border glass">
                   <AlertDialogHeader>
                     <AlertDialogTitle className="text-github-accent">Exit Website</AlertDialogTitle>
                     <AlertDialogDescription className="text-github-text">
@@ -145,7 +146,7 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
       </header>
       
       {/* GitHub Nav */}
-      <div className="border-b border-github-border sticky top-0 bg-github-dark z-10">
+      <div className="border-b border-github-border sticky top-[60px] bg-github-dark/90 backdrop-blur-sm z-10">
         <nav className="container mx-auto px-4">
           <ul className="flex overflow-x-auto">
             {navItems.map((item) => (
@@ -168,7 +169,7 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
       </main>
       
       {/* GitHub Footer */}
-      <footer className="border-t border-github-border py-6">
+      <footer className="border-t border-github-border py-6 bg-github-dark/80 backdrop-blur-sm">
         <div className="container mx-auto px-4 text-sm text-center text-github-text">
           <div className="flex items-center justify-center gap-2 mb-2">
             <span>© {new Date().getFullYear()} Nisarg Patel</span>
@@ -177,9 +178,9 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
             href="https://github.com/nisargpatel7042lva" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1 text-github-accent hover:underline"
+            className="flex items-center justify-center gap-1 text-github-accent hover:underline group"
           >
-            View on GitHub <ExternalLink size={14} />
+            View on GitHub <ExternalLink size={14} className="transition-transform group-hover:translate-x-0.5" />
           </a>
         </div>
       </footer>

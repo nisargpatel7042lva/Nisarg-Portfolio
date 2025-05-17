@@ -48,7 +48,20 @@
   }
 
   .terminal {
-    @apply bg-github-secondary border border-github-border rounded-md p-4 text-sm font-mono;
+    @apply bg-github-secondary border border-github-border rounded-md p-4 text-sm font-mono shadow-lg backdrop-blur-sm;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .terminal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(46, 160, 67, 0.6), transparent);
+    animation: glow 4s linear infinite;
   }
   
   .terminal-input {
@@ -61,18 +74,27 @@
   
   .github-header {
     @apply bg-github-dark border-b border-github-border text-github-text py-4;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
   
   .github-card {
-    @apply bg-github-secondary border border-github-border rounded-md p-4;
+    @apply bg-github-secondary border border-github-border rounded-md p-4 transition-all duration-300;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .github-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   }
 
   .carousel-container {
-    @apply overflow-hidden w-full;
+    @apply overflow-hidden w-full rounded-md;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
   
   .carousel-track {
     @apply flex;
+    transition: transform 0.5s ease;
   }
   
   .carousel-track:hover {
@@ -81,12 +103,14 @@
   
   .repository-card {
     @apply border border-github-border rounded-md p-4 m-2 min-w-[280px] bg-github-dark;
-    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
   }
   
   .repository-card:hover {
-    @apply border-github-accent shadow-md;
-    transform: translateY(-2px);
+    @apply border-github-accent;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 8px rgba(46, 160, 67, 0.2);
   }
 
   .repository-language-dot {
@@ -94,15 +118,24 @@
   }
 
   .command {
-    @apply text-github-accent hover:underline cursor-pointer;
+    @apply text-github-accent hover:underline cursor-pointer transition-all;
+  }
+  
+  .command:hover {
+    text-shadow: 0 0 8px rgba(46, 160, 67, 0.4);
   }
 
   .tab {
-    @apply inline-block px-4 py-2 border-b-2 border-transparent;
+    @apply inline-block px-4 py-2 border-b-2 border-transparent transition-all duration-200;
   }
 
   .tab.active {
     @apply border-github-accent text-github-accent;
+    text-shadow: 0 0 8px rgba(46, 160, 67, 0.3);
+  }
+  
+  .tab:hover:not(.active) {
+    @apply border-github-border text-github-text;
   }
 
   .cursor::after {
@@ -111,7 +144,11 @@
   }
 
   .social-icon {
-    @apply text-github-text hover:text-github-accent transition-colors;
+    @apply text-github-text hover:text-github-accent transition-colors duration-300;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.1);
   }
   
   .skill-tag {
@@ -126,10 +163,52 @@
                 linear-gradient(90deg, #2ea043, #0d1117, #2ea043) border-box;
     background-size: 200% 100%;
     animation: border-flow 4s linear infinite;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
   }
   
   @keyframes border-flow {
     0% { background-position: 0 0; }
     100% { background-position: 200% 0; }
+  }
+  
+  @keyframes glow {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  /* Glass effect */
+  .glass {
+    background: rgba(13, 17, 23, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(46, 160, 67, 0.1);
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #0d1117;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2ea043;
+  }
+  
+  /* Button animations */
+  button {
+    transition: all 0.2s ease;
+  }
+  
+  button:active {
+    transform: scale(0.97);
   }
 }

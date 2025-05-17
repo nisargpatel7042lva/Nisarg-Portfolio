@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -223,23 +224,23 @@ const Terminal: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-radial from-github-secondary to-github-dark p-4">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-github-dark via-github-secondary to-github-dark p-4">
       {/* Loading Overlay */}
       {isLoading && (
         <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
-          <div className="text-github-accent text-2xl">Signing out...</div>
+          <div className="text-github-accent text-2xl animate-pulse">Signing out...</div>
         </div>
       )}
     
       <div className="flex justify-end mb-4">
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button variant="destructive" size="sm" className="flex items-center gap-2">
+            <Button variant="destructive" size="sm" className="flex items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl">
               <LogOut size={16} />
               Exit
             </Button>
           </AlertDialogTrigger>
-          <AlertDialogContent className="bg-github-secondary border-github-border">
+          <AlertDialogContent className="bg-github-secondary border-github-border glass">
             <AlertDialogHeader>
               <AlertDialogTitle className="text-github-accent">Exit Website</AlertDialogTitle>
               <AlertDialogDescription className="text-github-text">
@@ -260,20 +261,25 @@ const Terminal: React.FC = () => {
       </div>
     
       <div 
-        className="terminal min-h-[400px] w-full max-w-3xl mx-auto flex flex-col"
+        className="terminal min-h-[400px] w-full max-w-3xl mx-auto flex flex-col glass shadow-lg"
         onClick={handleTerminalClick}
       >
         <div className="flex items-center gap-2 mb-4 border-b border-github-border pb-2">
           <TerminalIcon size={18} className="text-github-accent" />
           <span className="font-semibold">portfolio.sh</span>
+          <div className="ml-auto flex gap-2">
+            <span className="w-3 h-3 rounded-full bg-red-500"></span>
+            <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
+            <span className="w-3 h-3 rounded-full bg-github-accent"></span>
+          </div>
         </div>
         
-        <div ref={historyRef} className="flex-1 overflow-y-auto mb-4 space-y-1">
+        <div ref={historyRef} className="flex-1 overflow-y-auto mb-4 space-y-1 px-1">
           {history.map((line, i) => (
             <div key={i} className={cn(
               "font-mono whitespace-pre-wrap", 
               { "animate-typing overflow-hidden whitespace-nowrap border-r-2 border-github-accent": typingEffect && i === 0 },
-              line.startsWith('$') ? 'text-github-green' : '',
+              line.startsWith('$') ? 'text-github-green font-semibold' : '',
               line.includes('not found') ? 'text-github-danger' : ''
             )}>
               {line}
@@ -281,7 +287,7 @@ const Terminal: React.FC = () => {
           ))}
         </div>
         
-        <form onSubmit={handleSubmit} className="flex items-center">
+        <form onSubmit={handleSubmit} className="flex items-center bg-github-dark/40 rounded-md px-2 py-1">
           <span className="terminal-prompt mr-2">$</span>
           <input
             ref={inputRef}
@@ -292,13 +298,14 @@ const Terminal: React.FC = () => {
             autoFocus={!isMobile}
             spellCheck="false"
             autoComplete="off"
+            placeholder={isMobile ? "Type command here..." : ""}
           />
           {isMobile && (
             <Button 
               type="submit" 
               size="sm" 
               variant="outline" 
-              className="ml-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white"
+              className="ml-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white shadow-md hover:shadow transition-all"
             >
               <Play size={16} />
               Run
