@@ -1,3 +1,4 @@
+
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import RepoCarousel from '@/components/RepoCarousel';
 import HomeMemoryGame from '@/components/HomeMemoryGame';
@@ -15,7 +16,7 @@ const Home = () => {
         <div className="github-card animated-border">
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="md:w-1/3">
-              <div className="rounded-full overflow-hidden border-4 border-github-accent w-48 h-48 mx-auto animate-float shadow-xl hover:shadow-2xl hover:shadow-github-accent/20 transition-all duration-500">
+              <div className="rounded-full overflow-hidden border-4 border-github-accent w-48 h-48 mx-auto shadow-xl hover:shadow-2xl hover:shadow-github-accent/20 transition-all duration-500">
                 <img src={meImage} alt="Nisarg Patel" className="w-full h-full object-cover" />
               </div>
             </div>
