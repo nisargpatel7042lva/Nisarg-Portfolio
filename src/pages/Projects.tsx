@@ -7,7 +7,7 @@ import { ExternalLink, Github, Clock } from 'lucide-react';
 import projectImage from '../assets/image.png'; // Import the image
 import projectImage2 from '../assets/image2.png'; // Import the image
 import projectImage3 from '../assets/image3.png'; // Import the image
-import cloviaImage from '/lovable-uploads/de5f81e6-4960-4f33-b572-07fa4aa4661b.png'; // Import Clovia image
+import cloviaImage from '/lovable-uploads/a8867095-a408-4c3e-99a6-888f0efcdf55.png'; // Import new Clovia image
 
 const Projects = () => {
   const featuredProjects = [
@@ -16,7 +16,7 @@ const Projects = () => {
       title: "Clovia",
       description: "Clovia is a Web3-native social staking platform built on Solana that transforms social engagement into a decentralized economy. Users can stake value behind the people they follow, turning attention into capital and enabling influencers, creators, and communities to monetize their social presence. By aligning financial incentives with authentic connections, Clovia redefines how trust, influence, and value are exchanged in the digital world.",
       technologies: ["Solana", "Web3", "React", "TypeScript", "Social Staking"],
-      imageUrl: cloviaImage, // Use the uploaded Clovia image
+      imageUrl: cloviaImage, // Use the newly uploaded Clovia image
       comingSoon: true
     },
     {
