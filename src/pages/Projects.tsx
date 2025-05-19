@@ -1,14 +1,24 @@
+
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import RepoCarousel from '@/components/RepoCarousel';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github, Clock } from 'lucide-react';
 import projectImage from '../assets/image.png'; // Import the image
 import projectImage2 from '../assets/image2.png'; // Import the image
 import projectImage3 from '../assets/image3.png'; // Import the image
+import cloviaImage from '/lovable-uploads/de5f81e6-4960-4f33-b572-07fa4aa4661b.png'; // Import Clovia image
 
 const Projects = () => {
   const featuredProjects = [
+    {
+      id: 4,
+      title: "Clovia",
+      description: "Clovia is a Web3-native social staking platform built on Solana that transforms social engagement into a decentralized economy. Users can stake value behind the people they follow, turning attention into capital and enabling influencers, creators, and communities to monetize their social presence. By aligning financial incentives with authentic connections, Clovia redefines how trust, influence, and value are exchanged in the digital world.",
+      technologies: ["Solana", "Web3", "React", "TypeScript", "Social Staking"],
+      imageUrl: cloviaImage, // Use the uploaded Clovia image
+      comingSoon: true
+    },
     {
       id: 1,
       title: "Nisarg Portfolio",
@@ -38,7 +48,6 @@ const Projects = () => {
       demoLink: "https://rewind-ten.vercel.app/",
       imageUrl: projectImage3 // Use the imported image
     }
-    
   ];
 
   return (
@@ -84,22 +93,36 @@ const Projects = () => {
                       </div>
                     </CardContent>
                     <CardFooter className="flex gap-4">
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={() => window.open(project.githubLink, '_blank')}
-                      >
-                        <Github size={16} className="mr-2" />
-                        Code
-                      </Button>
-                      <Button 
-                        variant="default" 
-                        size="sm"
-                        onClick={() => window.open(project.demoLink, '_blank')}
-                      >
-                        <ExternalLink size={16} className="mr-2" />
-                        Live Demo
-                      </Button>
+                      {project.comingSoon ? (
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          className="flex items-center gap-2"
+                          disabled
+                        >
+                          <Clock size={16} className="mr-2" />
+                          Coming Soon
+                        </Button>
+                      ) : (
+                        <>
+                          <Button 
+                            variant="outline" 
+                            size="sm"
+                            onClick={() => window.open(project.githubLink, '_blank')}
+                          >
+                            <Github size={16} className="mr-2" />
+                            Code
+                          </Button>
+                          <Button 
+                            variant="default" 
+                            size="sm"
+                            onClick={() => window.open(project.demoLink, '_blank')}
+                          >
+                            <ExternalLink size={16} className="mr-2" />
+                            Live Demo
+                          </Button>
+                        </>
+                      )}
                     </CardFooter>
                   </div>
                 </div>
@@ -117,7 +140,7 @@ const Projects = () => {
               className="text-github-accent"
               onClick={() => window.open('https://github.com/nisargpatel7042lva', '_blank')}
             >
-              View all <ArrowRight size={16} className="ml-1" />
+              View all <ExternalLink size={16} className="ml-1" />
             </Button>
           </div>
           
