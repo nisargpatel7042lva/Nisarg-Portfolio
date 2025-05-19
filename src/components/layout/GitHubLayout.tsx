@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Terminal, ExternalLink, LogOut, Github } from 'lucide-react';
+import { ExternalLink, LogOut } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { 
   AlertDialog,
@@ -99,7 +100,6 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <h1 className="text-lg font-semibold text-github-accent flex items-center">
-              <Github size={24} className="mr-2 text-github-accent" />
               <span>{displayText}</span>
               <span className="cursor"></span>
             </h1>
@@ -107,8 +107,7 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
           
           <div className="flex items-center gap-2">
             <Link to="/">
-              <Button variant="outline" size="sm" className="flex items-center gap-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white shadow-md hover:shadow-lg transition-all">
-                <Terminal size={16} />
+              <Button variant="outline" size="sm" className="border-github-accent text-github-accent hover:bg-github-accent hover:text-white shadow-md hover:shadow-lg transition-all">
                 Terminal Mode
               </Button>
             </Link>
@@ -116,8 +115,7 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
             {!isHomePage && (
               <AlertDialog>
                 <AlertDialogTrigger asChild>
-                  <Button variant="destructive" size="sm" className="flex items-center gap-2 shadow-md hover:shadow-lg transition-all">
-                    <LogOut size={16} />
+                  <Button variant="destructive" size="sm" className="shadow-md hover:shadow-lg transition-all">
                     Exit
                   </Button>
                 </AlertDialogTrigger>
@@ -152,7 +150,7 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
               <li key={item.path}>
                 <Link 
                   to={item.path} 
-                  className={`tab ${location.pathname === item.path ? 'active' : ''}`}
+                  className={`tab terminal-tab ${location.pathname === item.path ? 'active' : ''}`}
                 >
                   {item.label}
                 </Link>

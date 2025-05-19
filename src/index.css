@@ -71,6 +71,31 @@
   .terminal-prompt {
     @apply text-github-green font-bold;
   }
+
+  .terminal-tab {
+    @apply inline-block px-4 py-2 border-b-2 border-transparent transition-all duration-200 relative overflow-hidden;
+  }
+
+  .terminal-tab::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(46, 160, 67, 0.4), transparent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .terminal-tab:hover::before {
+    transform: scaleX(0.7);
+  }
+
+  .terminal-tab.active::before {
+    transform: scaleX(1);
+    background: linear-gradient(90deg, transparent, rgba(46, 160, 67, 1), transparent);
+  }
   
   .github-header {
     @apply bg-github-dark border-b border-github-border text-github-text py-4;
