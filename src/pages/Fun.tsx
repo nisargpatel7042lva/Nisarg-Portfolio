@@ -2,17 +2,18 @@
 import React from 'react';
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
-import { Sparkle, Gamepad, Puzzle } from 'lucide-react';
+import { Sparkle, Puzzle } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
+import MemoryGame from '@/components/MemoryGame';
 
 const Fun = () => {
   const notifyComingSoon = () => {
     toast.info("Coming Soon!", {
       description: "This fun activity will be available in the next update!",
-      icon: <Gamepad className="text-github-accent" />
+      icon: <Puzzle className="text-github-accent" />
     });
   };
 
@@ -65,14 +66,17 @@ const Fun = () => {
           </div>
         </div>
         
-        <Tabs defaultValue="coming-soon" className="w-full">
+        {/* Memory Game Component */}
+        <MemoryGame />
+        
+        <Tabs defaultValue="coming-soon" className="w-full mt-8">
           <TabsList className="grid grid-cols-2 mb-4">
             <TabsTrigger value="coming-soon" className="flex items-center gap-2">
               <Puzzle size={16} />
-              Coming Soon
+              More Games Coming Soon
             </TabsTrigger>
             <TabsTrigger value="suggestions" className="flex items-center gap-2">
-              <Gamepad size={16} />
+              <Sparkle size={16} />
               Suggest Activities
             </TabsTrigger>
           </TabsList>
@@ -94,19 +98,6 @@ const Fun = () => {
               
               <Card className="p-6 bg-github-secondary border-github-border hover:border-github-accent transition-colors">
                 <h3 className="text-lg font-semibold mb-2 text-github-accent flex items-center gap-2">
-                  <Gamepad className="text-github-accent" size={18} />
-                  Memory Match
-                </h3>
-                <p className="text-github-text mb-4">
-                  Test your memory by matching pairs of cards. How quickly can you find all matches?
-                </p>
-                <Button onClick={notifyComingSoon} variant="default" className="bg-github-accent hover:bg-github-accent/80">
-                  Coming Soon
-                </Button>
-              </Card>
-              
-              <Card className="p-6 bg-github-secondary border-github-border hover:border-github-accent transition-colors">
-                <h3 className="text-lg font-semibold mb-2 text-github-accent flex items-center gap-2">
                   <Sparkle className="text-github-accent" size={18} />
                   Creative Canvas
                 </h3>
@@ -120,7 +111,7 @@ const Fun = () => {
               
               <Card className="p-6 bg-github-secondary border-github-border hover:border-github-accent transition-colors">
                 <h3 className="text-lg font-semibold mb-2 text-github-accent flex items-center gap-2">
-                  <Gamepad className="text-github-accent" size={18} />
+                  <Puzzle className="text-github-accent" size={18} />
                   Code Quiz
                 </h3>
                 <p className="text-github-text mb-4">
