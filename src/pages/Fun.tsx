@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
 import MemoryGame from '@/components/MemoryGame';
+import CodeQuiz from '@/components/CodeQuiz';
 
 const Fun = () => {
   const notifyComingSoon = () => {
@@ -66,22 +67,22 @@ const Fun = () => {
           </div>
         </div>
         
-        {/* Memory Game Component */}
-        <MemoryGame />
-        
-        <Tabs defaultValue="coming-soon" className="w-full mt-8">
+        <Tabs defaultValue="games" className="w-full">
           <TabsList className="grid grid-cols-2 mb-4">
-            <TabsTrigger value="coming-soon" className="flex items-center gap-2">
+            <TabsTrigger value="games" className="flex items-center gap-2">
               <Puzzle size={16} />
-              More Games Coming Soon
+              Games
             </TabsTrigger>
-            <TabsTrigger value="suggestions" className="flex items-center gap-2">
+            <TabsTrigger value="quiz" className="flex items-center gap-2">
               <Sparkle size={16} />
-              Suggest Activities
+              Code Quiz
             </TabsTrigger>
           </TabsList>
           
-          <TabsContent value="coming-soon" className="space-y-6">
+          <TabsContent value="games" className="space-y-8">
+            {/* Memory Game Component */}
+            <MemoryGame />
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card className="p-6 bg-github-secondary border-github-border hover:border-github-accent transition-colors">
                 <h3 className="text-lg font-semibold mb-2 text-github-accent flex items-center gap-2">
@@ -108,20 +109,11 @@ const Fun = () => {
                   Coming Soon
                 </Button>
               </Card>
-              
-              <Card className="p-6 bg-github-secondary border-github-border hover:border-github-accent transition-colors">
-                <h3 className="text-lg font-semibold mb-2 text-github-accent flex items-center gap-2">
-                  <Puzzle className="text-github-accent" size={18} />
-                  Code Quiz
-                </h3>
-                <p className="text-github-text mb-4">
-                  Test your programming knowledge with this interactive quiz on various coding topics.
-                </p>
-                <Button onClick={notifyComingSoon} variant="default" className="bg-github-accent hover:bg-github-accent/80">
-                  Coming Soon
-                </Button>
-              </Card>
             </div>
+          </TabsContent>
+          
+          <TabsContent value="quiz" className="space-y-6">
+            <CodeQuiz />
           </TabsContent>
           
           <TabsContent value="suggestions" className="space-y-6">
