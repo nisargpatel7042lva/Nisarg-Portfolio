@@ -15,8 +15,19 @@ const Home = () => {
         <div className="github-card animated-border">
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="md:w-1/3">
-              <div className="rounded-full overflow-hidden border-4 border-github-accent w-48 h-48 mx-auto shadow-xl hover:shadow-2xl hover:shadow-github-accent/20 transition-all duration-500">
-                <img src={meImage} alt="Nisarg Patel" className="w-full h-full object-cover" />
+              <div className="relative">
+                {/* Radar/wave animation circles */}
+                <div className="absolute inset-0 -m-4 rounded-full animate-pulse-slow opacity-20 bg-github-accent"></div>
+                <div className="absolute inset-0 -m-8 rounded-full animate-pulse-medium opacity-10 bg-github-accent"></div>
+                <div className="absolute inset-0 -m-12 rounded-full animate-pulse-fast opacity-5 bg-github-accent"></div>
+                
+                {/* Circular radar effect */}
+                <div className="absolute inset-0 radar-effect"></div>
+                
+                {/* Profile picture container */}
+                <div className="rounded-full overflow-hidden border-4 border-github-accent w-48 h-48 mx-auto shadow-xl hover:shadow-2xl hover:shadow-github-accent/20 transition-all duration-500 relative z-10">
+                  <img src={meImage} alt="Nisarg Patel" className="w-full h-full object-cover" />
+                </div>
               </div>
             </div>
             

@@ -115,6 +115,14 @@ export default {
 					'0%, 100%': { boxShadow: '0 0 5px #2ea043' },
 					'50%': { boxShadow: '0 0 20px #2ea043, 0 0 30px #2ea043' },
 				},
+				'radar-rotate': {
+					from: { transform: 'rotate(0deg)' },
+					to: { transform: 'rotate(360deg)' },
+				},
+				'radar-pulse': {
+					'0%, 100%': { boxShadow: '0 0 15px rgba(46, 160, 67, 0.3)' },
+					'50%': { boxShadow: '0 0 25px rgba(46, 160, 67, 0.6)' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -124,6 +132,8 @@ export default {
 				'typing': 'typing 2.5s steps(30, end)',
 				'float': 'float 6s ease-in-out infinite',
 				'glow': 'glow 3s ease-in-out infinite',
+				'radar-rotate': 'radar-rotate 4s linear infinite',
+				'radar-pulse': 'radar-pulse 3s infinite',
 			}
 		}
 	},

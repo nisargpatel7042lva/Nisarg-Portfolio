@@ -1,3 +1,4 @@
+
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Github, ExternalLink, Twitter, Linkedin, Instagram, MessageSquare, Mail, MessagesSquare } from 'lucide-react';
@@ -100,16 +101,23 @@ const Socials = () => {
         <Card className="p-6 bg-github-secondary border-github-border animated-border">
           <h2 className="text-xl font-semibold mb-4 text-github-accent">My Network</h2>
           <div className="flex flex-wrap justify-center gap-4 py-8">
-          <div className="relative">
-            <Avatar className="w-16 h-16 border-2 border-github-accent animate-float">
-              <AvatarImage src={meImage} alt="Nisarg Patel" />
-              <AvatarFallback>NP</AvatarFallback>
-            </Avatar>
-            <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-github-accent rounded-full flex items-center justify-center text-xs font-bold border-2 border-github-secondary">
-              7+
+            <div className="relative">
+              {/* Radar/wave animation circles */}
+              <div className="absolute inset-0 -m-2 rounded-full animate-pulse-slow opacity-20 bg-github-accent"></div>
+              <div className="absolute inset-0 -m-4 rounded-full animate-pulse-medium opacity-10 bg-github-accent"></div>
+              <div className="absolute inset-0 -m-6 rounded-full animate-pulse-fast opacity-5 bg-github-accent"></div>
+              
+              {/* Circular radar effect */}
+              <div className="absolute inset-0 radar-effect"></div>
+              
+              <Avatar className="w-16 h-16 border-2 border-github-accent animate-float relative z-10">
+                <AvatarImage src={meImage} alt="Nisarg Patel" />
+                <AvatarFallback>NP</AvatarFallback>
+              </Avatar>
+              <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-github-accent rounded-full flex items-center justify-center text-xs font-bold border-2 border-github-secondary">
+                7+
+              </div>
             </div>
-          </div>
-
             
             {/* Network connections */}
             {socialLinks.slice(0, 6).map((social, index) => (
