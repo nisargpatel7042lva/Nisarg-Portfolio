@@ -17,7 +17,6 @@ Welcome to my personal portfolio website! This site showcases my skills, project
 - **JavaScript**
 - **Responsive Web Design**
 
-
 ## ✨ Features
 
 - Clean and modern UI
