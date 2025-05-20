@@ -102,15 +102,20 @@ const Socials = () => {
           <h2 className="text-xl font-semibold mb-4 text-github-accent">My Network</h2>
           <div className="flex flex-wrap justify-center gap-4 py-8">
             <div className="relative">
-              {/* Radar/wave animation circles */}
-              <div className="absolute inset-0 -m-2 rounded-full animate-pulse-slow opacity-20 bg-github-accent"></div>
-              <div className="absolute inset-0 -m-4 rounded-full animate-pulse-medium opacity-10 bg-github-accent"></div>
-              <div className="absolute inset-0 -m-6 rounded-full animate-pulse-fast opacity-5 bg-github-accent"></div>
+              {/* Enhanced Radar Effect */}
+              <div className="absolute w-16 h-16 rounded-full border-2 border-github-accent/30 animate-radar-ring-1"></div>
+              <div className="absolute w-16 h-16 rounded-full border-2 border-github-accent/20 animate-radar-ring-2"></div>
+              <div className="absolute w-16 h-16 rounded-full border-2 border-github-accent/10 animate-radar-ring-3"></div>
               
-              {/* Circular radar effect */}
-              <div className="absolute inset-0 radar-effect"></div>
+              {/* Glowing background circles */}
+              <div className="absolute w-16 h-16 rounded-full bg-gradient-radial from-github-accent/20 via-github-accent/10 to-transparent"></div>
               
-              <Avatar className="w-16 h-16 border-2 border-github-accent animate-float relative z-10">
+              {/* Rotating radar effect */}
+              <div className="absolute w-16 h-16 rounded-full overflow-hidden">
+                <div className="absolute inset-0 bg-conic-gradient animate-radar-rotate"></div>
+              </div>
+              
+              <Avatar className="w-16 h-16 border-2 border-github-accent shadow-lg shadow-github-accent/30 hover:shadow-xl hover:shadow-github-accent/40 transition-all duration-500 relative z-10">
                 <AvatarImage src={meImage} alt="Nisarg Patel" />
                 <AvatarFallback>NP</AvatarFallback>
               </Avatar>

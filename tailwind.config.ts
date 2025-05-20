@@ -123,6 +123,21 @@ export default {
 					'0%, 100%': { boxShadow: '0 0 15px rgba(46, 160, 67, 0.3)' },
 					'50%': { boxShadow: '0 0 25px rgba(46, 160, 67, 0.6)' },
 				},
+				'radar-ring-1': {
+					'0%': { transform: 'scale(0.8)', opacity: '0.8' },
+					'50%': { transform: 'scale(1.1)', opacity: '0.3' },
+					'100%': { transform: 'scale(0.8)', opacity: '0.8' },
+				},
+				'radar-ring-2': {
+					'0%': { transform: 'scale(0.9)', opacity: '0.6' },
+					'60%': { transform: 'scale(1.2)', opacity: '0.2' },
+					'100%': { transform: 'scale(0.9)', opacity: '0.6' },
+				},
+				'radar-ring-3': {
+					'0%': { transform: 'scale(1)', opacity: '0.4' },
+					'70%': { transform: 'scale(1.3)', opacity: '0.1' },
+					'100%': { transform: 'scale(1)', opacity: '0.4' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -134,6 +149,9 @@ export default {
 				'glow': 'glow 3s ease-in-out infinite',
 				'radar-rotate': 'radar-rotate 4s linear infinite',
 				'radar-pulse': 'radar-pulse 3s infinite',
+				'radar-ring-1': 'radar-ring-1 4s ease-in-out infinite',
+				'radar-ring-2': 'radar-ring-2 5s ease-in-out infinite',
+				'radar-ring-3': 'radar-ring-3 6s ease-in-out infinite',
 			}
 		}
 	},

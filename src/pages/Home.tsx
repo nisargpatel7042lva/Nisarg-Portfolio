@@ -15,17 +15,22 @@ const Home = () => {
         <div className="github-card animated-border">
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="md:w-1/3">
-              <div className="relative">
-                {/* Radar/wave animation circles */}
-                <div className="absolute inset-0 -m-4 rounded-full animate-pulse-slow opacity-20 bg-github-accent"></div>
-                <div className="absolute inset-0 -m-8 rounded-full animate-pulse-medium opacity-10 bg-github-accent"></div>
-                <div className="absolute inset-0 -m-12 rounded-full animate-pulse-fast opacity-5 bg-github-accent"></div>
+              <div className="relative flex items-center justify-center">
+                {/* Enhanced Radar Effect */}
+                <div className="absolute w-48 h-48 rounded-full border-2 border-github-accent/30 animate-radar-ring-1"></div>
+                <div className="absolute w-48 h-48 rounded-full border-2 border-github-accent/20 animate-radar-ring-2"></div>
+                <div className="absolute w-48 h-48 rounded-full border-2 border-github-accent/10 animate-radar-ring-3"></div>
                 
-                {/* Circular radar effect */}
-                <div className="absolute inset-0 radar-effect"></div>
+                {/* Glowing background circles */}
+                <div className="absolute w-48 h-48 rounded-full bg-gradient-radial from-github-accent/20 via-github-accent/10 to-transparent"></div>
+                
+                {/* Rotating radar effect */}
+                <div className="absolute w-48 h-48 rounded-full overflow-hidden">
+                  <div className="absolute inset-0 bg-conic-gradient animate-radar-rotate"></div>
+                </div>
                 
                 {/* Profile picture container */}
-                <div className="rounded-full overflow-hidden border-4 border-github-accent w-48 h-48 mx-auto shadow-xl hover:shadow-2xl hover:shadow-github-accent/20 transition-all duration-500 relative z-10">
+                <div className="rounded-full overflow-hidden border-4 border-github-accent w-48 h-48 shadow-xl shadow-github-accent/30 hover:shadow-2xl hover:shadow-github-accent/40 transition-all duration-500 relative z-10">
                   <img src={meImage} alt="Nisarg Patel" className="w-full h-full object-cover" />
                 </div>
               </div>
