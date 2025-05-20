@@ -2,7 +2,7 @@
 import React from 'react';
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
-import { Sparkle, Puzzle } from 'lucide-react';
+import { Sparkle, Puzzle, MessageSquare } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -68,7 +68,7 @@ const Fun = () => {
         </div>
         
         <Tabs defaultValue="games" className="w-full">
-          <TabsList className="grid grid-cols-2 mb-4">
+          <TabsList className="grid grid-cols-3 mb-4">
             <TabsTrigger value="games" className="flex items-center gap-2">
               <Puzzle size={16} />
               Games
@@ -76,6 +76,10 @@ const Fun = () => {
             <TabsTrigger value="quiz" className="flex items-center gap-2">
               <Sparkle size={16} />
               Code Quiz
+            </TabsTrigger>
+            <TabsTrigger value="suggestions" className="flex items-center gap-2">
+              <MessageSquare size={16} />
+              Suggestions
             </TabsTrigger>
           </TabsList>
           
