@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import meImage from '@/assets/me3.jpg'; // Use alias if set, else use relative path
+import meImage from '@/assets/me3.jpg';
 
 const Home = () => {
   return (
@@ -17,12 +17,12 @@ const Home = () => {
             <div className="md:w-1/3">
               <div className="relative flex items-center justify-center">
                 {/* Enhanced Radar Effect */}
-                <div className="absolute w-48 h-48 rounded-full border-2 border-github-accent/30 animate-radar-ring-1"></div>
-                <div className="absolute w-48 h-48 rounded-full border-2 border-github-accent/20 animate-radar-ring-2"></div>
-                <div className="absolute w-48 h-48 rounded-full border-2 border-github-accent/10 animate-radar-ring-3"></div>
+                <div className="absolute w-48 h-48 rounded-full border-4 border-github-accent/50 animate-radar-ring-1"></div>
+                <div className="absolute w-48 h-48 rounded-full border-4 border-github-accent/40 animate-radar-ring-2"></div>
+                <div className="absolute w-48 h-48 rounded-full border-4 border-github-accent/30 animate-radar-ring-3"></div>
                 
                 {/* Glowing background circles */}
-                <div className="absolute w-48 h-48 rounded-full bg-gradient-radial from-github-accent/20 via-github-accent/10 to-transparent"></div>
+                <div className="absolute w-48 h-48 rounded-full bg-gradient-radial from-github-accent/30 via-github-accent/20 to-transparent"></div>
                 
                 {/* Rotating radar effect */}
                 <div className="absolute w-48 h-48 rounded-full overflow-hidden">

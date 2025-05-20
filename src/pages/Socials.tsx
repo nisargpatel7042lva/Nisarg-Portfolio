@@ -103,12 +103,12 @@ const Socials = () => {
           <div className="flex flex-wrap justify-center gap-4 py-8">
             <div className="relative">
               {/* Enhanced Radar Effect */}
-              <div className="absolute w-16 h-16 rounded-full border-2 border-github-accent/30 animate-radar-ring-1"></div>
-              <div className="absolute w-16 h-16 rounded-full border-2 border-github-accent/20 animate-radar-ring-2"></div>
-              <div className="absolute w-16 h-16 rounded-full border-2 border-github-accent/10 animate-radar-ring-3"></div>
+              <div className="absolute w-16 h-16 rounded-full border-4 border-github-accent/50 animate-radar-ring-1"></div>
+              <div className="absolute w-16 h-16 rounded-full border-4 border-github-accent/40 animate-radar-ring-2"></div>
+              <div className="absolute w-16 h-16 rounded-full border-4 border-github-accent/30 animate-radar-ring-3"></div>
               
               {/* Glowing background circles */}
-              <div className="absolute w-16 h-16 rounded-full bg-gradient-radial from-github-accent/20 via-github-accent/10 to-transparent"></div>
+              <div className="absolute w-16 h-16 rounded-full bg-gradient-radial from-github-accent/30 via-github-accent/20 to-transparent"></div>
               
               {/* Rotating radar effect */}
               <div className="absolute w-16 h-16 rounded-full overflow-hidden">

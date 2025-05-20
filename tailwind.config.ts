@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -120,23 +119,23 @@ export default {
 					to: { transform: 'rotate(360deg)' },
 				},
 				'radar-pulse': {
-					'0%, 100%': { boxShadow: '0 0 15px rgba(46, 160, 67, 0.3)' },
-					'50%': { boxShadow: '0 0 25px rgba(46, 160, 67, 0.6)' },
+					'0%, 100%': { boxShadow: '0 0 15px rgba(46, 160, 67, 0.6)' },
+					'50%': { boxShadow: '0 0 25px rgba(46, 160, 67, 0.8)' },
 				},
 				'radar-ring-1': {
 					'0%': { transform: 'scale(0.8)', opacity: '0.8' },
-					'50%': { transform: 'scale(1.1)', opacity: '0.3' },
+					'50%': { transform: 'scale(1.1)', opacity: '0.5' },
 					'100%': { transform: 'scale(0.8)', opacity: '0.8' },
 				},
 				'radar-ring-2': {
-					'0%': { transform: 'scale(0.9)', opacity: '0.6' },
-					'60%': { transform: 'scale(1.2)', opacity: '0.2' },
-					'100%': { transform: 'scale(0.9)', opacity: '0.6' },
+					'0%': { transform: 'scale(0.9)', opacity: '0.7' },
+					'60%': { transform: 'scale(1.2)', opacity: '0.4' },
+					'100%': { transform: 'scale(0.9)', opacity: '0.7' },
 				},
 				'radar-ring-3': {
-					'0%': { transform: 'scale(1)', opacity: '0.4' },
-					'70%': { transform: 'scale(1.3)', opacity: '0.1' },
-					'100%': { transform: 'scale(1)', opacity: '0.4' },
+					'0%': { transform: 'scale(1)', opacity: '0.6' },
+					'70%': { transform: 'scale(1.3)', opacity: '0.3' },
+					'100%': { transform: 'scale(1)', opacity: '0.6' },
 				},
 			},
 			animation: {
