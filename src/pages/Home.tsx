@@ -1,7 +1,6 @@
 
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import RepoCarousel from '@/components/RepoCarousel';
-import HomeMemoryGame from '@/components/HomeMemoryGame';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
@@ -43,11 +42,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
-        
-        {/* Memory Game Component */}
-        <div className="glass p-2 rounded-xl">
-          <HomeMemoryGame />
         </div>
         
         {/* Recent Repositories */}
