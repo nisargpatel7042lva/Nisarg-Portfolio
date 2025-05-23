@@ -6,7 +6,6 @@ import { Card } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import meImage from '@/assets/me3.jpg';
-import HomeTerminalCard from '@/components/HomeTerminalCard';
 
 const Home = () => {
   return (
@@ -60,9 +59,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        
-        {/* Interactive Terminal Card */}
-        <HomeTerminalCard />
         
         {/* Recent Repositories */}
         <div className="glass p-4 rounded-xl">
