@@ -3,7 +3,6 @@ import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Github, ExternalLink, Twitter, Linkedin, Instagram, MessageSquare, Mail, MessagesSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import meImage from '../assets/me3.jpg';
 
 const Socials = () => {
@@ -76,41 +75,7 @@ const Socials = () => {
           </p>
         </div>
         
-        {/* Circle Social Icons - New Style */}
-        <div className="flex flex-col items-center justify-center mb-12">
-          <div className="relative my-8">
-            <div className="absolute w-28 h-28 rounded-full border-4 border-github-accent/50 animate-pulse-slow"></div>
-            <div className="absolute w-28 h-28 rounded-full border-4 border-github-accent/30 animate-pulse-medium"></div>
-            <div className="absolute w-28 h-28 rounded-full border-4 border-github-accent/20 animate-pulse-fast"></div>
-            
-            <Avatar className="w-28 h-28 border-2 border-github-accent shadow-lg shadow-github-accent/30 hover:shadow-xl hover:shadow-github-accent/40 transition-all duration-500 relative z-10">
-              <AvatarImage src={meImage} alt="Nisarg Patel" />
-              <AvatarFallback>NP</AvatarFallback>
-            </Avatar>
-          </div>
-          
-          <div className="flex flex-wrap justify-center items-center gap-6 mt-8 max-w-4xl">
-            {socialLinks.map((social) => (
-              <a 
-                key={social.name} 
-                href={social.url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="group"
-              >
-                <div className="relative flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center glass backdrop-blur-sm border border-github-accent/20 group-hover:border-github-accent transition-all duration-300 shadow-md shadow-github-accent/10 group-hover:shadow-github-accent/30 group-hover:scale-110">
-                    <social.icon size={24} className="text-github-accent group-hover:scale-110 transition-all duration-300" />
-                  </div>
-                  <div className="w-2 h-2 rounded-full bg-github-accent mt-2 group-hover:animate-ping"></div>
-                  <span className="mt-2 text-github-text text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300">{social.username}</span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-        
-        {/* Social Cards - Traditional View */}
+        {/* Social Cards - Terminal View */}
         <div>
           <h2 className="text-xl font-bold mb-6 text-github-accent flex items-center">
             <span className="font-mono">$ ls -la social_profiles</span>
