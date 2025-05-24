@@ -24,14 +24,14 @@ const Socials = () => {
     },
     {
       name: "Twitter",
-      username: "@nisargpatel",
+      username: "@nisargpatel5563",
       url: "https://x.com/NisargPatel5563",
       icon: Twitter,
       bgColor: "bg-[#1da1f2]"
     },
     {
       name: "Instagram",
-      username: "@nisargpatel",
+      username: "@nisargxplores",
       url: "https://www.instagram.com/nisargxplores/",
       icon: Instagram,
       bgColor: "bg-[#e1306c]"
