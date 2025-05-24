@@ -78,18 +78,31 @@ const Socials = () => {
               rel="noopener noreferrer"
               className="block transition-transform hover:-translate-y-1"
             >
-              <Card className="overflow-hidden bg-github-secondary border-github-border h-full hover:shadow-md hover:shadow-github-accent/20">
-                <div className={`${social.bgColor} h-3`}></div>
-                <CardHeader className="pt-6">
+              <Card className="overflow-hidden glass backdrop-blur-md border border-github-accent/20 h-full hover:shadow-md hover:shadow-github-accent/20 terminal">
+                <div className={`h-1 ${social.bgColor}`}></div>
+                <CardHeader className="pt-4">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-lg font-semibold">{social.name}</h2>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 rounded-full bg-red-500 mr-1.5"></div>
+                      <div className="w-2 h-2 rounded-full bg-yellow-500 mr-1.5"></div>
+                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                    </div>
+                    <h2 className="text-lg font-mono font-semibold ml-2 text-github-accent">{social.name}</h2>
                     <social.icon size={20} className="text-github-accent" />
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-github-text mb-4">{social.username}</p>
-                  <Button variant="outline" size="sm" className="w-full border-github-accent text-github-accent hover:bg-github-accent hover:text-white">
-                    Visit Profile
+                <CardContent className="pt-2">
+                  <div className="flex items-center mb-4">
+                    <span className="text-github-accent font-mono mr-1">$</span>
+                    <p className="text-github-text font-mono">{social.username}</p>
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full border-github-accent/50 text-github-accent hover:bg-github-accent hover:text-black font-mono flex items-center justify-center gap-2"
+                  >
+                    visit {social.name.toLowerCase()}
+                    <ExternalLink size={14} />
                   </Button>
                 </CardContent>
               </Card>
@@ -98,8 +111,15 @@ const Socials = () => {
         </div>
         
         {/* Social Network Visualization */}
-        <Card className="p-6 bg-github-secondary border-github-border animated-border">
-          <h2 className="text-xl font-semibold mb-4 text-github-accent">My Network</h2>
+        <Card className="p-6 glass backdrop-blur-md border border-github-accent/20 terminal shadow-lg">
+          <div className="flex items-center mb-4">
+            <div className="flex items-center">
+              <div className="w-3 h-3 rounded-full bg-red-500 mr-1.5"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500 mr-1.5"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <h2 className="text-xl font-mono font-semibold ml-4 text-github-accent">My Network</h2>
+          </div>
           <div className="flex flex-wrap justify-center gap-4 py-8">
             <div className="relative">
               {/* Enhanced Radar Effect */}
@@ -127,7 +147,7 @@ const Socials = () => {
             {/* Network connections */}
             {socialLinks.slice(0, 6).map((social, index) => (
               <div key={index} className="network-node relative">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center bg-github-secondary border border-github-border">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center bg-github-secondary/80 backdrop-blur-sm border border-github-accent/30">
                   <social.icon size={18} className="text-github-accent" />
                 </div>
                 <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border border-github-secondary"></div>
@@ -135,11 +155,11 @@ const Socials = () => {
             ))}
           </div>
           
-          <div className="mt-4 text-center">
-            <p className="mb-6 text-github-text">Let's connect and collaborate on exciting projects!</p>
+          <div className="mt-4 text-center font-mono">
+            <p className="mb-6 text-github-text">$ echo "Let's connect and collaborate on exciting projects!"</p>
             <Button 
               onClick={() => window.open('mailto:nisargpatel_5565@outlook.com', '_blank')}
-              className="bg-github-accent hover:bg-github-accent/80 flex items-center gap-2"
+              className="bg-github-accent hover:bg-github-accent/80 flex items-center gap-2 font-mono"
             >
               <Mail size={18} />
               Get in Touch
@@ -148,22 +168,31 @@ const Socials = () => {
         </Card>
         
         {/* GitHub Activity */}
-        <Card className="p-6 bg-github-secondary border-github-border">
-          <h2 className="text-xl font-semibold mb-4 text-github-accent">GitHub Activity</h2>
-          <p className="mb-4">
-            Check out my contributions and activity on GitHub:
-          </p>
-          <div className="flex justify-center">
-            <img 
-              src={`https://ghchart.rshah.org/2ea043/nisargpatel7042lva`} 
-              alt="Nisarg Patel's GitHub Contribution Chart"
-              className="w-full max-w-3xl"
-            />
+        <Card className="p-6 glass backdrop-blur-md border border-github-accent/20 terminal shadow-lg">
+          <div className="flex items-center mb-4">
+            <div className="flex items-center">
+              <div className="w-3 h-3 rounded-full bg-red-500 mr-1.5"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500 mr-1.5"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <h2 className="text-xl font-mono font-semibold ml-4 text-github-accent">GitHub Activity</h2>
+          </div>
+          <div className="font-mono">
+            <p className="mb-4">
+              <span className="text-github-accent">$</span> git stats --user="nisargpatel7042lva" --visualize
+            </p>
+            <div className="flex justify-center">
+              <img 
+                src={`https://ghchart.rshah.org/2ea043/nisargpatel7042lva`} 
+                alt="Nisarg Patel's GitHub Contribution Chart"
+                className="w-full max-w-3xl"
+              />
+            </div>
           </div>
           <div className="mt-4 text-center">
             <Button 
               onClick={() => window.open('https://github.com/nisargpatel7042lva', '_blank')}
-              className="bg-github-accent hover:bg-github-accent/80 flex items-center gap-2"
+              className="bg-github-accent hover:bg-github-accent/80 flex items-center gap-2 font-mono"
             >
               <Github size={18} />
               Visit GitHub Profile
