@@ -14,7 +14,7 @@ const Experience = () => {
   const experiences: ExperienceItem[] = [
     {
       id: 1,
-      role: "Co-Founder & Product Lead",
+      role: "Founder",
       company: "Clovia - Stake, Connect, Grow",
       period: "May 2025 - Present",
       description: [
