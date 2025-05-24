@@ -13,49 +13,56 @@ const Socials = () => {
       username: "@nisargpatel7042lva",
       url: "https://github.com/nisargpatel7042lva",
       icon: Github,
-      bgColor: "bg-[#24292e]"
+      bgColor: "bg-[#24292e]",
+      hoverColor: "hover:text-[#24292e]"
     },
     {
       name: "LinkedIn",
       username: "@nisargpatel",
       url: "https://www.linkedin.com/in/nisarg-patel-7b799a277",
       icon: Linkedin,
-      bgColor: "bg-[#0077b5]"
+      bgColor: "bg-[#0077b5]",
+      hoverColor: "hover:text-[#0077b5]"
     },
     {
       name: "Twitter",
       username: "@nisargpatel5563",
       url: "https://x.com/NisargPatel5563",
       icon: Twitter,
-      bgColor: "bg-[#1da1f2]"
+      bgColor: "bg-[#1da1f2]",
+      hoverColor: "hover:text-[#1da1f2]"
     },
     {
       name: "Instagram",
       username: "@nisargxplores",
       url: "https://www.instagram.com/nisargxplores/",
       icon: Instagram,
-      bgColor: "bg-[#e1306c]"
+      bgColor: "bg-[#e1306c]",
+      hoverColor: "hover:text-[#e1306c]"
     },
     {
       name: "Discord",
       username: "nisargpatel_7042lva",
       url: "#",
       icon: MessageSquare,
-      bgColor: "bg-[#5865F2]"
+      bgColor: "bg-[#5865F2]",
+      hoverColor: "hover:text-[#5865F2]"
     },
     {
       name: "Telegram",
       username: "@nisargpatel7042",
       url: "https://t.me/nisargpatel",
       icon: MessagesSquare,
-      bgColor: "bg-[#0088cc]"
+      bgColor: "bg-[#0088cc]",
+      hoverColor: "hover:text-[#0088cc]"
     },
     {
       name: "Email",
       username: "nisargpatel_5565@outlook.com",
       url: "mailto:nisargpatel_5565@outlook.com",
       icon: Mail,
-      bgColor: "bg-[#ea4335]"
+      bgColor: "bg-[#ea4335]",
+      hoverColor: "hover:text-[#ea4335]"
     }
   ];
 
@@ -69,103 +76,88 @@ const Socials = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {socialLinks.map((social) => (
-            <a 
-              key={social.name} 
-              href={social.url} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block transition-transform hover:-translate-y-1"
-            >
-              <Card className="overflow-hidden glass backdrop-blur-md border border-github-accent/20 h-full hover:shadow-md hover:shadow-github-accent/20 terminal">
-                <div className={`h-1 ${social.bgColor}`}></div>
-                <CardHeader className="pt-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 rounded-full bg-red-500 mr-1.5"></div>
-                      <div className="w-2 h-2 rounded-full bg-yellow-500 mr-1.5"></div>
-                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                    </div>
-                    <h2 className="text-lg font-mono font-semibold ml-2 text-github-accent">{social.name}</h2>
-                    <social.icon size={20} className="text-github-accent" />
-                  </div>
-                </CardHeader>
-                <CardContent className="pt-2">
-                  <div className="flex items-center mb-4">
-                    <span className="text-github-accent font-mono mr-1">$</span>
-                    <p className="text-github-text font-mono">{social.username}</p>
-                  </div>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="w-full border-github-accent/50 text-github-accent hover:bg-github-accent hover:text-black font-mono flex items-center justify-center gap-2"
-                  >
-                    visit {social.name.toLowerCase()}
-                    <ExternalLink size={14} />
-                  </Button>
-                </CardContent>
-              </Card>
-            </a>
-          ))}
-        </div>
-        
-        {/* Social Network Visualization */}
-        <Card className="p-6 glass backdrop-blur-md border border-github-accent/20 terminal shadow-lg">
-          <div className="flex items-center mb-4">
-            <div className="flex items-center">
-              <div className="w-3 h-3 rounded-full bg-red-500 mr-1.5"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500 mr-1.5"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            </div>
-            <h2 className="text-xl font-mono font-semibold ml-4 text-github-accent">My Network</h2>
-          </div>
-          <div className="flex flex-wrap justify-center gap-4 py-8">
-            <div className="relative">
-              {/* Enhanced Radar Effect */}
-              <div className="absolute w-16 h-16 rounded-full border-4 border-github-accent/50 animate-radar-ring-1"></div>
-              <div className="absolute w-16 h-16 rounded-full border-4 border-github-accent/40 animate-radar-ring-2"></div>
-              <div className="absolute w-16 h-16 rounded-full border-4 border-github-accent/30 animate-radar-ring-3"></div>
-              
-              {/* Glowing background circles */}
-              <div className="absolute w-16 h-16 rounded-full bg-gradient-radial from-github-accent/30 via-github-accent/20 to-transparent"></div>
-              
-              {/* Rotating radar effect */}
-              <div className="absolute w-16 h-16 rounded-full overflow-hidden">
-                <div className="absolute inset-0 bg-conic-gradient animate-radar-rotate"></div>
-              </div>
-              
-              <Avatar className="w-16 h-16 border-2 border-github-accent shadow-lg shadow-github-accent/30 hover:shadow-xl hover:shadow-github-accent/40 transition-all duration-500 relative z-10">
-                <AvatarImage src={meImage} alt="Nisarg Patel" />
-                <AvatarFallback>NP</AvatarFallback>
-              </Avatar>
-              <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-github-accent rounded-full flex items-center justify-center text-xs font-bold border-2 border-github-secondary">
-                7+
-              </div>
-            </div>
+        {/* Circle Social Icons - New Style */}
+        <div className="flex flex-col items-center justify-center mb-12">
+          <div className="relative my-8">
+            <div className="absolute w-28 h-28 rounded-full border-4 border-github-accent/50 animate-pulse-slow"></div>
+            <div className="absolute w-28 h-28 rounded-full border-4 border-github-accent/30 animate-pulse-medium"></div>
+            <div className="absolute w-28 h-28 rounded-full border-4 border-github-accent/20 animate-pulse-fast"></div>
             
-            {/* Network connections */}
-            {socialLinks.slice(0, 6).map((social, index) => (
-              <div key={index} className="network-node relative">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center bg-github-secondary/80 backdrop-blur-sm border border-github-accent/30">
-                  <social.icon size={18} className="text-github-accent" />
-                </div>
-                <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border border-github-secondary"></div>
-              </div>
-            ))}
+            <Avatar className="w-28 h-28 border-2 border-github-accent shadow-lg shadow-github-accent/30 hover:shadow-xl hover:shadow-github-accent/40 transition-all duration-500 relative z-10">
+              <AvatarImage src={meImage} alt="Nisarg Patel" />
+              <AvatarFallback>NP</AvatarFallback>
+            </Avatar>
           </div>
           
-          <div className="mt-4 text-center font-mono">
-            <p className="mb-6 text-github-text">$ echo "Let's connect and collaborate on exciting projects!"</p>
-            <Button 
-              onClick={() => window.open('mailto:nisargpatel_5565@outlook.com', '_blank')}
-              className="bg-github-accent hover:bg-github-accent/80 flex items-center gap-2 font-mono"
-            >
-              <Mail size={18} />
-              Get in Touch
-            </Button>
+          <div className="flex flex-wrap justify-center items-center gap-6 mt-8 max-w-4xl">
+            {socialLinks.map((social) => (
+              <a 
+                key={social.name} 
+                href={social.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <div className="relative flex flex-col items-center justify-center">
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center glass backdrop-blur-sm border border-github-accent/20 group-hover:border-github-accent transition-all duration-300 shadow-md shadow-github-accent/10 group-hover:shadow-github-accent/30 group-hover:scale-110">
+                    <social.icon size={24} className="text-github-accent group-hover:scale-110 transition-all duration-300" />
+                  </div>
+                  <div className="w-2 h-2 rounded-full bg-github-accent mt-2 group-hover:animate-ping"></div>
+                  <span className="mt-2 text-github-text text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300">{social.username}</span>
+                </div>
+              </a>
+            ))}
           </div>
-        </Card>
+        </div>
+        
+        {/* Social Cards - Traditional View */}
+        <div>
+          <h2 className="text-xl font-bold mb-6 text-github-accent flex items-center">
+            <span className="font-mono">$ ls -la social_profiles</span>
+            <span className="cursor"></span>
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {socialLinks.map((social) => (
+              <a 
+                key={social.name} 
+                href={social.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block transition-transform hover:-translate-y-1"
+              >
+                <Card className="overflow-hidden glass backdrop-blur-md border border-github-accent/20 h-full hover:shadow-md hover:shadow-github-accent/20 terminal">
+                  <div className={`h-1 ${social.bgColor}`}></div>
+                  <CardHeader className="pt-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 rounded-full bg-red-500 mr-1.5"></div>
+                        <div className="w-2 h-2 rounded-full bg-yellow-500 mr-1.5"></div>
+                        <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                      </div>
+                      <h2 className="text-lg font-mono font-semibold ml-2 text-github-accent">{social.name}</h2>
+                      <social.icon size={20} className="text-github-accent" />
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-2">
+                    <div className="flex items-center mb-4">
+                      <span className="text-github-accent font-mono mr-1">$</span>
+                      <p className="text-github-text font-mono">{social.username}</p>
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-full border-github-accent/50 text-github-accent hover:bg-github-accent hover:text-black font-mono flex items-center justify-center gap-2"
+                    >
+                      visit {social.name.toLowerCase()}
+                      <ExternalLink size={14} />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </a>
+            ))}
+          </div>
+        </div>
         
         {/* GitHub Activity */}
         <Card className="p-6 glass backdrop-blur-md border border-github-accent/20 terminal shadow-lg">
