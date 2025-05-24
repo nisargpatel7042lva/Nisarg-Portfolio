@@ -1,3 +1,4 @@
+
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card } from '@/components/ui/card';
 
@@ -13,6 +14,30 @@ const Experience = () => {
   const experiences: ExperienceItem[] = [
     {
       id: 1,
+      role: "Co-Founder & Product Lead",
+      company: "Clovia - Stake, Connect, Grow",
+      period: "May 2025 - Present",
+      description: [
+        "Building a Web3-native social staking platform on Solana, where users can earn rewards by staking behind creators and communities.",
+        "Leading product design, user flow, and feature roadmap from ideation to MVP.",
+        "Collaborating with cross-functional teams of frontend, backend, and blockchain developers.",
+        "Implementing smart staking mechanisms and wallet integrations using Solana tooling.",
+        "Crafting go-to-market content strategies, including branding, social media, and community engagement.",
+        "Presenting the project in pitch competitions and Web3 showcases."
+      ]
+    },
+    {
+      id: 2,
+      role: "Community Volunteer",
+      company: "The Hackers Meetup",
+      period: "May 2025 - Present",
+      description: [
+        "Supporting community initiatives and events for technology enthusiasts.",
+        "Facilitating networking and knowledge sharing among developers and cybersecurity professionals."
+      ]
+    },
+    {
+      id: 3,
       role: "Student Ambassador",
       company: "Designare",
       description: [
@@ -22,7 +47,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 2,
+      id: 4,
       role: "Joint Finance Secretary",
       company: "Students' Central Committee, SVIT-Vasad",
       description: [
@@ -31,7 +56,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 3,
+      id: 5,
       role: "Joint Web Designer",
       company: "Indian Society for Technical Education (ISTE)",
       description: [
@@ -40,7 +65,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 4,
+      id: 6,
       role: "Social Media Manager & Customer Relations Manager",
       company: "The A.I.M. Club",
       description: [
@@ -49,7 +74,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 5,
+      id: 7,
       role: "UI/UX Designer Intern",
       company: "CoderOne",
       description: [
@@ -58,7 +83,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 6,
+      id: 8,
       role: "Open-Source Contributor",
       company: "GirlScript Summer of Code",
       description: [
@@ -67,7 +92,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 7,
+      id: 9,
       role: "Social Media Manager",
       company: "AWS User Group Vadodara",
       description: [
@@ -76,7 +101,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 8,
+      id: 10,
       role: "Founder",
       company: "Mysterio Fashion",
       description: [
@@ -85,7 +110,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 9,
+      id: 11,
       role: "Community Growth Associate",
       company: "PhicsIT",
       description: [
