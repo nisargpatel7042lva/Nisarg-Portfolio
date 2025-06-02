@@ -8,9 +8,18 @@ import projectImage from '../assets/image.png'; // Import the image
 import projectImage2 from '../assets/image2.png'; // Import the image
 import projectImage3 from '../assets/image3.png'; // Import the image
 import cloviaImage from '/lovable-uploads/a8867095-a408-4c3e-99a6-888f0efcdf55.png'; // Import new Clovia image
+import skillSwapImage from '/lovable-uploads/6b3efac9-f6b0-4f5f-8f7a-a3c59b976f2d.png'; // Import Skill Swap DAO image
 
 const Projects = () => {
   const featuredProjects = [
+    {
+      id: 5,
+      title: "Skill Swap DAO",
+      description: "A decentralized skill-sharing platform powered by blockchain technology and governed by its community through a DAO. Users can exchange skills directly without intermediaries, build verifiable reputations, and participate in platform governance while earning tokenized incentives for their contributions.",
+      technologies: ["Blockchain", "Smart Contracts", "DAO", "Web3", "Solidity", "React", "TypeScript", "Tokenomics"],
+      githubLink: "https://github.com/nisargpatel7042lva/SkillSwap-DAO",
+      imageUrl: skillSwapImage
+    },
     {
       id: 4,
       title: "Clovia",
@@ -113,14 +122,16 @@ const Projects = () => {
                             <Github size={16} className="mr-2" />
                             Code
                           </Button>
-                          <Button 
-                            variant="default" 
-                            size="sm"
-                            onClick={() => window.open(project.demoLink, '_blank')}
-                          >
-                            <ExternalLink size={16} className="mr-2" />
-                            Live Demo
-                          </Button>
+                          {project.demoLink && (
+                            <Button 
+                              variant="default" 
+                              size="sm"
+                              onClick={() => window.open(project.demoLink, '_blank')}
+                            >
+                              <ExternalLink size={16} className="mr-2" />
+                              Live Demo
+                            </Button>
+                          )}
                         </>
                       )}
                     </CardFooter>
