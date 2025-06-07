@@ -18,6 +18,7 @@ const Projects = () => {
       description: "A decentralized skill-sharing platform powered by blockchain technology and governed by its community through a DAO. Users can exchange skills directly without intermediaries, build verifiable reputations, and participate in platform governance while earning tokenized incentives for their contributions.",
       technologies: ["Blockchain", "Smart Contracts", "DAO", "Web3", "Solidity", "React", "TypeScript", "Tokenomics"],
       githubLink: "https://github.com/nisargpatel7042lva/SkillSwap-DAO",
+      demoLink: "https://skill-swap-dao.vercel.app/",
       imageUrl: skillSwapImage
     },
     {
