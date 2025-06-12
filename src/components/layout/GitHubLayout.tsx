@@ -22,6 +22,7 @@ interface GitHubLayoutProps {
 
 const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
   const location = useLocation();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [displayText, setDisplayText] = useState<string>("Nisarg Patel");
   const [isTyping, setIsTyping] = useState<boolean>(true);
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
@@ -71,6 +72,7 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
   }, [displayText, isTyping, isDeleting, textIndex, textOptions]);
   
   const handleExitWebsite = () => {
+    setIsLoading(true);
     toast.success("Signing out. See you soon!", {
       duration: 2000,
       onAutoClose: () => {
@@ -86,6 +88,13 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
   
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-github-dark via-github-dark/95 to-github-dark">
+      {/* Loading Overlay */}
+      {isLoading && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
+          <div className="text-github-accent text-2xl animate-pulse">Signing out...</div>
+        </div>
+      )}
+      
       {/* GitHub Header */}
       <header className="github-header sticky top-0 z-20">
         <div className="container mx-auto px-4 flex justify-between items-center">
