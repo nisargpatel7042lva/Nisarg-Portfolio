@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ExternalLink, LogOut } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import Loader from "@/components/ui/loader";
 import { 
   AlertDialog,
   AlertDialogTrigger,
@@ -90,7 +90,8 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-github-dark via-github-dark/95 to-github-dark">
       {/* Loading Overlay */}
       {isLoading && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center flex-col gap-6">
+          <Loader />
           <div className="text-github-accent text-2xl animate-pulse">Signing out...</div>
         </div>
       )}

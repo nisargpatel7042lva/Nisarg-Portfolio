@@ -1,39 +1,86 @@
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 215 14% 4%;  /* Darker background */
-    --foreground: 210 17% 82%;
-
-    --card: 222 18% 7%;  /* Darker card */
-    --card-foreground: 210 17% 82%;
-
-    --popover: 222 18% 7%;
-    --popover-foreground: 210 17% 82%;
-
-    --primary: 142 70% 42%;  /* Green primary */
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 217 19% 17%;  /* Darker secondary */
-    --secondary-foreground: 210 17% 82%;
-
-    --muted: 217 19% 17%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 142 70% 42%;  /* Green accent */
-    --accent-foreground: 210 17% 82%;
-
-    --destructive: 0 72% 61%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 215 14% 24%;
-    --input: 217 19% 17%;
-    --ring: 142 70% 42%;  /* Green ring */
-
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+
+    /* GitHub Theme Colors */
+    --github-dark: #0d1117;
+    --github-secondary: #161b22;
+    --github-border: #30363d;
+    --github-text: #e6edf3;
+    --github-accent: #58a6ff;
+    --github-green: #7c3aed;
+    --github-success: #238636;
+    --github-warning: #d29922;
+    --github-danger: #f85149;
+
+    /* Loader cell colors */
+    --cell-color-1: #00FF87;
+    --cell-color-2: #0CFD95;
+    --cell-color-3: #17FBA2;
+    --cell-color-4: #23F9B2;
+    --cell-color-5: #30F7C3;
+    --cell-color-6: #3DF5D4;
+    --cell-color-7: #45F4DE;
+    --cell-color-8: #53F1F0;
+    --cell-color-9: #60EFFF;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
@@ -41,280 +88,215 @@
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-github-dark text-github-text;
-    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, "Liberation Mono", monospace;
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
   }
+}
 
-  /* Conic gradient for radar effect */
-  .bg-conic-gradient {
-    background: conic-gradient(
-      from 0deg, 
-      rgba(46, 160, 67, 0) 0%, 
-      rgba(46, 160, 67, 0.1) 20%, 
-      rgba(46, 160, 67, 0.3) 35%, 
-      rgba(46, 160, 67, 0.5) 50%, 
-      rgba(46, 160, 67, 0.3) 65%, 
-      rgba(46, 160, 67, 0.1) 80%, 
-      rgba(46, 160, 67, 0) 100%
-    );
-  }
-  
-  .terminal {
-    @apply bg-github-secondary border border-github-border rounded-md p-4 text-sm font-mono shadow-lg backdrop-blur-sm;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .terminal::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(46, 160, 67, 0.6), transparent);
-    animation: glow 4s linear infinite;
-  }
-  
-  .terminal-input {
-    @apply bg-transparent border-none outline-none text-github-text w-full;
-  }
-  
-  .terminal-prompt {
-    @apply text-github-green font-bold;
-  }
+/* GitHub styles */
+.github-header {
+  @apply bg-github-dark border-b border-github-border py-3;
+}
 
-  .terminal-tab {
-    @apply inline-block px-4 py-2 border-b-2 border-transparent transition-all duration-200 relative overflow-hidden;
-  }
+.github-card {
+  @apply bg-github-secondary border border-github-border rounded-md p-6;
+}
 
-  .terminal-tab::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(46, 160, 67, 0.4), transparent);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-  }
+.terminal {
+  @apply bg-github-dark border border-github-border;
+  font-family: 'Roboto Mono', monospace;
+}
 
-  .terminal-tab:hover::before {
-    transform: scaleX(0.7);
-  }
+.tab {
+  @apply px-3 py-2 text-sm text-github-text border-b-2 border-transparent hover:border-github-accent transition-all;
+}
 
-  .terminal-tab.active::before {
-    transform: scaleX(1);
-    background: linear-gradient(90deg, transparent, rgba(46, 160, 67, 1), transparent);
-  }
-  
-  /* Radar Effect Animation */
-  .radar-effect {
-    border-radius: 50%;
-    border: 3px solid rgba(46, 160, 67, 0.5);
-    animation: radar 3s linear infinite;
-    pointer-events: none;
-  }
-  
-  .radar-effect::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: conic-gradient(
-      from 0deg, 
-      rgba(46, 160, 67, 0) 0%, 
-      rgba(46, 160, 67, 0.1) 20%, 
-      rgba(46, 160, 67, 0.3) 40%, 
-      rgba(46, 160, 67, 0.6) 50%, 
-      rgba(46, 160, 67, 0.3) 60%, 
-      rgba(46, 160, 67, 0.1) 80%, 
-      rgba(46, 160, 67, 0) 100%
-    );
-    border-radius: 50%;
-    animation: rotate 4s linear infinite;
-  }
-  
-  @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  
-  @keyframes radar {
-    0%, 100% { box-shadow: 0 0 15px rgba(46, 160, 67, 0.5); }
-    50% { box-shadow: 0 0 25px rgba(46, 160, 67, 0.8); }
-  }
-  
-  /* Pulse animations at different speeds */
-  @keyframes pulse-slow {
-    0%, 100% { transform: scale(1); opacity: 0.4; }
-    50% { transform: scale(1.05); opacity: 0.2; }
-  }
-  
-  @keyframes pulse-medium {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.1); opacity: 0.15; }
-  }
-  
-  @keyframes pulse-fast {
-    0%, 100% { transform: scale(1); opacity: 0.2; }
-    50% { transform: scale(1.15); opacity: 0.1; }
-  }
-  
-  .animate-pulse-slow {
-    animation: pulse-slow 4s ease-in-out infinite;
-  }
-  
-  .animate-pulse-medium {
-    animation: pulse-medium 5s ease-in-out infinite;
-  }
-  
-  .animate-pulse-fast {
-    animation: pulse-fast 6s ease-in-out infinite;
-  }
-  
-  .github-header {
-    @apply bg-github-dark border-b border-github-border text-github-text py-4;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-  
-  .github-card {
-    @apply bg-github-secondary border border-github-border rounded-md p-4 transition-all duration-300;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .github-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-  }
+.tab.active {
+  @apply border-github-accent text-github-accent;
+}
 
-  .carousel-container {
-    @apply overflow-hidden w-full rounded-md;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  .carousel-track {
-    @apply flex;
-    transition: transform 0.5s ease;
-  }
-  
-  .carousel-track:hover {
-    animation-play-state: paused;
-  }
-  
-  .repository-card {
-    @apply border border-github-border rounded-md p-4 m-2 min-w-[280px] bg-github-dark;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-    transition: all 0.3s ease;
-  }
-  
-  .repository-card:hover {
-    @apply border-github-accent;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 8px rgba(46, 160, 67, 0.2);
-  }
+.terminal-tab {
+  @apply border-b-2 border-transparent;
+}
 
-  .repository-language-dot {
-    @apply w-3 h-3 rounded-full inline-block mr-1;
-  }
+.terminal-tab.active {
+  @apply border-github-accent;
+}
 
-  .command {
-    @apply text-github-accent hover:underline cursor-pointer transition-all;
-  }
-  
-  .command:hover {
-    text-shadow: 0 0 8px rgba(46, 160, 67, 0.4);
-  }
+.command {
+  @apply text-github-accent hover:text-github-green transition-colors cursor-pointer inline-block px-2 py-1 rounded hover:bg-github-secondary;
+}
 
-  .tab {
-    @apply inline-block px-4 py-2 border-b-2 border-transparent transition-all duration-200;
-  }
+.glass {
+  @apply backdrop-blur-md bg-white/5 border border-white/10;
+}
 
-  .tab.active {
-    @apply border-github-accent text-github-accent;
-    text-shadow: 0 0 8px rgba(46, 160, 67, 0.3);
-  }
-  
-  .tab:hover:not(.active) {
-    @apply border-github-border text-github-text;
-  }
+.animated-border {
+  position: relative;
+  overflow: hidden;
+}
 
-  .cursor::after {
-    content: "";
-    @apply w-2 h-5 bg-github-accent inline-block ml-0.5 animate-blink;
-  }
+.animated-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(88, 166, 255, 0.3),
+    transparent
+  );
+  animation: border-animation 3s linear infinite;
+  border-radius: inherit;
+}
 
-  .social-icon {
-    @apply text-github-text hover:text-github-accent transition-colors duration-300;
+.cursor {
+  @apply animate-pulse;
+}
+
+.cursor::after {
+  content: '|';
+  @apply text-github-accent;
+}
+
+/* Radar Animation */
+@keyframes radar-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
   }
-  
-  .social-icon:hover {
+  50% {
     transform: scale(1.1);
+    opacity: 0.7;
   }
-  
-  .skill-tag {
-    @apply px-2 py-1 bg-github-dark rounded-full text-sm border border-github-accent text-github-accent transition-all duration-300 hover:bg-github-accent hover:text-white;
+}
+
+@keyframes radar-rotate {
+  from {
+    transform: rotate(0deg);
   }
-  
-  .animated-border {
-    position: relative;
-    border: 1px solid transparent;
-    border-radius: 0.5rem;
-    background: linear-gradient(#0d1117, #0d1117) padding-box,
-                linear-gradient(90deg, #2ea043, #0d1117, #2ea043) border-box;
-    background-size: 200% 100%;
-    animation: border-flow 4s linear infinite;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  to {
+    transform: rotate(360deg);
   }
-  
-  @keyframes border-flow {
-    0% { background-position: 0 0; }
-    100% { background-position: 200% 0; }
+}
+
+@keyframes radar-ring-1 {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
   }
-  
-  @keyframes glow {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
   }
-  
-  /* Glass effect */
-  .glass {
-    background: rgba(13, 17, 23, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(46, 160, 67, 0.1);
+}
+
+@keyframes radar-ring-2 {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
   }
-  
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
   }
-  
-  ::-webkit-scrollbar-track {
-    background: #0d1117;
+}
+
+@keyframes radar-ring-3 {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
   }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #30363d;
-    border-radius: 4px;
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
   }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #2ea043;
+}
+
+@keyframes border-animation {
+  0% {
+    transform: translateX(-100%);
   }
-  
-  /* Button animations */
-  button {
-    transition: all 0.2s ease;
+  100% {
+    transform: translateX(100%);
   }
-  
-  button:active {
-    transform: scale(0.97);
+}
+
+/* Loader animations */
+@keyframes ripple {
+  0% {
+    background-color: transparent;
   }
+  30% {
+    background-color: var(--cell-color);
+  }
+  60% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.animate-radar-pulse {
+  animation: radar-pulse 2s ease-in-out infinite;
+}
+
+.animate-radar-rotate {
+  animation: radar-rotate 8s linear infinite;
+}
+
+.animate-radar-ring-1 {
+  animation: radar-ring-1 2s ease-out infinite;
+}
+
+.animate-radar-ring-2 {
+  animation: radar-ring-2 2s ease-out infinite 0.5s;
+}
+
+.animate-radar-ring-3 {
+  animation: radar-ring-3 2s ease-out infinite 1s;
+}
+
+.animate-ripple-0 {
+  --cell-color: var(--cell-color-1);
+  animation: ripple 1.5s ease infinite;
+}
+
+.animate-ripple-1 {
+  --cell-color: var(--cell-color-2);
+  animation: ripple 1.5s ease infinite 100ms;
+}
+
+.animate-ripple-2 {
+  --cell-color: var(--cell-color-3);
+  animation: ripple 1.5s ease infinite 200ms;
+}
+
+.animate-ripple-3 {
+  --cell-color: var(--cell-color-7);
+  animation: ripple 1.5s ease infinite 300ms;
+}
+
+.animate-ripple-4 {
+  --cell-color: var(--cell-color-9);
+  animation: ripple 1.5s ease infinite 400ms;
+}
+
+.bg-gradient-radial {
+  background: radial-gradient(var(--tw-gradient-stops));
+}
+
+.bg-conic-gradient {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(88, 166, 255, 0.4) 45deg,
+    transparent 90deg,
+    transparent 360deg
+  );
 }
