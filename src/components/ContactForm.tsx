@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
-import { Terminal, Settings } from 'lucide-react';
+import { Terminal, Mail } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const ContactForm: React.FC = () => {
@@ -16,8 +16,6 @@ const ContactForm: React.FC = () => {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [webhookUrl, setWebhookUrl] = useState('');
-  const [showWebhookConfig, setShowWebhookConfig] = useState(false);
   
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -31,67 +29,82 @@ const ContactForm: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      if (webhookUrl) {
-        // Send to webhook (Make.com or n8n.io)
-        const webhookData = {
-          name: formState.name,
-          email: formState.email,
-          subject: formState.subject,
-          message: formState.message,
-          timestamp: new Date().toISOString(),
-          source: 'portfolio_contact_form'
-        };
-        
-        const response = await fetch(webhookUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          mode: 'no-cors',
-          body: JSON.stringify(webhookData),
+      // Using EmailJS for reliable email delivery
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          service_id: 'service_portfolio',
+          template_id: 'template_contact',
+          user_id: 'your_emailjs_user_id',
+          template_params: {
+            from_name: formState.name,
+            from_email: formState.email,
+            subject: formState.subject,
+            message: formState.message,
+            to_email: 'nisargpatel_5565@outlook.com'
+          }
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thanks for reaching out. I'll get back to you within 24 hours.",
         });
         
-        toast({
-          title: "Message sent via automation!",
-          description: "Your message has been sent through the configured automation workflow.",
+        // Reset form
+        setFormState({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
         });
       } else {
-        // Fallback to FormSubmit
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      
+      // Fallback to FormSubmit if EmailJS fails
+      try {
         const formData = new FormData();
         formData.append('name', formState.name);
         formData.append('email', formState.email);
         formData.append('subject', formState.subject);
         formData.append('message', formState.message);
         
-        const response = await fetch('https://formsubmit.co/nisargpatel_5565@outlook.com', {
+        const fallbackResponse = await fetch('https://formsubmit.co/nisargpatel_5565@outlook.com', {
           method: 'POST',
           body: formData,
         });
         
-        if (response.ok) {
+        if (fallbackResponse.ok) {
           toast({
             title: "Message sent!",
             description: "Thanks for reaching out. I'll get back to you soon.",
           });
+          
+          // Reset form
+          setFormState({
+            name: '',
+            email: '',
+            subject: '',
+            message: '',
+          });
         } else {
-          throw new Error('Failed to send message');
+          throw new Error('Both email services failed');
         }
+      } catch (fallbackError) {
+        console.error('Fallback email service also failed:', fallbackError);
+        toast({
+          title: "Error sending message",
+          description: "Please try again later or contact me directly at nisargpatel_5565@outlook.com",
+          variant: "destructive",
+        });
       }
-      
-      // Reset form
-      setFormState({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      });
-    } catch (error) {
-      console.error('Error sending message:', error);
-      toast({
-        title: "Error",
-        description: "Failed to send your message. Please try again later.",
-        variant: "destructive",
-      });
     } finally {
       setIsSubmitting(false);
     }
@@ -99,42 +112,19 @@ const ContactForm: React.FC = () => {
   
   return (
     <div className="space-y-6">
-      {/* Simple Webhook Configuration */}
+      {/* Email Service Info */}
       <Card className="bg-github-secondary border-github-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-sm">
-            <Settings size={16} />
-            Email Automation
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setShowWebhookConfig(!showWebhookConfig)}
-              className="ml-auto"
-            >
-              {showWebhookConfig ? 'Hide' : 'Configure'}
-            </Button>
+            <Mail size={16} />
+            Email Service
           </CardTitle>
         </CardHeader>
-        {showWebhookConfig && (
-          <CardContent>
-            <div>
-              <label htmlFor="webhook" className="text-sm font-medium">
-                Webhook URL (Make.com or n8n.io):
-              </label>
-              <Input
-                id="webhook"
-                type="url"
-                value={webhookUrl}
-                onChange={(e) => setWebhookUrl(e.target.value)}
-                placeholder="https://hook.integromat.com/... or https://your-n8n.com/webhook/..."
-                className="bg-github-dark border-github-border mt-1"
-              />
-              <p className="text-xs text-github-text mt-1">
-                Connect your Make.com or n8n.io webhook to receive emails automatically
-              </p>
-            </div>
-          </CardContent>
-        )}
+        <CardContent>
+          <p className="text-xs text-github-text">
+            Messages are sent via EmailJS with FormSubmit as backup. You'll receive a response within 24 hours.
+          </p>
+        </CardContent>
       </Card>
 
       {/* Contact Form */}
@@ -142,11 +132,9 @@ const ContactForm: React.FC = () => {
         <div className="flex items-center gap-2 mb-4 border-b border-github-border pb-2">
           <Terminal size={18} className="text-github-accent" />
           <span className="font-semibold">contact.sh</span>
-          {webhookUrl && (
-            <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">
-              Automation Enabled
-            </span>
-          )}
+          <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">
+            Ready to Send
+          </span>
         </div>
         
         <form onSubmit={handleSubmit} className="space-y-4">
