@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 import { Terminal, Mail } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -29,26 +29,21 @@ const ContactForm: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      // Using EmailJS for reliable email delivery
-      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      // Using FormSubmit with proper configuration to avoid captcha
+      const formData = new FormData();
+      formData.append('name', formState.name);
+      formData.append('email', formState.email);
+      formData.append('subject', formState.subject);
+      formData.append('message', formState.message);
+      formData.append('_next', window.location.href); // Redirect back to current page
+      formData.append('_captcha', 'false'); // Disable captcha
+      formData.append('_template', 'table'); // Use table format for better readability
+      
+      const response = await fetch('https://formsubmit.co/nisargpatel_5565@outlook.com', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          service_id: 'service_portfolio',
-          template_id: 'template_contact',
-          user_id: 'your_emailjs_user_id',
-          template_params: {
-            from_name: formState.name,
-            from_email: formState.email,
-            subject: formState.subject,
-            message: formState.message,
-            to_email: 'nisargpatel_5565@outlook.com'
-          }
-        }),
+        body: formData,
       });
-
+      
       if (response.ok) {
         toast({
           title: "Message sent successfully!",
@@ -67,44 +62,11 @@ const ContactForm: React.FC = () => {
       }
     } catch (error) {
       console.error('Error sending message:', error);
-      
-      // Fallback to FormSubmit if EmailJS fails
-      try {
-        const formData = new FormData();
-        formData.append('name', formState.name);
-        formData.append('email', formState.email);
-        formData.append('subject', formState.subject);
-        formData.append('message', formState.message);
-        
-        const fallbackResponse = await fetch('https://formsubmit.co/nisargpatel_5565@outlook.com', {
-          method: 'POST',
-          body: formData,
-        });
-        
-        if (fallbackResponse.ok) {
-          toast({
-            title: "Message sent!",
-            description: "Thanks for reaching out. I'll get back to you soon.",
-          });
-          
-          // Reset form
-          setFormState({
-            name: '',
-            email: '',
-            subject: '',
-            message: '',
-          });
-        } else {
-          throw new Error('Both email services failed');
-        }
-      } catch (fallbackError) {
-        console.error('Fallback email service also failed:', fallbackError);
-        toast({
-          title: "Error sending message",
-          description: "Please try again later or contact me directly at nisargpatel_5565@outlook.com",
-          variant: "destructive",
-        });
-      }
+      toast({
+        title: "Error sending message",
+        description: "Please try again later or contact me directly at nisargpatel_5565@outlook.com",
+        variant: "destructive",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -122,7 +84,7 @@ const ContactForm: React.FC = () => {
         </CardHeader>
         <CardContent>
           <p className="text-xs text-github-text">
-            Messages are sent via EmailJS with FormSubmit as backup. You'll receive a response within 24 hours.
+            Messages are sent directly to nisargpatel_5565@outlook.com via FormSubmit. You'll receive a response within 24 hours.
           </p>
         </CardContent>
       </Card>
