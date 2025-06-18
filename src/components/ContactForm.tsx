@@ -99,12 +99,12 @@ const ContactForm: React.FC = () => {
   
   return (
     <div className="space-y-6">
-      {/* Webhook Configuration */}
+      {/* Simple Webhook Configuration */}
       <Card className="bg-github-secondary border-github-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-sm">
             <Settings size={16} />
-            Email Automation Setup
+            Email Automation
             <Button
               variant="ghost"
               size="sm"
@@ -116,27 +116,7 @@ const ContactForm: React.FC = () => {
           </CardTitle>
         </CardHeader>
         {showWebhookConfig && (
-          <CardContent className="space-y-4">
-            <div className="text-sm text-github-text space-y-2">
-              <p><strong>Make.com Setup:</strong></p>
-              <ol className="list-decimal list-inside space-y-1 ml-4">
-                <li>Create a new scenario in Make.com</li>
-                <li>Add "Webhooks" → "Custom webhook" trigger</li>
-                <li>Copy the webhook URL</li>
-                <li>Add email service module (Gmail, Outlook, etc.)</li>
-                <li>Paste the webhook URL below</li>
-              </ol>
-            </div>
-            <div className="text-sm text-github-text space-y-2">
-              <p><strong>N8N.io Setup:</strong></p>
-              <ol className="list-decimal list-inside space-y-1 ml-4">
-                <li>Create a new workflow in n8n</li>
-                <li>Add "Webhook" trigger node</li>
-                <li>Copy the webhook URL</li>
-                <li>Add email service node</li>
-                <li>Paste the webhook URL below</li>
-              </ol>
-            </div>
+          <CardContent>
             <div>
               <label htmlFor="webhook" className="text-sm font-medium">
                 Webhook URL (Make.com or n8n.io):
@@ -149,6 +129,9 @@ const ContactForm: React.FC = () => {
                 placeholder="https://hook.integromat.com/... or https://your-n8n.com/webhook/..."
                 className="bg-github-dark border-github-border mt-1"
               />
+              <p className="text-xs text-github-text mt-1">
+                Connect your Make.com or n8n.io webhook to receive emails automatically
+              </p>
             </div>
           </CardContent>
         )}
