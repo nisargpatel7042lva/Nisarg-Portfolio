@@ -3,6 +3,7 @@ import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Calendar, BookOpen } from 'lucide-react';
+import TwitterThreads from '@/components/TwitterThreads';
 
 const Blog = () => {
   const blogPosts = [
@@ -36,10 +37,20 @@ const Blog = () => {
         <div>
           <h1 className="text-2xl font-bold mb-6 flex items-center gap-2">
             <BookOpen className="text-github-accent" />
-            Blog Posts
+            Blog Posts & Articles
           </h1>
           <p className="mb-8 text-github-text/90">
             My thoughts and insights on blockchain technology, Web3 innovations, and the future of decentralized finance.
+          </p>
+        </div>
+        
+        {/* Twitter Threads Section */}
+        <TwitterThreads />
+        
+        {/* Blog Posts Section */}
+        <div className="space-y-6">
+          <h2 className="text-xl font-semibold text-github-accent">Substack Articles</h2>
+          <p className="text-github-text/80 mb-6">
             These articles are originally published on my{' '}
             <a 
               href="https://nisargxplores.substack.com" 
@@ -50,63 +61,62 @@ const Blog = () => {
               Substack newsletter
             </a>.
           </p>
-        </div>
-        
-        {/* Blog Posts */}
-        <div className="space-y-8">
-          {blogPosts.map((post) => (
-            <Card key={post.id} className="overflow-hidden bg-github-secondary border-github-border hover:border-github-accent transition-all duration-300 glass shadow-lg hover:shadow-xl hover:-translate-y-1">
-              <div className="md:flex">
-                <div className="md:w-1/3">
-                  <img 
-                    src={post.imageUrl} 
-                    alt={post.title} 
-                    className="h-full w-full object-cover min-h-[200px]"
-                  />
+          
+          <div className="space-y-8">
+            {blogPosts.map((post) => (
+              <Card key={post.id} className="overflow-hidden bg-github-secondary border-github-border hover:border-github-accent transition-all duration-300 glass shadow-lg hover:shadow-xl hover:-translate-y-1">
+                <div className="md:flex">
+                  <div className="md:w-1/3">
+                    <img 
+                      src={post.imageUrl} 
+                      alt={post.title} 
+                      className="h-full w-full object-cover min-h-[200px]"
+                    />
+                  </div>
+                  <div className="md:w-2/3">
+                    <CardHeader>
+                      <div className="flex items-center gap-2 text-sm text-github-text/70 mb-2">
+                        <Calendar size={14} />
+                        <span>{post.date}</span>
+                        <span>•</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                      <CardTitle className="text-github-accent text-xl mb-2">
+                        {post.title}
+                      </CardTitle>
+                      <p className="text-github-text/80 font-medium">
+                        {post.subtitle}
+                      </p>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="mb-4 text-github-text/90 leading-relaxed">
+                        {post.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {post.tags.map((tag) => (
+                          <span 
+                            key={tag}
+                            className="px-2 py-1 bg-github-dark rounded-full text-xs border border-github-accent/30 text-github-accent"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        onClick={() => window.open(post.substackUrl, '_blank')}
+                        className="flex items-center gap-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white"
+                      >
+                        <ExternalLink size={16} />
+                        Read on Substack
+                      </Button>
+                    </CardContent>
+                  </div>
                 </div>
-                <div className="md:w-2/3">
-                  <CardHeader>
-                    <div className="flex items-center gap-2 text-sm text-github-text/70 mb-2">
-                      <Calendar size={14} />
-                      <span>{post.date}</span>
-                      <span>•</span>
-                      <span>{post.readTime}</span>
-                    </div>
-                    <CardTitle className="text-github-accent text-xl mb-2">
-                      {post.title}
-                    </CardTitle>
-                    <p className="text-github-text/80 font-medium">
-                      {post.subtitle}
-                    </p>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="mb-4 text-github-text/90 leading-relaxed">
-                      {post.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {post.tags.map((tag) => (
-                        <span 
-                          key={tag}
-                          className="px-2 py-1 bg-github-dark rounded-full text-xs border border-github-accent/30 text-github-accent"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={() => window.open(post.substackUrl, '_blank')}
-                      className="flex items-center gap-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white"
-                    >
-                      <ExternalLink size={16} />
-                      Read on Substack
-                    </Button>
-                  </CardContent>
-                </div>
-              </div>
-            </Card>
-          ))}
+              </Card>
+            ))}
+          </div>
         </div>
         
         {/* Newsletter CTA */}

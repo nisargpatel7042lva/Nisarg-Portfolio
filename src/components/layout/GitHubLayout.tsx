@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ExternalLink, LogOut } from 'lucide-react';
@@ -16,6 +15,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { toast } from "sonner";
 import { useIsMobile } from "@/hooks/use-mobile";
+import MobileNav from '@/components/MobileNav';
 
 interface GitHubLayoutProps {
   children: React.ReactNode;
@@ -112,59 +112,67 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
           </div>
           
           <div className="flex items-center gap-2">
-            <Link to="/">
-              <Button variant="outline" size="sm" className="border-github-accent text-github-accent hover:bg-github-accent hover:text-white shadow-md hover:shadow-lg transition-all">
-                Terminal Mode
-              </Button>
-            </Link>
-            
-            {!isHomePage && (
-              <AlertDialog>
-                <AlertDialogTrigger asChild>
-                  <Button variant="destructive" size="sm" className="shadow-md hover:shadow-lg transition-all">
-                    Exit
+            {isMobile ? (
+              <MobileNav />
+            ) : (
+              <>
+                <Link to="/">
+                  <Button variant="outline" size="sm" className="border-github-accent text-github-accent hover:bg-github-accent hover:text-white shadow-md hover:shadow-lg transition-all">
+                    Terminal Mode
                   </Button>
-                </AlertDialogTrigger>
-                <AlertDialogContent className="bg-github-secondary border-github-border glass">
-                  <AlertDialogHeader>
-                    <AlertDialogTitle className="text-github-accent">Exit Website</AlertDialogTitle>
-                    <AlertDialogDescription className="text-github-text">
-                      Are you sure you want to exit? This will close the current tab.
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel className="bg-github-dark text-github-text hover:bg-github-border">Cancel</AlertDialogCancel>
-                    <AlertDialogAction 
-                      onClick={handleExitWebsite}
-                      className="bg-github-accent text-white hover:bg-github-accent/90"
-                    >
-                      Yes, Exit
-                    </AlertDialogAction>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
+                </Link>
+                
+                {!isHomePage && (
+                  <AlertDialog>
+                    <AlertDialogTrigger asChild>
+                      <Button variant="destructive" size="sm" className="shadow-md hover:shadow-lg transition-all">
+                        Exit
+                      </Button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent className="bg-github-secondary border-github-border glass">
+                      <AlertDialogHeader>
+                        <AlertDialogTitle className="text-github-accent">Exit Website</AlertDialogTitle>
+                        <AlertDialogDescription className="text-github-text">
+                          Are you sure you want to exit? This will close the current tab.
+                        </AlertDialogDescription>
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogCancel className="bg-github-dark text-github-text hover:bg-github-border">Cancel</AlertDialogCancel>
+                        <AlertDialogAction 
+                          onClick={handleExitWebsite}
+                          className="bg-github-accent text-white hover:bg-github-accent/90"
+                        >
+                          Yes, Exit
+                        </AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
+                )}
+              </>
             )}
           </div>
         </div>
       </header>
       
-      {/* GitHub Nav */}
-      <div className="border-b border-github-border sticky top-[60px] bg-github-dark/90 backdrop-blur-sm z-10">
-        <nav className="container mx-auto px-4">
-          <ul className="flex overflow-x-auto">
-            {navItems.map((item) => (
-              <li key={item.path}>
-                <Link 
-                  to={item.path} 
-                  className={`tab terminal-tab ${location.pathname === item.path ? 'active' : ''}`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+      {/* GitHub Nav - Hide on mobile */}
+      {!isMobile && (
+        <div className="border-b border-github-border sticky top-[60px] bg-github-dark/90 backdrop-blur-sm z-10">
+          <nav className="container mx-auto px-4">
+            <ul className="flex overflow-x-auto">
+              {navItems.map((item) => (
+                <li key={item.path}>
+                  <Link 
+                    to={item.path} 
+                    className={`tab terminal-tab ${location.pathname === item.path ? 'active' : ''}`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      )}
       
       {/* Main Content */}
       <main className="flex-1 container mx-auto px-4 py-8">
