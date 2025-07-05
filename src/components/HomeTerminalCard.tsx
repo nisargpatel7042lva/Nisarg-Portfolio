@@ -60,6 +60,7 @@ const HomeTerminalCard = () => {
               <div className="grid grid-cols-2 gap-2">
                 <Link to="/projects" className="command">projects</Link>
                 <Link to="/experience" className="command">experience</Link>
+                <Link to="/blog" className="command">blog</Link>
                 <Link to="/about" className="command">about</Link>
                 <Link to="/contact" className="command">contact</Link>
                 <Link to="/fun" className="command">fun</Link>

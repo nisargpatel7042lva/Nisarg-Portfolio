@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ExternalLink, LogOut } from 'lucide-react';
@@ -32,6 +31,7 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
     { path: '/home', label: 'Overview' },
     { path: '/projects', label: 'Projects' },
     { path: '/experience', label: 'Experience' },
+    { path: '/blog', label: 'Blog' },
     { path: '/about', label: 'About' },
     { path: '/contact', label: 'Contact' },
     { path: '/socials', label: 'Socials' },

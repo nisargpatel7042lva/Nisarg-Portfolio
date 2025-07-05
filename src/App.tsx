@@ -14,6 +14,7 @@ import Experience from "./pages/Experience";
 import Contact from "./pages/Contact";
 import Socials from "./pages/Socials";
 import Fun from "./pages/Fun";
+import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
 // Create a client
@@ -50,6 +51,7 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/socials" element={<Socials />} />
             <Route path="/fun" element={<Fun />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
