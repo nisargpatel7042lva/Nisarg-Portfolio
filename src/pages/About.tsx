@@ -1,179 +1,284 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Code2, Cpu, Palette, Wrench } from 'lucide-react';
-
+import { Download, ExternalLink, Code, Palette, TrendingUp, Briefcase } from 'lucide-react';
+import meImage from '../assets/me3.jpg';
 
 const About = () => {
-  const skills = [
-    { 
-      category: "Languages", 
-      icon: <Code2 className="text-github-accent" />,
-      items: ["JavaScript", "TypeScript", "HTML", "CSS", "Python", "Java"] 
-    },
-    { 
-      category: "Frameworks", 
-      icon: <Cpu className="text-github-accent" />,
-      items: ["React", "React Native", "Next.js", "Node.js", "Express", "TailwindCSS"] 
-    },
-    { 
-      category: "Tools", 
-      icon: <Wrench className="text-github-accent" />,
-      items: ["Git", "GitHub", "VS Code", "Figma", "AWS"] 
-    },
-    { 
-      category: "Design", 
-      icon: <Palette className="text-github-accent" />,
-      items: ["UI/UX Design", "Wireframing", "Prototyping", "Responsive Design", "Product Designing"] 
-    },
+  const languages = [
+    "JavaScript", "TypeScript", "Python", "Rust", "C#", "C++", "C"
+  ];
+
+  const frameworks = [
+    "Next.js", "Express.js", "Flask", "Django"
+  ];
+
+  const libraries = [
+    "React", "React Native", "Node.js"
+  ];
+
+  const tools = [
+    "Docker", "Cargo", "Anchor", "TailwindCSS", "Vite", "Git", "VS Code", "Figma", "Photoshop"
+  ];
+
+  const databases = [
+    "MongoDB", "PostgreSQL", "MySQL", "Firebase"
+  ];
+
+  const blockchainTech = [
+    "Solana", "Ethereum", "Web3.js", "Smart Contracts", "DApps"
   ];
 
   return (
     <GitHubLayout>
-      <div className="space-y-8">
+      <div className="space-y-12">
+        {/* Hero Section */}
         <div className="github-card animated-border">
-          <h1 className="text-2xl font-bold mb-6 text-github-accent">About Me</h1>
-          
-          <div className="space-y-6">
-            <div>
-              <h2 className="text-xl font-semibold mb-3 text-github-accent">Who am I?</h2>
-              <p className="mb-4">
-                Hello! I'm Nisarg Patel, a passionate developer and UI/UX designer with a strong focus on creating 
-                intuitive and efficient web applications. I'm currently pursuing my degree in Computer Engineering
-                and have been actively involved in various web development and design projects.
-              </p>
-              <p>
-                I believe in combining creativity with technical skills to build products that not only work well
-                but also provide an excellent user experience. When I'm not coding, you can find me exploring new 
-                design trends, contributing to open-source projects, or learning new technologies.
-              </p>
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="md:w-1/3">
+              <div className="relative flex items-center justify-center">
+                {/* Enhanced Radar Effect */}
+                <div className="absolute w-48 h-48 rounded-full border-4 border-github-accent/50 animate-radar-ring-1"></div>
+                <div className="absolute w-48 h-48 rounded-full border-4 border-github-accent/40 animate-radar-ring-2"></div>
+                <div className="absolute w-48 h-48 rounded-full border-4 border-github-accent/30 animate-radar-ring-3"></div>
+                
+                {/* Glowing background circles */}
+                <div className="absolute w-48 h-48 rounded-full bg-gradient-radial from-github-accent/30 via-github-accent/20 to-transparent"></div>
+                
+                {/* Rotating radar effect */}
+                <div className="absolute w-48 h-48 rounded-full overflow-hidden">
+                  <div className="absolute inset-0 bg-conic-gradient animate-radar-rotate"></div>
+                </div>
+                
+                {/* Profile picture container */}
+                <div className="rounded-full overflow-hidden border-4 border-github-accent w-48 h-48 shadow-xl shadow-github-accent/30 hover:shadow-2xl hover:shadow-github-accent/40 transition-all duration-500 relative z-10">
+                  <img src={meImage} alt="Nisarg Patel" className="w-full h-full object-cover" />
+                </div>
+              </div>
             </div>
             
-            <div>
-              <h2 className="text-xl font-semibold mb-3 text-github-accent">My Approach</h2>
-              <p>
-                I approach each project with a user-centered design philosophy, considering not just the code but 
-                also the user experience, accessibility, and performance. I enjoy solving complex problems 
-                and creating solutions that make a positive impact on users' lives. My experience in both development
-                and design allows me to bridge the gap between technical requirements and aesthetic presentation.
+            <div className="md:w-2/3 text-center md:text-left">
+              <h1 className="text-4xl font-bold mb-3 text-github-accent">About Me</h1>
+              <p className="text-xl text-github-text mb-6 opacity-90">
+                Web 3 Developer | UI/UX Designer | Content Writer | Share Market Trader
               </p>
-            </div>
-          </div>
-        </div>
-        
-        {/* Skills Section */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4 text-github-accent">My Skills</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {skills.map((skillGroup) => (
-              <Card key={skillGroup.category} className="bg-github-secondary border-github-border hover:border-github-accent transition-colors">
-                <CardHeader className="pb-2">
-                  <div className="flex items-center gap-2">
-                    {skillGroup.icon}
-                    <CardTitle className="text-github-accent">{skillGroup.category}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {skillGroup.items.map((skill) => (
-                      <span 
-                        key={skill} 
-                        className="skill-tag"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-        
-        {/* Education & Certifications */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4 text-github-accent">Education</h2>
-          <div className="space-y-4">
-            <div className="github-card hover:border-github-accent transition-colors">
-              <h3 className="font-semibold text-github-accent">Bachelor of Engineering in Computer Science</h3>
-              <p className="text-github-text">SVIT Vasad</p>
-            </div>
-          </div>
-        </div>
-        
-        {/* Interactive Matrix Code Rain - Impressive Element */}
-        <div className="mt-8 relative h-64 overflow-hidden rounded-lg border border-github-border animated-border">
-          <div className="absolute inset-0 bg-black/80 flex items-center justify-center">
-            <div className="text-center z-10">
-              <h2 className="text-xl font-bold text-github-accent mb-3">Skills in Action</h2>
-              <p className="text-github-text mb-4 max-w-md">
-                Check out my projects to see how I combine these skills to create innovative solutions.
+              <p className="mb-6 text-github-text/80 leading-relaxed">
+                I'm a passionate developer with expertise in blockchain technology, modern web development, 
+                and user experience design. I love building innovative solutions that bridge the gap between 
+                traditional web and the decentralized future.
               </p>
-              <Link to="/projects">
-                <Button className="bg-github-accent hover:bg-github-accent/80 animate-glow">
-                  View My Work
+              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                <Button 
+                  variant="default" 
+                  className="bg-github-accent hover:bg-github-accent/80 shadow-md hover:shadow-xl transition-all"
+                  onClick={() => window.open('/assets/resume.pdf', '_blank')}
+                >
+                  <Download className="mr-2" size={16} />
+                  Download Resume
                 </Button>
-              </Link>
+                <Button 
+                  variant="outline" 
+                  className="border-github-accent text-github-accent hover:bg-github-accent hover:text-white shadow-md hover:shadow-xl transition-all"
+                  onClick={() => window.open('https://github.com/nisargpatel7042lva', '_blank')}
+                >
+                  <ExternalLink className="mr-2" size={16} />
+                  GitHub Profile
+                </Button>
+              </div>
             </div>
           </div>
-          <MatrixRain />
+        </div>
+
+        {/* Tech Stack */}
+        <div className="space-y-8">
+          <h2 className="text-2xl font-bold text-github-accent">Tech Stack & Skills</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Programming Languages */}
+            <Card className="bg-github-secondary border-github-border glass">
+              <CardHeader>
+                <CardTitle className="text-github-accent flex items-center gap-2">
+                  <Code size={20} />
+                  Programming Languages
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {languages.map((lang) => (
+                    <Badge key={lang} variant="secondary" className="bg-github-dark text-github-accent border border-github-accent/30">
+                      {lang}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Frameworks */}
+            <Card className="bg-github-secondary border-github-border glass">
+              <CardHeader>
+                <CardTitle className="text-github-accent flex items-center gap-2">
+                  <Briefcase size={20} />
+                  Frameworks
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {frameworks.map((framework) => (
+                    <Badge key={framework} variant="secondary" className="bg-github-dark text-github-accent border border-github-accent/30">
+                      {framework}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Libraries */}
+            <Card className="bg-github-secondary border-github-border glass">
+              <CardHeader>
+                <CardTitle className="text-github-accent flex items-center gap-2">
+                  <Code size={20} />
+                  Libraries
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {libraries.map((lib) => (
+                    <Badge key={lib} variant="secondary" className="bg-github-dark text-github-accent border border-github-accent/30">
+                      {lib}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Tools & Technologies */}
+            <Card className="bg-github-secondary border-github-border glass">
+              <CardHeader>
+                <CardTitle className="text-github-accent flex items-center gap-2">
+                  <Palette size={20} />
+                  Tools & Technologies
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {tools.map((tool) => (
+                    <Badge key={tool} variant="secondary" className="bg-github-dark text-github-accent border border-github-accent/30">
+                      {tool}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Databases */}
+            <Card className="bg-github-secondary border-github-border glass">
+              <CardHeader>
+                <CardTitle className="text-github-accent flex items-center gap-2">
+                  <TrendingUp size={20} />
+                  Databases
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {databases.map((db) => (
+                    <Badge key={db} variant="secondary" className="bg-github-dark text-github-accent border border-github-accent/30">
+                      {db}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Blockchain & Web3 */}
+            <Card className="bg-github-secondary border-github-border glass">
+              <CardHeader>
+                <CardTitle className="text-github-accent flex items-center gap-2">
+                  <Code size={20} />
+                  Blockchain & Web3
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {blockchainTech.map((tech) => (
+                    <Badge key={tech} variant="secondary" className="bg-github-dark text-github-accent border border-github-accent/30">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* What I Do */}
+        <div className="space-y-6">
+          <h2 className="text-2xl font-bold text-github-accent">What I Do</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="bg-github-secondary border-github-border glass">
+              <CardHeader>
+                <CardTitle className="text-github-accent">🚀 Web3 Development</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-github-text/90">
+                  Building decentralized applications on Solana and Ethereum, creating smart contracts, 
+                  and developing innovative blockchain solutions that bridge traditional and decentralized finance.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-github-secondary border-github-border glass">
+              <CardHeader>
+                <CardTitle className="text-github-accent">🎨 UI/UX Design</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-github-text/90">
+                  Crafting intuitive and beautiful user interfaces with a focus on user experience. 
+                  I believe great design should be both functional and aesthetically pleasing.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-github-secondary border-github-border glass">
+              <CardHeader>
+                <CardTitle className="text-github-accent">📝 Content Writing</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-github-text/90">
+                  Creating technical content, documentation, and thought leadership articles about 
+                  blockchain technology, Web3 trends, and the future of decentralized systems.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-github-secondary border-github-border glass">
+              <CardHeader>
+                <CardTitle className="text-github-accent">📈 Market Trading</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-github-text/90">
+                  Active participant in traditional and crypto markets, applying technical analysis 
+                  and market insights to make informed trading decisions and understand market dynamics.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Personal Interests */}
+        <div className="github-card">
+          <h2 className="text-2xl font-bold mb-6 text-github-accent">Beyond Code</h2>
+          <p className="text-github-text/90 leading-relaxed">
+            When I'm not coding, you'll find me exploring the latest Web3 innovations, 
+            analyzing market trends, or sharing insights about the future of technology through my writing. 
+            I'm passionate about the intersection of technology and finance, and I believe that 
+            decentralized systems will play a crucial role in shaping our digital future.
+          </p>
         </div>
       </div>
     </GitHubLayout>
   );
-};
-
-// Matrix code rain effect
-const MatrixRain = () => {
-  const canvasRef = React.useRef<HTMLCanvasElement>(null);
-  
-  React.useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-    
-    const fontSize = 14;
-    const columns = Math.floor(canvas.width / fontSize);
-    
-    const drops: number[] = [];
-    for (let i = 0; i < columns; i++) {
-      drops[i] = 1;
-    }
-    
-    const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>[]{}/*-+.~";
-    
-    const draw = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      ctx.fillStyle = '#2ea043';
-      ctx.font = `${fontSize}px monospace`;
-      
-      for (let i = 0; i < drops.length; i++) {
-        const text = characters.charAt(Math.floor(Math.random() * characters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        
-        drops[i]++;
-      }
-    };
-    
-    const interval = setInterval(draw, 35);
-    
-    return () => clearInterval(interval);
-  }, []);
-  
-  return <canvas ref={canvasRef} className="w-full h-full" />;
 };
 
 export default About;
