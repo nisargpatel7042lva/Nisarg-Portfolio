@@ -8,27 +8,27 @@ import meImage from '../assets/me3.jpg';
 
 const About = () => {
   const languages = [
-    "JavaScript", "TypeScript", "Python", "Rust", "C#", "C++", "C"
+    "JavaScript", "TypeScript", "Python", "Rust", "C#", "C++", "C", "Solidity"
   ];
-
+  
   const frameworks = [
-    "Next.js", "Express.js", "Flask", "Django"
+    "Next.js", "Express.js", "Flask", "Django", "React", "React Native"
   ];
-
+  
   const libraries = [
-    "React", "React Native", "Node.js"
+    "Node.js", "Web3.js"
   ];
-
+  
   const tools = [
     "Docker", "Cargo", "Anchor", "TailwindCSS", "Vite", "Git", "VS Code", "Figma", "Photoshop"
   ];
-
+  
   const databases = [
-    "MongoDB", "PostgreSQL", "MySQL", "Firebase"
+    "MongoDB", "PostgreSQL", "MySQL", "Firebase", "Supabase", "Appwrite"
   ];
-
+  
   const blockchainTech = [
-    "Solana", "Ethereum", "Web3.js", "Smart Contracts", "DApps"
+    "Solana", "Ethereum", "Smart Contracts", "Solidity"
   ];
 
   return (

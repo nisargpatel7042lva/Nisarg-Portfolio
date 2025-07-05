@@ -25,7 +25,7 @@ const Projects = () => {
       id: 4,
       title: "Clovia",
       description: "Clovia is a Web3-native social staking platform built on Solana that transforms social engagement into a decentralized economy. Users can stake value behind the people they follow, turning attention into capital and enabling influencers, creators, and communities to monetize their social presence. By aligning financial incentives with authentic connections, Clovia redefines how trust, influence, and value are exchanged in the digital world.",
-      technologies: ["Solana", "Web3", "React", "TypeScript", "Social Staking"],
+      technologies: ["Solana", "Web3", "React Native", "TypeScript", "Social Staking"],
       imageUrl: cloviaImage, // Use the newly uploaded Clovia image
       comingSoon: true
     },
