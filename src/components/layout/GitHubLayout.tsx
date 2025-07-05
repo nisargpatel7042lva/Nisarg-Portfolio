@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ExternalLink, LogOut } from 'lucide-react';
@@ -14,6 +15,7 @@ import {
   AlertDialogCancel
 } from "@/components/ui/alert-dialog";
 import { toast } from "sonner";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface GitHubLayoutProps {
   children: React.ReactNode;
@@ -21,6 +23,7 @@ interface GitHubLayoutProps {
 
 const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
   const location = useLocation();
+  const isMobile = useIsMobile();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [displayText, setDisplayText] = useState<string>("Nisarg Patel");
   const [isTyping, setIsTyping] = useState<boolean>(true);
@@ -39,10 +42,13 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
   
   const textOptions = [
     "Nisarg Patel",
-    "Tech Enthusiast | UI/UX Designer | Web3 Explorer | Share Market Trader"
+    isMobile ? "Tech Enthusiast | Web3 Explorer" : "Tech Enthusiast | UI/UX Designer | Web3 Explorer | Share Market Trader"
   ];
   
   useEffect(() => {
+    const typingSpeed = isTyping ? (isMobile ? 80 : 100) : (isMobile ? 30 : 50);
+    const pauseDuration = isMobile ? 1500 : 2000;
+    
     const typingTimeout = setTimeout(() => {
       if (isTyping && !isDeleting) {
         // Typing forward
@@ -50,7 +56,7 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
           // Finished typing current text, wait and then delete
           setTimeout(() => {
             setIsDeleting(true);
-          }, 2000);
+          }, pauseDuration);
         } else {
           // Continue typing
           setDisplayText(textOptions[textIndex].substring(0, displayText.length + 1));
@@ -66,10 +72,10 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
           setDisplayText(displayText.substring(0, displayText.length - 1));
         }
       }
-    }, isTyping ? 100 : 50);
+    }, typingSpeed);
 
     return () => clearTimeout(typingTimeout);
-  }, [displayText, isTyping, isDeleting, textIndex, textOptions]);
+  }, [displayText, isTyping, isDeleting, textIndex, textOptions, isMobile]);
   
   const handleExitWebsite = () => {
     setIsLoading(true);
@@ -99,9 +105,9 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
       <header className="github-header sticky top-0 z-20">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
-            <h1 className="text-lg font-semibold text-github-accent flex items-center">
-              <span>{displayText}</span>
-              <span className="cursor"></span>
+            <h1 className={`font-semibold text-github-accent flex items-center ${isMobile ? 'text-sm' : 'text-lg'}`}>
+              <span className="min-h-[1.2em] flex items-center">{displayText}</span>
+              <span className="cursor ml-1"></span>
             </h1>
           </div>
           

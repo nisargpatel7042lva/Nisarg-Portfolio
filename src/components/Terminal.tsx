@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -97,6 +96,13 @@ const Terminal: React.FC = () => {
       description: 'View my projects',
       action: () => {
         navigate('/projects');
+      }
+    },
+    blog: {
+      label: 'blog',
+      description: 'View my blog posts and articles',
+      action: () => {
+        navigate('/blog');
       }
     },
     contact: {
