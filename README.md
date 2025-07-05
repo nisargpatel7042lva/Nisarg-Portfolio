@@ -1,6 +1,6 @@
 # 🌐 Nisarg Patel — Developer Portfolio
 
-Welcome to my personal portfolio website! This site showcases my skills, projects, and experiences as a developer, designer, and tech enthusiast. Built using modern web technologies, this portfolio reflects my journey, creativity, and commitment to creating impactful digital experiences.
+Welcome to my personal portfolio website! This site showcases my skills, projects, and experiences as a developer, designer, and web3 Enthusiast. Built using modern web technologies, this portfolio reflects my journey, creativity, and commitment to creating impactful digital experiences.
 
 ## 🚀 Live Website
 

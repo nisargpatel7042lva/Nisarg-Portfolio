@@ -39,7 +39,7 @@ const Home = () => {
             <div className="md:w-2/3 text-center md:text-left">
               <h1 className="text-4xl font-bold mb-3 text-github-accent">Nisarg Patel</h1>
               <p className="text-xl text-github-text mb-6 opacity-90">
-                Tech Enthusiast | Open Source Contributor | Web 3 Explorer | UI/UX Designer |  Founder   
+                Web 3 Developer | UI/UX Designer | Content Writer | Share Market Trader  
               </p>
               <p className="mb-6 text-github-text/80 leading-relaxed">
                 Welcome to my terminal-inspired portfolio. Explore my projects, experience, and more

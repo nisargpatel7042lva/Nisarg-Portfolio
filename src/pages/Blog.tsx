@@ -37,7 +37,7 @@ const Blog = () => {
         <div>
           <h1 className="text-2xl font-bold mb-6 flex items-center gap-2">
             <BookOpen className="text-github-accent" />
-            Blog Posts & Articles
+            Blog, Threads & Articles
           </h1>
           <p className="mb-8 text-github-text/90">
             My thoughts and insights on blockchain technology, Web3 innovations, and the future of decentralized finance.

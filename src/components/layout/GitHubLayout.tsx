@@ -42,7 +42,7 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
   
   const textOptions = [
     "Nisarg Patel",
-    isMobile ? "Tech Enthusiast | Web3 Explorer" : "Tech Enthusiast | UI/UX Designer | Web3 Explorer | Share Market Trader"
+    isMobile ? "Web 3 Developer | UI/UX Designer | Content Writer | Share Market Trader" : "Web 3 Developer | UI/UX Designer | Content Writer | Share Market Trader"
   ];
   
   useEffect(() => {
