@@ -31,12 +31,12 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
   const [textIndex, setTextIndex] = useState<number>(0);
   
   const navItems = [
+    { path: '/about', label: 'About' },
     { path: '/home', label: 'Overview' },
     { path: '/projects', label: 'Projects' },
     { path: '/experience', label: 'Experience' },
-    { path: '/blog', label: 'Blog' },
-    { path: '/about', label: 'About' },
     { path: '/contact', label: 'Contact' },
+    { path: '/blog', label: 'Blog' },
     { path: '/socials', label: 'Socials' },
   ];
   
