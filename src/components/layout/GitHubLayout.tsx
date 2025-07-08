@@ -16,6 +16,7 @@ import {
 import { toast } from "sonner";
 import { useIsMobile } from "@/hooks/use-mobile";
 import MobileNav from '@/components/MobileNav';
+import JarvisChat from '@/components/JarvisChat';
 
 interface GitHubLayoutProps {
   children: React.ReactNode;
@@ -195,6 +196,9 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
           </a>
         </div>
       </footer>
+      
+      {/* JARVIS AI Chat Assistant */}
+      <JarvisChat />
     </div>
   );
 };
