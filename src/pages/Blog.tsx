@@ -3,7 +3,6 @@ import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Calendar, BookOpen } from 'lucide-react';
-import TwitterThreads from '@/components/TwitterThreads';
 
 const Blog = () => {
   const blogPosts = [
@@ -37,15 +36,12 @@ const Blog = () => {
         <div>
           <h1 className="text-2xl font-bold mb-6 flex items-center gap-2">
             <BookOpen className="text-github-accent" />
-            Blog, Threads & Articles
+            Blog & Articles
           </h1>
           <p className="mb-8 text-github-text/90">
             My thoughts and insights on blockchain technology, Web3 innovations, and the future of decentralized finance.
           </p>
         </div>
-        
-        {/* Twitter Threads Section */}
-        <TwitterThreads />
         
         {/* Blog Posts Section */}
         <div className="space-y-6">
