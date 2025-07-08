@@ -13,47 +13,47 @@ const Home = () => {
       <div className="space-y-12">
         {/* Hero */}
         <div className="github-card animated-border">
-          <div className="flex flex-col md:flex-row gap-8 items-center">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
             <div className="md:w-1/3">
               <div className="relative flex items-center justify-center">
-                {/* Enhanced Radar Effect */}
-                <div className="absolute w-48 h-48 rounded-full border-4 border-github-accent/50 animate-radar-ring-1"></div>
-                <div className="absolute w-48 h-48 rounded-full border-4 border-github-accent/40 animate-radar-ring-2"></div>
-                <div className="absolute w-48 h-48 rounded-full border-4 border-github-accent/30 animate-radar-ring-3"></div>
+                {/* Enhanced Radar Effect - Smaller on mobile */}
+                <div className="absolute w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-github-accent/50 animate-radar-ring-1"></div>
+                <div className="absolute w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-github-accent/40 animate-radar-ring-2"></div>
+                <div className="absolute w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-github-accent/30 animate-radar-ring-3"></div>
                 
                 {/* Glowing background circles */}
-                <div className="absolute w-48 h-48 rounded-full bg-gradient-radial from-github-accent/30 via-github-accent/20 to-transparent"></div>
+                <div className="absolute w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-radial from-github-accent/30 via-github-accent/20 to-transparent"></div>
                 
                 {/* Rotating radar effect */}
-                <div className="absolute w-48 h-48 rounded-full overflow-hidden">
+                <div className="absolute w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden">
                   <div className="absolute inset-0 bg-conic-gradient animate-radar-rotate"></div>
                 </div>
                 
-                {/* Profile picture container */}
-                <div className="rounded-full overflow-hidden border-4 border-github-accent w-48 h-48 shadow-xl shadow-github-accent/30 hover:shadow-2xl hover:shadow-github-accent/40 transition-all duration-500 relative z-10">
+                {/* Profile picture container - Smaller on mobile */}
+                <div className="rounded-full overflow-hidden border-4 border-github-accent w-32 h-32 md:w-48 md:h-48 shadow-xl shadow-github-accent/30 hover:shadow-2xl hover:shadow-github-accent/40 transition-all duration-500 relative z-10">
                   <img src={meImage} alt="Nisarg Patel" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
             
             <div className="md:w-2/3 text-center md:text-left">
-              <h1 className="text-4xl font-bold mb-3 text-github-accent">Nisarg Patel</h1>
-              <p className="text-xl text-github-text mb-6 opacity-90">
+              <h1 className="text-3xl md:text-4xl font-bold mb-2 md:mb-3 text-github-accent">Nisarg Patel</h1>
+              <p className="text-lg md:text-xl text-github-text mb-4 md:mb-6 opacity-90">
                 Web 3 Developer | UI/UX Designer | Content Writer | Share Market Trader  
               </p>
-              <p className="mb-6 text-github-text/80 leading-relaxed">
+              <p className="mb-4 md:mb-6 text-sm md:text-base text-github-text/80 leading-relaxed">
                 Welcome to my terminal-inspired portfolio. Explore my projects, experience, and more
                 using GitHub-style navigation or terminal commands.
               </p>
-              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+              <div className="flex flex-wrap gap-2 md:gap-3 justify-center md:justify-start">
                 <Link to="/about">
-                  <Button variant="default" className="bg-github-accent hover:bg-github-accent/80 shadow-md hover:shadow-xl transition-all">About Me</Button>
+                  <Button variant="default" size="sm" className="bg-github-accent hover:bg-github-accent/80 shadow-md hover:shadow-xl transition-all">About Me</Button>
                 </Link>
                 <Link to="/projects">
-                  <Button variant="outline" className="border-github-accent text-github-accent hover:bg-github-accent hover:text-white shadow-md hover:shadow-xl transition-all">View Projects</Button>
+                  <Button variant="outline" size="sm" className="border-github-accent text-github-accent hover:bg-github-accent hover:text-white shadow-md hover:shadow-xl transition-all">View Projects</Button>
                 </Link>
                 <Link to="/contact">
-                  <Button variant="outline" className="border-github-accent text-github-accent hover:bg-github-accent hover:text-white shadow-md hover:shadow-xl transition-all">Get In Touch</Button>
+                  <Button variant="outline" size="sm" className="border-github-accent text-github-accent hover:bg-github-accent hover:text-white shadow-md hover:shadow-xl transition-all">Get In Touch</Button>
                 </Link>
               </div>
             </div>

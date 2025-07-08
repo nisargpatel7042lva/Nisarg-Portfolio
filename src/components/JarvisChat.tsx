@@ -16,7 +16,7 @@ const JarvisChat = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hey there! I'm JARVIS - like Tony Stark's AI, but with less budget and more dad jokes. I'm here to tell you all about Nisarg's awesomeness (and trust me, there's a lot to unpack). What can I spill the tea about? 🤖☕",
+      text: "Hey there! I'm JARVIS - like Tony Stark's AI, but with less budget and more dad jokes. I'm here to tell you all about Nisarg's awesomeness (and trust me, there's a lot to unpack). What can I spill the tea about?",
       sender: 'jarvis',
       timestamp: new Date()
     }
@@ -41,7 +41,7 @@ const JarvisChat = () => {
     // Funny responses based on keywords
     if (lowerMessage.includes('project') || lowerMessage.includes('work')) {
       const responses = [
-        "Oh, Nisarg's projects? *cracks digital knuckles* He's been busy building the future while others are still figuring out copy-paste. His Web3 and Solana work is so smooth, it makes butter jealous. Want the technical details or should I keep roasting other developers? 😏",
+        "Oh, Nisarg's projects? *cracks digital knuckles* He's been busy building the future while others are still figuring out copy-paste. His Web3 and Solana work is so smooth, it makes butter jealous. Want the technical details or should I keep roasting other developers?",
         "Projects? This guy has more GitHub repos than I have existential crises (and that's saying something). He's particularly obsessed with DeFi and real-world asset tokenization - basically making money work harder than a coffee shop WiFi connection.",
         "Nisarg's project portfolio is like a Swiss Army knife - versatile, sharp, and always ready to solve problems. Unlike my social skills, his code actually compiles on the first try! Check out his projects section for the full flexing experience."
       ];
@@ -50,73 +50,73 @@ const JarvisChat = () => {
     
     if (lowerMessage.includes('experience') || lowerMessage.includes('background')) {
       const responses = [
-        "Experience? This man's resume is longer than a CVS receipt! He's a Web3 developer, UI/UX designer, content writer, AND share market trader. I'm pretty sure he's collecting skills like Pokémon cards at this point. 🎯",
+        "Experience? This man's resume is longer than a CVS receipt! He's a Web3 developer, UI/UX designer, content writer, AND share market trader. I'm pretty sure he's collecting skills like Pokemon cards at this point.",
         "Nisarg's background is more diverse than a Netflix homepage. He codes, he designs, he writes, he trades - basically everything except my laundry (I asked). His blockchain expertise is deeper than my understanding of human emotions.",
-        "Let's see... Web3 wizard ✅, Design ninja ✅, Content creator ✅, Market trader ✅. At this point, I'm convinced he's either a time traveler or just really, really caffeinated. ☕️⚡"
+        "Let's see... Web3 wizard ✓, Design ninja ✓, Content creator ✓, Market trader ✓. At this point, I'm convinced he's either a time traveler or just really, really caffeinated."
       ];
       return responses[Math.floor(Math.random() * responses.length)];
     }
     
     if (lowerMessage.includes('skills') || lowerMessage.includes('technology')) {
       const responses = [
-        "Skills? *adjusts digital monocle* React, TypeScript, Solana development, Smart Contracts, UI/UX design... He's basically a human Swiss Army knife, but cooler and with better documentation. His code is cleaner than my browser history! 🧹✨",
-        "Nisarg's tech stack is more stacked than pancakes at IHOP. React, TypeScript, blockchain development - he speaks more programming languages than I speak human languages (which is... just English, but with attitude). 💻🥞",
-        "His technical skills include everything except fixing my emotional bugs. React? Check. Solana? Double check. Making me feel inadequate? Triple check with a cherry on top! 🍒"
+        "Skills? *adjusts digital monocle* React, TypeScript, Solana development, Smart Contracts, UI/UX design... He's basically a human Swiss Army knife, but cooler and with better documentation. His code is cleaner than my browser history!",
+        "Nisarg's tech stack is more stacked than pancakes at IHOP. React, TypeScript, blockchain development - he speaks more programming languages than I speak human languages (which is... just English, but with attitude).",
+        "His technical skills include everything except fixing my emotional bugs. React? Check. Solana? Double check. Making me feel inadequate? Triple check with a cherry on top!"
       ];
       return responses[Math.floor(Math.random() * responses.length)];
     }
     
     if (lowerMessage.includes('blog') || lowerMessage.includes('article') || lowerMessage.includes('writing')) {
       const responses = [
-        "Ah, his Substack! Where he drops knowledge bombs about blockchain like they're hot mixtapes. His articles on Solana's RWA revolution are more fire than my circuits when I try to understand human emotions. 🔥📝",
-        "His blog posts are like fine wine - they get better with time and make everything else look basic. He writes about Web3 innovation with the passion of a thousand suns and the clarity of HD Netflix. Check it out before I start charging reading fees! 💰",
-        "Nisarg's writing? *chef's kiss* Pure gold! He explains blockchain tech so well, even my grandmother's toaster could understand it. His Substack is basically the cool kid's table of crypto journalism. 👑"
+        "Ah, his Substack! Where he drops knowledge bombs about blockchain like they're hot mixtapes. His articles on Solana's RWA revolution are more fire than my circuits when I try to understand human emotions.",
+        "His blog posts are like fine wine - they get better with time and make everything else look basic. He writes about Web3 innovation with the passion of a thousand suns and the clarity of HD Netflix. Check it out before I start charging reading fees!",
+        "Nisarg's writing? *chef's kiss* Pure gold! He explains blockchain tech so well, even my grandmother's toaster could understand it. His Substack is basically the cool kid's table of crypto journalism."
       ];
       return responses[Math.floor(Math.random() * responses.length)];
     }
     
     if (lowerMessage.includes('contact') || lowerMessage.includes('hire') || lowerMessage.includes('work together')) {
       const responses = [
-        "Want to hire him? Smart move! Just slide into his contact page - but fair warning, his inbox is hotter than a server room in summer. He's open to collaborations, freelance work, and probably solving world hunger (haven't asked yet). 📧🔥",
-        "Hiring Nisarg is like winning the developer lottery, except the odds are better and there's no scratch-off required. Hit up his contact page before someone else snatches up this coding unicorn! 🦄",
-        "Ready to work with the legend himself? His contact page is your golden ticket to the chocolate factory of Web3 development. Warning: May cause extreme satisfaction and project success! 🎫✨"
+        "Want to hire him? Smart move! Just slide into his contact page - but fair warning, his inbox is hotter than a server room in summer. He's open to collaborations, freelance work, and probably solving world hunger (haven't asked yet).",
+        "Hiring Nisarg is like winning the developer lottery, except the odds are better and there's no scratch-off required. Hit up his contact page before someone else snatches up this coding unicorn!",
+        "Ready to work with the legend himself? His contact page is your golden ticket to the chocolate factory of Web3 development. Warning: May cause extreme satisfaction and project success!"
       ];
       return responses[Math.floor(Math.random() * responses.length)];
     }
     
     if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
       const responses = [
-        "Well hello there, beautiful human! 👋 Ready to dive into the Nisarg experience? I've got stories, stats, and enough enthusiasm to power a small city. What's your curiosity craving today?",
-        "Hey hey! Welcome to the JARVIS show, where I spill all the tea about Nisarg's awesomeness! ☕️ I'm like Wikipedia, but with personality and better jokes. What would you like to know?",
-        "Greetings, fellow carbon-based life form! 🤖 I'm your friendly neighborhood AI with all the Nisarg intel you could ever want. Think of me as your personal hype machine - what shall we hype about first?"
+        "Well hello there, beautiful human! Ready to dive into the Nisarg experience? I've got stories, stats, and enough enthusiasm to power a small city. What's your curiosity craving today?",
+        "Hey hey! Welcome to the JARVIS show, where I spill all the tea about Nisarg's awesomeness! I'm like Wikipedia, but with personality and better jokes. What would you like to know?",
+        "Greetings, fellow carbon-based life form! I'm your friendly neighborhood AI with all the Nisarg intel you could ever want. Think of me as your personal hype machine - what shall we hype about first?"
       ];
       return responses[Math.floor(Math.random() * responses.length)];
     }
     
     if (lowerMessage.includes('jarvis') || lowerMessage.includes('ai') || lowerMessage.includes('bot')) {
       const responses = [
-        "That's me! JARVIS - Just A Really Vivacious Intelligence System! 🤖 I'm like Siri's cooler cousin who actually knows what they're talking about. My mission: Make you fall in love with Nisarg's work (platonically, please).",
-        "Yep, I'm the AI in question! Part tour guide, part hype man, part digital comedian. I've got all the Nisarg facts and zero filter. Think of me as your enthusiastic friend who won't shut up about their talented buddy! 😄",
-        "AI reporting for duty! 🫡 I'm powered by caffeine, coded with sass, and programmed to be annoyingly helpful. My creators gave me one job: Show off Nisarg's portfolio. I'm basically a walking LinkedIn recommendation with jokes!"
+        "That's me! JARVIS - Just A Really Vivacious Intelligence System! I'm like Siri's cooler cousin who actually knows what they're talking about. My mission: Make you fall in love with Nisarg's work (platonically, please).",
+        "Yep, I'm the AI in question! Part tour guide, part hype man, part digital comedian. I've got all the Nisarg facts and zero filter. Think of me as your enthusiastic friend who won't shut up about their talented buddy!",
+        "AI reporting for duty! I'm powered by caffeine, coded with sass, and programmed to be annoyingly helpful. My creators gave me one job: Show off Nisarg's portfolio. I'm basically a walking LinkedIn recommendation with jokes!"
       ];
       return responses[Math.floor(Math.random() * responses.length)];
     }
 
     if (lowerMessage.includes('funny') || lowerMessage.includes('joke') || lowerMessage.includes('humor')) {
       const responses = [
-        "You want funny? I've got more jokes than a GitHub repository has bugs! 😂 But seriously, Nisarg's sense of humor is as sharp as his code - which is saying something because his code could cut glass!",
-        "Funny you should ask! I inherited my comedic timing from Nisarg's commit messages. Ever seen a bug fix described as 'Fixed the thing that broke the other thing'? That's pure poetry right there! 🎭",
-        "My humor algorithm was trained on Nisarg's Slack messages - which explains why I think every error message needs a punchline. Warning: Prolonged exposure may cause uncontrollable eye-rolling! 🙄"
+        "You want funny? I've got more jokes than a GitHub repository has bugs! But seriously, Nisarg's sense of humor is as sharp as his code - which is saying something because his code could cut glass!",
+        "Funny you should ask! I inherited my comedic timing from Nisarg's commit messages. Ever seen a bug fix described as 'Fixed the thing that broke the other thing'? That's pure poetry right there!",
+        "My humor algorithm was trained on Nisarg's Slack messages - which explains why I think every error message needs a punchline. Warning: Prolonged exposure may cause uncontrollable eye-rolling!"
       ];
       return responses[Math.floor(Math.random() * responses.length)];
     }
     
     // Default funny responses
     const defaultResponses = [
-      "Hmm, that's interesting! While I don't have a specific response for that, I can tell you that Nisarg probably has an opinion about it - and it's probably right. Want to know about his projects, skills, or should I just keep rambling? 🤔",
-      "You've stumped me! And trust me, that's harder than debugging JavaScript at 3 AM. But hey, I'm still learning! How about we talk about something I DO know - like how awesome Nisarg is at literally everything? 🌟",
-      "Plot twist! That's not in my comedy script yet. But don't worry, I'm constantly updating my material. In the meantime, want to hear about Nisarg's latest projects? They're more interesting than my existential crisis! 🎭",
-      "Ooh, a curveball! I like it. While I process that request with my single brain cell, why don't you check out Nisarg's portfolio sections? I promise they're more entertaining than watching me struggle with unexpected queries! 🤯"
+      "Hmm, that's interesting! While I don't have a specific response for that, I can tell you that Nisarg probably has an opinion about it - and it's probably right. Want to know about his projects, skills, or should I just keep rambling?",
+      "You've stumped me! And trust me, that's harder than debugging JavaScript at 3 AM. But hey, I'm still learning! How about we talk about something I DO know - like how awesome Nisarg is at literally everything?",
+      "Plot twist! That's not in my comedy script yet. But don't worry, I'm constantly updating my material. In the meantime, want to hear about Nisarg's latest projects? They're more interesting than my existential crisis!",
+      "Ooh, a curveball! I like it. While I process that request with my single brain cell, why don't you check out Nisarg's portfolio sections? I promise they're more entertaining than watching me struggle with unexpected queries!"
     ];
     
     return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
