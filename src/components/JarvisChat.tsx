@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -17,7 +16,7 @@ const JarvisChat = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hey there! I'm JARVIS - like Tony Stark's AI, but with less budget and more dad jokes. I'm here to tell you all about Nisarg's awesomeness (and trust me, there's a lot to unpack). What can I spill the tea about?",
+      text: "Hello! I'm JARVIS, Nisarg's AI assistant. I'm here to help you learn more about Nisarg's professional background, skills, and experience. Feel free to ask me anything about his work, projects, or expertise.",
       sender: 'jarvis',
       timestamp: new Date()
     }
@@ -39,46 +38,46 @@ const JarvisChat = () => {
   const getJarvisResponse = async (userMessage: string): Promise<string> => {
     const lowerMessage = userMessage.toLowerCase();
     
-    // Enhanced keyword matching with more intelligent responses
+    // Professional keyword-based responses
     const keywordResponses = {
       // Technical skills and technologies
-      'react': "React? Nisarg doesn't just use React - he thinks in JSX! His components are so well-structured, they make the component tree jealous. He's been crafting beautiful UIs with React hooks before they were cool.",
-      'typescript': "TypeScript is Nisarg's love language! He writes type-safe code that's cleaner than a freshly formatted hard drive. His interfaces are so well-defined, even TypeScript's compiler sends him thank-you notes.",
-      'solana': "Solana development? That's Nisarg's playground! He builds on Solana like he's architecting the future of finance. His smart contracts are so efficient, they make other blockchains look like dial-up internet.",
-      'blockchain': "Blockchain is where Nisarg really shines! He doesn't just build on blockchain - he thinks in distributed ledger. His DeFi solutions are more innovative than sliced bread (and way more profitable).",
-      'web3': "Web3 is Nisarg's natural habitat! He's been building decentralized apps since before Web3 was a buzzword. His dApps are so user-friendly, they make traditional apps look prehistoric.",
-      'nextjs': "Next.js? Nisarg treats it like his personal framework! His server-side rendering is so smooth, it makes butter jealous. He optimizes performance like he's training for the Olympics.",
-      'tailwind': "Tailwind CSS and Nisarg are a match made in developer heaven! His utility-first styling is so clean, Marie Kondo would be proud. He creates responsive designs faster than you can say 'mobile-first'.",
+      'react': "Nisarg is highly proficient in React development. He has extensive experience building modern web applications using React, leveraging hooks, context API, and component composition patterns. His React projects demonstrate clean architecture and performance optimization.",
+      'typescript': "TypeScript is one of Nisarg's core competencies. He writes type-safe, maintainable code with comprehensive type definitions. His TypeScript expertise ensures robust applications with fewer runtime errors and better developer experience.",
+      'solana': "Nisarg specializes in Solana blockchain development. He has experience building decentralized applications, smart contracts, and DeFi protocols on the Solana network. His understanding of Solana's architecture enables him to create efficient and scalable blockchain solutions.",
+      'blockchain': "Blockchain development is a key area of Nisarg's expertise. He works with various blockchain platforms, understands consensus mechanisms, smart contract development, and decentralized application architecture. His blockchain projects focus on real-world utility and user adoption.",
+      'web3': "Nisarg is experienced in Web3 development, building decentralized applications that interact with blockchain networks. He understands wallet integration, token standards, and the principles of decentralized systems. His Web3 projects emphasize user experience and accessibility.",
+      'nextjs': "Next.js is part of Nisarg's modern web development stack. He leverages Next.js for server-side rendering, static site generation, and building performant React applications. His Next.js projects demonstrate optimization techniques and modern deployment practices.",
+      'tailwind': "Nisarg uses Tailwind CSS extensively for creating responsive, modern user interfaces. He applies design systems principles and creates consistent, maintainable styling across applications. His Tailwind implementations focus on responsive design and accessibility.",
       
       // Design and creativity
-      'design': "Design is where Nisarg's artistic soul meets his technical brain! His UI/UX work is so intuitive, users think the interface can read their minds. He creates user experiences smoother than a jazz saxophone solo.",
-      'ui': "UI design? Nisarg crafts interfaces like Michelangelo painted ceilings! His user interfaces are so beautiful, they should be in museums. Every pixel is placed with the precision of a Swiss watchmaker.",
-      'ux': "UX is Nisarg's superpower! He designs user journeys so seamless, people forget they're using technology. His wireframes are more organized than a NASA mission plan.",
+      'design': "Nisarg has a strong background in UI/UX design. He creates user-centered designs that prioritize usability and accessibility. His design process involves user research, wireframing, prototyping, and iterative testing to ensure optimal user experiences.",
+      'ui': "User Interface design is one of Nisarg's strengths. He creates clean, intuitive interfaces that enhance user interaction. His UI work focuses on visual hierarchy, consistency, and responsive design principles.",
+      'ux': "User Experience is central to Nisarg's design philosophy. He conducts user research, creates user personas, and designs user journeys that solve real problems. His UX approach is data-driven and focused on measurable improvements.",
       
       // Content and writing
-      'writing': "Nisarg's writing skills are legendary! His technical articles explain complex concepts so clearly, even my processor understands them. His Substack is basically the Netflix of blockchain content.",
-      'content': "Content creation? Nisarg doesn't just write content - he crafts digital masterpieces! His articles are more engaging than a season finale cliffhanger. He explains Web3 like he's telling bedtime stories (but way more exciting).",
-      'blog': "His blog is where knowledge meets entertainment! Nisarg writes about blockchain innovation with the passion of a thousand burning CPUs. Every post is a journey through the future of technology.",
+      'writing': "Nisarg is an accomplished technical writer. He creates clear, comprehensive documentation and educational content about blockchain technology, web development, and emerging technologies. His writing makes complex topics accessible to diverse audiences.",
+      'content': "Content creation is one of Nisarg's key skills. He produces educational articles, technical guides, and thought leadership pieces about Web3 and blockchain technology. His content strategy focuses on providing value to the developer community.",
+      'blog': "Nisarg maintains an active blog where he shares insights about blockchain technology, development best practices, and industry trends. His blog posts are well-researched and provide practical value to readers.",
       
       // Trading and finance
-      'trading': "Share market trading? Nisarg reads market charts like he's decoding the Matrix! His trading strategies are so calculated, spreadsheets bow down to him. He analyzes trends faster than a supercomputer on caffeine.",
-      'market': "Market analysis is Nisarg's secret weapon! He predicts market movements like he has a crystal ball made of pure data. His investment insights are sharper than a brand new IDE.",
-      'finance': "Finance and Nisarg go together like code and coffee! He understands financial markets so well, numbers literally rearrange themselves to make sense. His portfolio management skills are legendary.",
+      'trading': "Nisarg has experience in financial markets and trading. He applies analytical thinking and data-driven strategies to market analysis. His understanding of financial markets complements his blockchain and DeFi development work.",
+      'market': "Market analysis is part of Nisarg's skill set. He understands market dynamics, trend analysis, and risk management. This knowledge is particularly valuable in his blockchain and cryptocurrency-related projects.",
+      'finance': "Nisarg has a solid understanding of financial principles and markets. This knowledge enhances his ability to develop DeFi applications and understand the economic implications of blockchain technology.",
       
       // Portfolio and achievements
-      'portfolio': "His portfolio is basically a greatest hits album of innovation! Every project showcases a different superpower. It's like a museum of 'How to Build the Future' - definitely worth the virtual tour!",
-      'achievements': "Nisarg's achievements read like a tech superhero's resume! Web3 development, UI/UX mastery, content creation, trading expertise - he collects skills like they're rare Pokemon cards!",
-      'education': "Education? Nisarg is basically a self-taught Renaissance person! He learns new technologies faster than I process my morning boot sequence. His curiosity engine runs on pure innovation fuel.",
+      'portfolio': "Nisarg's portfolio showcases a diverse range of projects spanning Web3 development, UI/UX design, and technical writing. Each project demonstrates his ability to solve complex problems and deliver high-quality solutions.",
+      'achievements': "Nisarg has built a strong professional profile through his work in blockchain development, content creation, and design. His achievements include successful project deliveries, thought leadership in Web3, and contributions to the developer community.",
+      'education': "Nisarg is a continuous learner who stays updated with the latest technologies and industry trends. He combines formal education with self-directed learning to maintain expertise in rapidly evolving fields.",
       
       // Collaboration and work
-      'collaborate': "Want to collaborate? Smart choice! Working with Nisarg is like having a Swiss Army knife teammate - versatile, reliable, and always ready for any challenge. His collaboration style is smoother than silk pajamas.",
-      'freelance': "Freelance work with Nisarg? That's like hiring a one-person innovation department! His project delivery is more reliable than gravity. Clients don't just get code - they get digital magic!",
-      'team': "Nisarg in a team setting? He's like the perfect teammate multiplier! His communication skills are clearer than 4K resolution. He lifts everyone's game like a productivity power-up.",
+      'collaborate': "Nisarg is an effective collaborator who works well in team environments. He communicates clearly, shares knowledge, and contributes to positive team dynamics. His collaborative approach enhances project outcomes.",
+      'freelance': "Nisarg offers freelance services in Web3 development, UI/UX design, and technical consulting. He delivers projects on time and maintains high quality standards while working with clients across different industries.",
+      'team': "Nisarg is a valuable team member who brings technical expertise and a problem-solving mindset. He mentors junior developers and contributes to team knowledge sharing and best practices.",
       
-      // Fun and personality
-      'hobbies': "Besides conquering the digital world, Nisarg probably has hobbies that are just as impressive! Though honestly, when you're this good at everything, regular hobbies might seem boring.",
-      'personality': "Nisarg's personality? Imagine if enthusiasm had a baby with expertise, and that baby was raised by innovation! He's the kind of person who makes complex problems look like Sunday crosswords.",
-      'fun': "Fun fact about Nisarg: he makes learning look effortless! His energy for new technologies is more infectious than viral videos. He probably dreams in code and wakes up with solutions!"
+      // Skills and experience
+      'experience': "Nisarg has comprehensive experience across the full stack of modern web development, with particular expertise in blockchain technologies. His experience spans frontend development, smart contract programming, and user experience design.",
+      'skills': "Nisarg's core skills include React/TypeScript development, Solana blockchain programming, UI/UX design, and technical writing. He combines technical proficiency with strong communication and problem-solving abilities.",
+      'projects': "Nisarg's projects demonstrate his ability to build complete solutions from concept to deployment. His work includes DeFi applications, user interfaces, and educational content that serves the broader tech community."
     };
 
     // Check for specific keywords first
@@ -88,55 +87,54 @@ const JarvisChat = () => {
       }
     }
     
-    // Original category-based responses with enhanced intelligence
+    // Category-based responses
     if (lowerMessage.includes('project') || lowerMessage.includes('work') || lowerMessage.includes('build')) {
       const responses = [
-        "Projects? Nisarg's GitHub is like a treasure chest of innovation! His Web3 and Solana work is so cutting-edge, it makes bleeding-edge technology look dull. Each project solves real problems while pushing boundaries.",
-        "His project portfolio is more diverse than a Netflix homepage! From DeFi protocols to stunning UIs, he builds solutions that actually matter. His code doesn't just work - it performs like a Formula 1 car.",
-        "Want to see real innovation? Nisarg's projects showcase everything from blockchain wizardry to pixel-perfect designs. He doesn't just build apps - he crafts digital experiences that users actually love."
+        "Nisarg has worked on various projects including blockchain applications, user interface designs, and technical content. His projects demonstrate expertise in modern web technologies and blockchain development.",
+        "His project portfolio includes DeFi protocols, responsive web applications, and educational content about Web3 technologies. Each project showcases his ability to deliver complete, production-ready solutions.",
+        "Nisarg's projects span multiple domains: blockchain development with Solana, frontend applications with React and TypeScript, and design systems that prioritize user experience."
       ];
       return responses[Math.floor(Math.random() * responses.length)];
     }
     
-    if (lowerMessage.includes('experience') || lowerMessage.includes('background') || lowerMessage.includes('career')) {
+    if (lowerMessage.includes('background') || lowerMessage.includes('career') || lowerMessage.includes('professional')) {
       const responses = [
-        "Experience? Nisarg's background reads like a masterclass in modern tech! Web3 development, UI/UX design, content creation, trading - he's basically a human Swiss Army knife with a computer science degree.",
-        "His career journey is more impressive than a rocket launch! From mastering blockchain development to creating stunning user experiences, he's collected expertise like achievements in a video game.",
-        "Background check on Nisarg: Expert level in everything he touches! His experience spans the entire digital universe - coding, designing, writing, trading. It's like he has cheat codes for talent acquisition."
+        "Nisarg has built a diverse professional background combining technical development with design and content creation. His career focuses on emerging technologies, particularly blockchain and Web3 development.",
+        "His professional journey includes expertise in modern web development, blockchain technology, and user experience design. He has experience working on both individual projects and team collaborations.",
+        "Nisarg's career demonstrates continuous learning and adaptation to new technologies. He combines technical skills with strong communication abilities and business understanding."
       ];
       return responses[Math.floor(Math.random() * responses.length)];
     }
     
-    if (lowerMessage.includes('skills') || lowerMessage.includes('technology') || lowerMessage.includes('tech')) {
+    if (lowerMessage.includes('technology') || lowerMessage.includes('tech') || lowerMessage.includes('programming')) {
       const responses = [
-        "Skills? His tech stack is more stacked than a programmer's coffee cup collection! React, TypeScript, Solana, Next.js, Tailwind - he doesn't just use these tools, he makes them sing opera.",
-        "Technology and Nisarg are basically best friends! His programming skills are so sharp, they could cut through legacy code like a hot knife through butter. Plus his design sense? *Chef's kiss*",
-        "His technical arsenal includes everything from frontend magic to blockchain sorcery. React components bow to his expertise, and Solana smart contracts practically write themselves when he's around."
+        "Nisarg works with modern web technologies including React, TypeScript, Next.js, and Tailwind CSS. His blockchain expertise includes Solana development and smart contract programming.",
+        "His technology stack emphasizes type safety, performance, and maintainability. He stays current with industry best practices and emerging technologies in the Web3 space.",
+        "Nisarg's technical expertise spans frontend development, blockchain programming, and design systems. He applies these skills to create comprehensive solutions for complex problems."
       ];
       return responses[Math.floor(Math.random() * responses.length)];
     }
     
-    // Enhanced question handling
+    // Question handling
     if (lowerMessage.includes('how') || lowerMessage.includes('what') || lowerMessage.includes('why') || lowerMessage.includes('when') || lowerMessage.includes('where')) {
       const questionResponses = [
-        "Great question! While I might not have the exact specifics, I can tell you that Nisarg approaches everything with methodical excellence. Whether it's coding, designing, or strategizing, he breaks down complex problems into elegant solutions.",
-        "That's the kind of thoughtful question Nisarg loves! His approach to problem-solving is both analytical and creative. He combines technical expertise with innovative thinking to find answers that actually work.",
-        "Interesting question! Nisarg's methodology usually involves thorough research, strategic planning, and iterative improvement. He doesn't just find answers - he finds the RIGHT answers that scale and perform.",
-        "You're asking the right questions! Nisarg's process typically involves understanding the core problem, exploring multiple solutions, and implementing the most efficient approach. His decision-making is data-driven and user-focused."
+        "That's a great question about Nisarg's work. His approach typically involves thorough research, strategic planning, and iterative development to ensure high-quality outcomes.",
+        "Nisarg addresses challenges through a combination of technical expertise and user-centered thinking. He focuses on creating solutions that are both technically sound and user-friendly.",
+        "His methodology involves understanding requirements, researching best practices, and implementing solutions with attention to performance, security, and user experience.",
+        "Nisarg's problem-solving approach combines analytical thinking with creative solutions. He considers both technical constraints and user needs when developing applications."
       ];
       return questionResponses[Math.floor(Math.random() * questionResponses.length)];
     }
 
-    // Enhanced default responses for unmatched queries
-    const smartDefaultResponses = [
-      "That's an interesting topic! While I'm specifically programmed to be Nisarg's hype machine, I can tell you he's probably got insights about that too. His curiosity spans everything from cutting-edge tech to market trends!",
-      "Hmm, that's outside my core knowledge base, but here's what I do know: Nisarg has this amazing ability to connect dots across different domains. Whether it's tech, design, or business, he finds innovative angles on everything!",
-      "I may not have specific intel on that, but I can guarantee Nisarg would approach it with his signature blend of technical expertise and creative problem-solving. Want to know about his proven skills instead?",
-      "That's beyond my current programming scope, but knowing Nisarg's track record, he'd probably turn that into his next breakthrough project! His ability to learn and adapt is genuinely impressive.",
-      "While that's not in my specialized Nisarg database, I can tell you he's the type of person who researches everything thoroughly before diving in. His learning curve is basically a vertical line!"
+    // Professional default responses
+    const defaultResponses = [
+      "I'd be happy to tell you more about Nisarg's specific expertise in that area. Could you ask about his technical skills, projects, or professional experience?",
+      "While I don't have specific information about that topic, I can share details about Nisarg's work in blockchain development, UI/UX design, or technical writing. What interests you most?",
+      "That's an interesting question. I can provide information about Nisarg's professional background, technical skills, or recent projects. What would you like to know more about?",
+      "I'm designed to help you understand Nisarg's professional capabilities and experience. Feel free to ask about his work in Web3 development, design, or any specific technologies you're curious about."
     ];
     
-    return smartDefaultResponses[Math.floor(Math.random() * smartDefaultResponses.length)];
+    return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
   };
 
   const handleSendMessage = async () => {
@@ -191,8 +189,8 @@ const JarvisChat = () => {
     <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
       <Card className={cn(
         "bg-github-secondary border-github-border glass shadow-2xl transition-all duration-300",
-        "w-80 md:w-96", // Smaller width on mobile
-        isMinimized ? "h-16" : "h-96 md:h-[500px]" // Smaller height on mobile
+        "w-80 md:w-96",
+        isMinimized ? "h-16" : "h-96 md:h-[500px]"
       )}>
         <CardHeader className="p-3 md:p-4 border-b border-github-border">
           <div className="flex items-center justify-between">
@@ -202,7 +200,7 @@ const JarvisChat = () => {
               </div>
               <div>
                 <CardTitle className="text-xs md:text-sm text-github-accent">JARVIS</CardTitle>
-                <p className="text-xs text-github-text/70 hidden md:block">AI Assistant (with jokes!)</p>
+                <p className="text-xs text-github-text/70 hidden md:block">AI Assistant</p>
               </div>
             </div>
             <div className="flex items-center gap-1">
@@ -269,7 +267,7 @@ const JarvisChat = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Ask me anything..."
+                  placeholder="Ask me anything about Nisarg..."
                   className="flex-1 bg-github-dark border-github-border text-github-text placeholder:text-github-text/50 text-xs md:text-sm h-8 md:h-10"
                 />
                 <Button
