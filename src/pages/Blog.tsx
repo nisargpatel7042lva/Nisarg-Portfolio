@@ -8,6 +8,17 @@ const Blog = () => {
   const blogPosts = [
     {
       id: 1,
+      title: "The Day I Realized My Phone Was Smarter Than My Computer",
+      subtitle: "How Solana Seeker is redefining what a smartphone can be in the Web3 era",
+      date: "2025",
+      readTime: "8 min read",
+      imageUrl: "/lovable-uploads/b309292a-72f5-4551-8304-6a4f9f5b79f9.png",
+      substackUrl: "https://nisargxplores.substack.com/p/the-day-i-realized-my-phone-was-smarter",
+      description: "Exploring the revolutionary Solana Seeker phone and how it's transforming the mobile Web3 experience with built-in crypto capabilities.",
+      tags: ["Solana", "Mobile", "Web3", "Cryptocurrency", "Hardware", "Innovation"]
+    },
+    {
+      id: 2,
       title: "Solana's RWA Revolution: From Memecoin Playground to Wall Street's New Frontier",
       subtitle: "How the blockchain everyone dismissed as a 'casino' became institutional money's favorite settlement layer",
       date: "2025",
@@ -18,7 +29,7 @@ const Blog = () => {
       tags: ["Blockchain", "Solana", "RWA", "DeFi", "Institutional Finance"]
     },
     {
-      id: 2,
+      id: 3,
       title: "The New Internet of Money",
       subtitle: "Solana's $12B Stablecoin Surge",
       date: "2025",
