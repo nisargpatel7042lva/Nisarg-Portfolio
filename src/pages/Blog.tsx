@@ -12,7 +12,7 @@ const Blog = () => {
       date: "2025",
       readTime: "12 min read",
       imageUrl: "/lovable-uploads/40184645-4361-4e55-a44f-953a3b1573e1.png",
-      substackUrl: "https://nisargxplores.substack.com/p/from-overwhelmed-to-on-chain-howandd",
+      substackUrl: "https://substack.com/home/post/p-168051250",
       description: "Discover the essential tools and resources that transform the complex world of Solana development into an accessible and exciting journey for developers of all levels.",
       tags: ["Solana", "Development", "Tools", "Web3", "Programming", "Blockchain"]
     },
