@@ -1,4 +1,3 @@
-
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,6 +7,17 @@ const Blog = () => {
   const blogPosts = [
     {
       id: 1,
+      title: "From Overwhelmed to On-Chain: How Solana Became the Ultimate Developer Playground",
+      subtitle: "A comprehensive guide to the best tools that make Solana development accessible and enjoyable",
+      date: "2025",
+      readTime: "12 min read",
+      imageUrl: "/lovable-uploads/40184645-4361-4e55-a44f-953a3b1573e1.png",
+      substackUrl: "https://nisargxplores.substack.com/p/from-overwhelmed-to-on-chain-howandd",
+      description: "Discover the essential tools and resources that transform the complex world of Solana development into an accessible and exciting journey for developers of all levels.",
+      tags: ["Solana", "Development", "Tools", "Web3", "Programming", "Blockchain"]
+    },
+    {
+      id: 2,
       title: "The Day I Realized My Phone Was Smarter Than My Computer",
       subtitle: "How Solana Seeker is redefining what a smartphone can be in the Web3 era",
       date: "2025",
@@ -18,7 +28,7 @@ const Blog = () => {
       tags: ["Solana", "Mobile", "Web3", "Cryptocurrency", "Hardware", "Innovation"]
     },
     {
-      id: 2,
+      id: 3,
       title: "Solana's RWA Revolution: From Memecoin Playground to Wall Street's New Frontier",
       subtitle: "How the blockchain everyone dismissed as a 'casino' became institutional money's favorite settlement layer",
       date: "2025",
@@ -29,7 +39,7 @@ const Blog = () => {
       tags: ["Blockchain", "Solana", "RWA", "DeFi", "Institutional Finance"]
     },
     {
-      id: 3,
+      id: 4,
       title: "The New Internet of Money",
       subtitle: "Solana's $12B Stablecoin Surge",
       date: "2025",
