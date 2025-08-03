@@ -84,83 +84,96 @@ const Projects = () => {
         {/* Featured Projects */}
         <div>
           <h2 className="text-xl font-semibold mb-6">Featured Projects</h2>
-          <div className="space-y-8">
-            {featuredProjects.map((project) => (
-              <Card key={project.id} className="overflow-hidden bg-github-secondary border-github-border">
-                <div className="md:flex">
-                  <div className="md:w-1/3">
-                    <img 
-                      src={project.imageUrl} 
-                      alt={project.title} 
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="md:w-2/3">
-                    <CardHeader>
-                      <CardTitle className="text-github-accent">{project.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="mb-4">{project.description}</p>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.technologies.map((tech) => (
-                          <span 
-                            key={tech}
-                            className="px-2 py-1 bg-github-dark rounded-full text-xs"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </CardContent>
-                    <CardFooter className="flex gap-4">
-                      {project.comingSoon ? (
-                        <>
-                          <Button 
-                            variant="outline" 
-                            size="sm"
-                            className="flex items-center gap-2"
-                            disabled
-                          >
-                            <Clock size={16} className="mr-2" />
-                            Coming Soon
-                          </Button>
-                          {project.socialLink && (
-                            <Button 
-                              variant="outline" 
-                              size="sm"
-                              onClick={() => window.open(project.socialLink, '_blank')}
-                            >
-                              <Twitter size={16} className="mr-2" />
-                              Social
-                            </Button>
-                          )}
-                        </>
-                      ) : (
-                        <>
-                          <Button 
-                            variant="outline" 
-                            size="sm"
-                            onClick={() => window.open(project.githubLink, '_blank')}
-                          >
-                            <Github size={16} className="mr-2" />
-                            Code
-                          </Button>
-                          {project.demoLink && (
-                            <Button 
-                              variant="default" 
-                              size="sm"
-                              onClick={() => window.open(project.demoLink, '_blank')}
-                            >
-                              <ExternalLink size={16} className="mr-2" />
-                              Live Demo
-                            </Button>
-                          )}
-                        </>
-                      )}
-                    </CardFooter>
-                  </div>
+          <div className="relative space-y-12">
+            {/* Modern gradient timeline line */}
+            <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-gradient-to-b from-github-accent via-github-border to-transparent opacity-60"></div>
+            
+            {featuredProjects.map((project, index) => (
+              <div key={project.id} className="relative group animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                {/* Enhanced timeline marker */}
+                <div className="absolute left-3 top-6 w-6 h-6 rounded-full bg-gradient-to-br from-github-accent to-github-accent/70 border-4 border-github-dark shadow-lg group-hover:scale-110 transition-all duration-300 flex items-center justify-center z-10">
+                  <div className="w-2 h-2 rounded-full bg-white"></div>
                 </div>
-              </Card>
+                
+                {/* Enhanced project card */}
+                <div className="ml-16 transform transition-all duration-300 group-hover:translate-x-2">
+                  <Card className="overflow-hidden bg-gradient-to-br from-github-secondary to-github-secondary/90 border-github-border hover:border-github-accent/50 shadow-lg hover:shadow-xl transition-all duration-300 hover-scale">
+                    <div className="md:flex">
+                      <div className="md:w-1/3">
+                        <img 
+                          src={project.imageUrl} 
+                          alt={project.title} 
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                      <div className="md:w-2/3">
+                        <CardHeader>
+                          <CardTitle className="text-github-accent group-hover:text-white transition-colors duration-300">{project.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="mb-4 leading-relaxed">{project.description}</p>
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {project.technologies.map((tech) => (
+                              <span 
+                                key={tech}
+                                className="px-3 py-1 bg-github-dark rounded-full text-xs border border-github-border hover:border-github-accent/50 transition-colors duration-300"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </CardContent>
+                        <CardFooter className="flex gap-4">
+                          {project.comingSoon ? (
+                            <>
+                              <Button 
+                                variant="outline" 
+                                size="sm"
+                                className="flex items-center gap-2"
+                                disabled
+                              >
+                                <Clock size={16} className="mr-2" />
+                                Coming Soon
+                              </Button>
+                              {project.socialLink && (
+                                <Button 
+                                  variant="outline" 
+                                  size="sm"
+                                  onClick={() => window.open(project.socialLink, '_blank')}
+                                >
+                                  <Twitter size={16} className="mr-2" />
+                                  Social
+                                </Button>
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              <Button 
+                                variant="outline" 
+                                size="sm"
+                                onClick={() => window.open(project.githubLink, '_blank')}
+                              >
+                                <Github size={16} className="mr-2" />
+                                Code
+                              </Button>
+                              {project.demoLink && (
+                                <Button 
+                                  variant="default" 
+                                  size="sm"
+                                  onClick={() => window.open(project.demoLink, '_blank')}
+                                >
+                                  <ExternalLink size={16} className="mr-2" />
+                                  Live Demo
+                                </Button>
+                              )}
+                            </>
+                          )}
+                        </CardFooter>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>
