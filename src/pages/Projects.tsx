@@ -3,15 +3,25 @@ import GitHubLayout from '@/components/layout/GitHubLayout';
 import RepoCarousel from '@/components/RepoCarousel';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Clock } from 'lucide-react';
+import { ExternalLink, Github, Clock, Twitter } from 'lucide-react';
 import projectImage from '../assets/image.png'; // Import the image
 import projectImage2 from '../assets/image2.png'; // Import the image
 import projectImage3 from '../assets/image3.png'; // Import the image
 import cloviaImage from '/lovable-uploads/a8867095-a408-4c3e-99a6-888f0efcdf55.png'; // Import new Clovia image
 import skillSwapImage from '/lovable-uploads/6b3efac9-f6b0-4f5f-8f7a-a3c59b976f2d.png'; // Import Skill Swap DAO image
+import dexImage from '/lovable-uploads/76f90aa6-321b-48b8-8bb0-9670f8e99fe8.png'; // Import DEX 2.0 image
 
 const Projects = () => {
   const featuredProjects = [
+    {
+      id: 6,
+      title: "DEX 2.0",
+      description: "Built a custom decentralized exchange enabling Token-2022 assets with Transfer Hooks to be traded securely on mobile. Integrated Solana Mobile Wallet Adapter, developed a hook validation layer, and implemented an on-chain AMM with mobile-first UX. Designed to support real-world assets (RWA) and compliant DeFi use cases on Solana.",
+      technologies: ["React", "TypeScript", "Anchor", "Solana Program Library", "Token-2022", "Mobile Wallet Adapter"],
+      imageUrl: dexImage,
+      socialLink: "https://x.com/usedex2_0",
+      comingSoon: true
+    },
     {
       id: 5,
       title: "Skill Swap DAO",
@@ -104,15 +114,27 @@ const Projects = () => {
                     </CardContent>
                     <CardFooter className="flex gap-4">
                       {project.comingSoon ? (
-                        <Button 
-                          variant="outline" 
-                          size="sm"
-                          className="flex items-center gap-2"
-                          disabled
-                        >
-                          <Clock size={16} className="mr-2" />
-                          Coming Soon
-                        </Button>
+                        <>
+                          <Button 
+                            variant="outline" 
+                            size="sm"
+                            className="flex items-center gap-2"
+                            disabled
+                          >
+                            <Clock size={16} className="mr-2" />
+                            Coming Soon
+                          </Button>
+                          {project.socialLink && (
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={() => window.open(project.socialLink, '_blank')}
+                            >
+                              <Twitter size={16} className="mr-2" />
+                              Social
+                            </Button>
+                          )}
+                        </>
                       ) : (
                         <>
                           <Button 
