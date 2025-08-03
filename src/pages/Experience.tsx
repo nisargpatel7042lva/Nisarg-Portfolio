@@ -28,6 +28,20 @@ const Experience = () => {
     },
     {
       id: 2,
+      role: "Blockchain Developer",
+      company: "DEX 2.0 - Mobile Decentralized Exchange",
+      period: "2024 - Present",
+      description: [
+        "Built a custom decentralized exchange enabling Token-2022 assets with Transfer Hooks to be traded securely on mobile.",
+        "Integrated Solana Mobile Wallet Adapter for seamless mobile wallet connectivity and transaction signing.",
+        "Developed a comprehensive hook validation layer to ensure secure and compliant token transfers.",
+        "Implemented an on-chain AMM (Automated Market Maker) with mobile-first UX design principles.",
+        "Designed the platform to support real-world assets (RWA) and compliant DeFi use cases on Solana.",
+        "Utilized React, TypeScript, Anchor, and Solana Program Library for full-stack blockchain development."
+      ]
+    },
+    {
+      id: 3,
       role: "Community Volunteer",
       company: "The Hackers Meetup",
       period: "May 2025 - Present",
@@ -37,7 +51,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 3,
+      id: 4,
       role: "Student Ambassador",
       company: "Designare",
       description: [
@@ -47,7 +61,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 4,
+      id: 5,
       role: "Joint Finance Secretary",
       company: "Students' Central Committee, SVIT-Vasad",
       description: [
@@ -56,7 +70,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 5,
+      id: 6,
       role: "Joint Web Designer",
       company: "Indian Society for Technical Education (ISTE)",
       description: [
@@ -65,7 +79,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 6,
+      id: 7,
       role: "Social Media Manager & Customer Relations Manager",
       company: "The A.I.M. Club",
       description: [
@@ -74,7 +88,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 7,
+      id: 8,
       role: "UI/UX Designer Intern",
       company: "CoderOne",
       description: [
@@ -83,7 +97,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 8,
+      id: 9,
       role: "Open-Source Contributor",
       company: "GirlScript Summer of Code",
       description: [
@@ -92,7 +106,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 9,
+      id: 10,
       role: "Social Media Manager",
       company: "AWS User Group Vadodara",
       description: [
@@ -101,7 +115,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 10,
+      id: 11,
       role: "Founder",
       company: "Mysterio Fashion",
       description: [
@@ -110,7 +124,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 11,
+      id: 12,
       role: "Community Growth Associate",
       company: "PhicsIT",
       description: [
