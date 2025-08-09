@@ -30,21 +30,21 @@ const TwitterThreads = () => {
   const sampleTweets = [
     {
       id: "1",
-      text: "🧵 THREAD: Solana's RWA revolution is just getting started. Here's why institutions are choosing Solana over Ethereum for real-world assets...",
+      text: "THREAD: Solana's RWA revolution is just getting started. Here's why institutions are choosing Solana over Ethereum for real-world assets...",
       created_at: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
       public_metrics: { like_count: 45, retweet_count: 12, reply_count: 8 },
       author_id: "user123"
     },
     {
       id: "2", 
-      text: "The stablecoin surge on Solana has reached $12B+ and shows no signs of slowing down. This is what the new internet of money looks like 💰",
+      text: "The stablecoin surge on Solana has reached $12B+ and shows no signs of slowing down. This is what the new internet of money looks like",
       created_at: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
       public_metrics: { like_count: 67, retweet_count: 23, reply_count: 15 },
       author_id: "user123"
     },
     {
       id: "3",
-      text: "🚀 Web3 is evolving beyond DeFi summer. The next wave? Real-world utility and mainstream adoption. Here are the key trends I'm watching...",
+      text: "Web3 is evolving beyond DeFi summer. The next wave? Real-world utility and mainstream adoption. Here are the key trends I'm watching...",
       created_at: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
       public_metrics: { like_count: 89, retweet_count: 34, reply_count: 22 },
       author_id: "user123"

@@ -1,18 +1,33 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Sparkle, Wand2 } from 'lucide-react';
+import { Sparkle, Wand2, Rocket, Star, Gamepad2, Music, Palette, Laptop, Smartphone, Sparkles } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 interface Card {
   id: number;
-  icon: string;
+  iconKey: string;
+  icon: React.ReactNode;
   isFlipped: boolean;
   isMatched: boolean;
 }
 
-const ICONS = ['🚀', '⭐', '🎮', '🎵', '🎨', '💻', '📱', '🔮'];
+const ICON_COMPONENTS = [
+  { key: 'rocket', component: Rocket },
+  { key: 'star', component: Star },
+  { key: 'gamepad', component: Gamepad2 },
+  { key: 'music', component: Music },
+  { key: 'palette', component: Palette },
+  { key: 'laptop', component: Laptop },
+  { key: 'smartphone', component: Smartphone },
+  { key: 'sparkles', component: Sparkles }
+];
+
+const ICONS = ICON_COMPONENTS.map(({ key, component: IconComponent }) => ({
+  key,
+  icon: <IconComponent className="w-6 h-6 text-white" />
+}));
 
 const MemoryGame = () => {
   const [cards, setCards] = useState<Card[]>([]);
@@ -25,9 +40,10 @@ const MemoryGame = () => {
   // Initialize game
   const initializeGame = () => {
     // Create pairs of cards with icons
-    const cardPairs = [...ICONS, ...ICONS].map((icon, index) => ({
+    const cardPairs = [...ICONS, ...ICONS].map((iconData, index) => ({
       id: index,
-      icon,
+      iconKey: iconData.key,
+      icon: iconData.icon,
       isFlipped: false,
       isMatched: false
     }));
@@ -67,7 +83,7 @@ const MemoryGame = () => {
       const [firstIndex, secondIndex] = updatedFlippedCards;
       
       // Check if icons match
-      if (cards[firstIndex].icon === cards[secondIndex].icon) {
+      if (cards[firstIndex].iconKey === cards[secondIndex].iconKey) {
         // Mark cards as matched
         setTimeout(() => {
           const matchedCards = cards.map(card => 
@@ -155,7 +171,9 @@ const MemoryGame = () => {
                 )}
                 onClick={() => handleCardClick(card.id)}
               >
-                {(card.isFlipped || card.isMatched) ? card.icon : '?'}
+                <div className="flex items-center justify-center w-full h-full">
+                  {(card.isFlipped || card.isMatched) ? card.icon : '?'}
+                </div>
               </div>
             ))}
           </div>

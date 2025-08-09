@@ -3,7 +3,7 @@ import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Download, ExternalLink, Code, Palette, TrendingUp, Briefcase, Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Download, ExternalLink, Code, Palette, TrendingUp, Briefcase, Github, Linkedin, Twitter, Mail, Rocket, PenTool } from 'lucide-react';
 import meImage from '../assets/me3.jpg';
 
 const About = () => {
@@ -267,7 +267,10 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <Card className="bg-github-secondary border-github-border glass">
               <CardHeader className="pb-3">
-                <CardTitle className="text-github-accent text-base md:text-lg">🚀 Web3 Development</CardTitle>
+                <CardTitle className="text-github-accent text-base md:text-lg flex items-center gap-2">
+                  <Rocket className="w-5 h-5" />
+                  Web3 Development
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-github-text/90 text-sm md:text-base">
@@ -279,7 +282,10 @@ const About = () => {
 
             <Card className="bg-github-secondary border-github-border glass">
               <CardHeader className="pb-3">
-                <CardTitle className="text-github-accent text-base md:text-lg">🎨 UI/UX Design</CardTitle>
+                <CardTitle className="text-github-accent text-base md:text-lg flex items-center gap-2">
+                  <Palette className="w-5 h-5" />
+                  UI/UX Design
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-github-text/90 text-sm md:text-base">
@@ -291,7 +297,10 @@ const About = () => {
 
             <Card className="bg-github-secondary border-github-border glass">
               <CardHeader className="pb-3">
-                <CardTitle className="text-github-accent text-base md:text-lg">📝 Content Writing</CardTitle>
+                <CardTitle className="text-github-accent text-base md:text-lg flex items-center gap-2">
+                  <PenTool className="w-5 h-5" />
+                  Content Writing
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-github-text/90 text-sm md:text-base">
@@ -303,7 +312,10 @@ const About = () => {
 
             <Card className="bg-github-secondary border-github-border glass">
               <CardHeader className="pb-3">
-                <CardTitle className="text-github-accent text-base md:text-lg">📈 Market Trading</CardTitle>
+                <CardTitle className="text-github-accent text-base md:text-lg flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5" />
+                  Market Trading
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-github-text/90 text-sm md:text-base">
