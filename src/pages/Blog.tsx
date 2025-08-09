@@ -79,60 +79,70 @@ const Blog = () => {
             </a>.
           </p>
           
-          <div className="space-y-8">
-            {blogPosts.map((post) => (
-              <Card key={post.id} className="overflow-hidden bg-github-secondary border-github-border hover:border-github-accent transition-all duration-300 glass shadow-lg hover:shadow-xl hover:-translate-y-1">
-                <div className="md:flex">
-                  <div className="md:w-1/3">
-                    <img 
-                      src={post.imageUrl} 
-                      alt={post.title} 
-                      className="h-full w-full object-cover min-h-[200px]"
-                    />
-                  </div>
-                  <div className="md:w-2/3">
-                    <CardHeader>
-                      <div className="flex items-center gap-2 text-sm text-github-text/70 mb-2">
-                        <Calendar size={14} />
-                        <span>{post.date}</span>
-                        <span>•</span>
-                        <span>{post.readTime}</span>
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-github-accent via-github-accent/50 to-transparent"></div>
+            
+            <div className="space-y-12">
+              {blogPosts.map((post, index) => (
+                <div key={post.id} className="relative">
+                  {/* Timeline Marker */}
+                  <div className="absolute left-6 top-8 w-4 h-4 bg-github-accent rounded-full border-4 border-github-dark shadow-lg animate-pulse"></div>
+                  
+                   <Card className="ml-16 overflow-hidden bg-github-secondary border-github-border hover:border-github-accent transition-all duration-500 glass shadow-2xl hover:shadow-github-accent/20 hover:-translate-y-2 hover:scale-[1.02] backdrop-blur-sm">
+                    <div className="md:flex">
+                      <div className="md:w-1/3">
+                        <img 
+                          src={post.imageUrl} 
+                          alt={post.title} 
+                          className="h-full w-full object-cover min-h-[200px]"
+                        />
                       </div>
-                      <CardTitle className="text-github-accent text-xl mb-2">
-                        {post.title}
-                      </CardTitle>
-                      <p className="text-github-text/80 font-medium">
-                        {post.subtitle}
-                      </p>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="mb-4 text-github-text/90 leading-relaxed">
-                        {post.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {post.tags.map((tag) => (
-                          <span 
-                            key={tag}
-                            className="px-2 py-1 bg-github-dark rounded-full text-xs border border-github-accent/30 text-github-accent"
+                      <div className="md:w-2/3">
+                        <CardHeader>
+                          <div className="flex items-center gap-2 text-sm text-github-text/70 mb-2">
+                            <Calendar size={14} />
+                            <span>{post.date}</span>
+                            <span>•</span>
+                            <span>{post.readTime}</span>
+                          </div>
+                          <CardTitle className="text-github-accent text-xl mb-2">
+                            {post.title}
+                          </CardTitle>
+                          <p className="text-github-text/80 font-medium">
+                            {post.subtitle}
+                          </p>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="mb-4 text-github-text/90 leading-relaxed">
+                            {post.description}
+                          </p>
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {post.tags.map((tag) => (
+                              <span 
+                                key={tag}
+                                className="px-2 py-1 bg-github-dark rounded-full text-xs border border-github-accent/30 text-github-accent"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                          <Button 
+                            variant="outline" 
+                            size="sm"
+                            onClick={() => window.open(post.substackUrl, '_blank')}
+                            className="flex items-center gap-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white"
                           >
-                            {tag}
-                          </span>
-                        ))}
+                            <ExternalLink size={16} />
+                            Read on Substack
+                          </Button>
+                        </CardContent>
                       </div>
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={() => window.open(post.substackUrl, '_blank')}
-                        className="flex items-center gap-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white"
-                      >
-                        <ExternalLink size={16} />
-                        Read on Substack
-                      </Button>
-                    </CardContent>
-                  </div>
+                    </div>
+                  </Card>
                 </div>
-              </Card>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         
