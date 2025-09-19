@@ -52,6 +52,8 @@ const Terminal: React.FC = () => {
       const link = document.createElement('a');
       link.href = '/assets/resume.pdf';
       link.download = 'Nisarg_Patel_Resume.pdf';
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

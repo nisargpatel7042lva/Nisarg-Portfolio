@@ -91,7 +91,16 @@ const About = () => {
                 <Button 
                   variant="default" 
                   className="bg-github-accent hover:bg-github-accent/80 shadow-md hover:shadow-xl transition-all w-full sm:w-auto"
-                  onClick={() => window.open('/assets/resume.pdf', '_blank')}
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = '/assets/resume.pdf';
+                    link.download = 'Nisarg_Patel_Resume.pdf';
+                    link.setAttribute('target', '_blank');
+                    link.setAttribute('rel', 'noopener noreferrer');
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
                 >
                   <Download className="mr-2" size={16} />
                   Download Resume
