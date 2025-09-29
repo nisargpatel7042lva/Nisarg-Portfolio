@@ -10,9 +10,18 @@ import projectImage3 from '../assets/image3.png'; // Import the image
 import cloviaImage from '/lovable-uploads/a8867095-a408-4c3e-99a6-888f0efcdf55.png'; // Import new Clovia image
 import skillSwapImage from '/lovable-uploads/6b3efac9-f6b0-4f5f-8f7a-a3c59b976f2d.png'; // Import Skill Swap DAO image
 import dexImage from '/lovable-uploads/76f90aa6-321b-48b8-8bb0-9670f8e99fe8.png'; // Import DEX 2.0 image
+import chainCredImage from '../assets/chaincred-logo.png'; // Import ChainCred logo
 
 const Projects = () => {
   const featuredProjects = [
+    {
+      id: 7,
+      title: "ChainCred",
+      description: "A comprehensive Sybil-resistant reputation system built at ETHGlobal that combines on-chain activity analysis with privacy-preserving identity verification. Creates a 'credit score for Web3' using Zero-knowledge proofs and Soulbound Tokens to prove you're a real human with good on-chain behavior—protecting DAOs from governance manipulation and airdrop farming while maintaining user privacy.",
+      technologies: ["Next.js", "TypeScript", "Solidity", "Hardhat", "The Graph", "Zero-Knowledge Proofs", "Soulbound Tokens"],
+      demoLink: "https://ethglobal.com/showcase/chaincred-z71wr",
+      imageUrl: chainCredImage
+    },
     {
       id: 6,
       title: "DEX 2.0",
