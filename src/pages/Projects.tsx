@@ -19,7 +19,8 @@ const Projects = () => {
       title: "ChainCred",
       description: "A comprehensive Sybil-resistant reputation system built at ETHGlobal that combines on-chain activity analysis with privacy-preserving identity verification. Creates a 'credit score for Web3' using Zero-knowledge proofs and Soulbound Tokens to prove you're a real human with good on-chain behavior—protecting DAOs from governance manipulation and airdrop farming while maintaining user privacy.",
       technologies: ["Next.js", "TypeScript", "Solidity", "Hardhat", "The Graph", "Zero-Knowledge Proofs", "Soulbound Tokens"],
-      demoLink: "https://ethglobal.com/showcase/chaincred-z71wr",
+      demoLink: "https://eth-reputation-passport.vercel.app/",
+      showcaseLink: "https://ethglobal.com/showcase/chaincred-z71wr",
       imageUrl: chainCredImage
     },
     {
@@ -157,14 +158,16 @@ const Projects = () => {
                             </>
                           ) : (
                             <>
-                              <Button 
-                                variant="outline" 
-                                size="sm"
-                                onClick={() => window.open(project.githubLink, '_blank')}
-                              >
-                                <Github size={16} className="mr-2" />
-                                Code
-                              </Button>
+                              {project.githubLink && (
+                                <Button 
+                                  variant="outline" 
+                                  size="sm"
+                                  onClick={() => window.open(project.githubLink, '_blank')}
+                                >
+                                  <Github size={16} className="mr-2" />
+                                  Code
+                                </Button>
+                              )}
                               {project.demoLink && (
                                 <Button 
                                   variant="default" 
@@ -173,6 +176,16 @@ const Projects = () => {
                                 >
                                   <ExternalLink size={16} className="mr-2" />
                                   Live Demo
+                                </Button>
+                              )}
+                              {project.showcaseLink && (
+                                <Button 
+                                  variant="outline" 
+                                  size="sm"
+                                  onClick={() => window.open(project.showcaseLink, '_blank')}
+                                >
+                                  <ExternalLink size={16} className="mr-2" />
+                                  ETHGlobal
                                 </Button>
                               )}
                             </>
