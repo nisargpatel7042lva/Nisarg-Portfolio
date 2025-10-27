@@ -4,8 +4,6 @@ import RepoCarousel from '@/components/RepoCarousel';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, Clock, Twitter } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { ScrollReveal } from '@/components/ScrollReveal';
 import projectImage from '../assets/image.png'; // Import the image
 import projectImage2 from '../assets/image2.png'; // Import the image
 import projectImage3 from '../assets/image3.png'; // Import the image
@@ -86,162 +84,138 @@ const Projects = () => {
   return (
     <GitHubLayout>
       <div className="space-y-12">
-        <ScrollReveal>
-          <div>
-            <h1 className="text-2xl font-bold mb-6">My Projects</h1>
-            <p className="mb-8">
-              Here are some of the projects I've worked on. From web applications to UI/UX designs,
-              I enjoy building software and designs that solve real problems. Feel free to check out the code or live demos!
-            </p>
-          </div>
-        </ScrollReveal>
+        <div>
+          <h1 className="text-2xl font-bold mb-6">My Projects</h1>
+          <p className="mb-8">
+            Here are some of the projects I've worked on. From web applications to UI/UX designs,
+            I enjoy building software and designs that solve real problems. Feel free to check out the code or live demos!
+          </p>
+        </div>
         
         {/* Featured Projects */}
         <div>
-          <ScrollReveal>
-            <h2 className="text-xl font-semibold mb-6">Featured Projects</h2>
-          </ScrollReveal>
+          <h2 className="text-xl font-semibold mb-6">Featured Projects</h2>
           <div className="relative space-y-12">
             {/* Modern gradient timeline line */}
             <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-gradient-to-b from-github-accent via-github-border to-transparent opacity-60"></div>
             
             {featuredProjects.map((project, index) => (
-              <ScrollReveal key={project.id} delay={index * 0.1}>
-                <div className="relative group">
-                  {/* Enhanced timeline marker */}
-                  <motion.div 
-                    className="absolute left-3 top-6 w-6 h-6 rounded-full bg-gradient-to-br from-github-accent to-github-accent/70 border-4 border-github-dark shadow-lg flex items-center justify-center z-10"
-                    whileHover={{ scale: 1.2 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="w-2 h-2 rounded-full bg-white"></div>
-                  </motion.div>
-                  
-                  {/* Enhanced project card */}
-                  <motion.div 
-                    className="ml-16"
-                    whileHover={{ x: 8, scale: 1.01 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Card className="overflow-hidden bg-gradient-to-br from-github-secondary to-github-secondary/90 border-github-border hover:border-github-accent/50 shadow-lg hover:shadow-xl transition-all duration-300">
-                      <div className="md:flex">
-                        <motion.div 
-                          className="md:w-1/3 overflow-hidden"
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.5 }}
-                        >
-                          <img 
-                            src={project.imageUrl} 
-                            alt={project.title} 
-                            className="h-full w-full object-cover"
-                          />
-                        </motion.div>
-                        <div className="md:w-2/3">
-                          <CardHeader>
-                            <CardTitle className="text-github-accent group-hover:text-white transition-colors duration-300">{project.title}</CardTitle>
-                          </CardHeader>
-                          <CardContent>
-                            <p className="mb-4 leading-relaxed">{project.description}</p>
-                            <div className="flex flex-wrap gap-2 mb-4">
-                              {project.technologies.map((tech, i) => (
-                                <motion.span 
-                                  key={tech}
-                                  className="px-3 py-1 bg-github-dark rounded-full text-xs border border-github-border hover:border-github-accent/50 transition-colors duration-300"
-                                  initial={{ opacity: 0, scale: 0.8 }}
-                                  whileInView={{ opacity: 1, scale: 1 }}
-                                  transition={{ delay: i * 0.05, duration: 0.3 }}
-                                  viewport={{ once: true }}
-                                >
-                                  {tech}
-                                </motion.span>
-                              ))}
-                            </div>
-                          </CardContent>
-                          <CardFooter className="flex gap-4">
-                            {project.comingSoon ? (
-                              <>
+              <div key={project.id} className="relative group animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                {/* Enhanced timeline marker */}
+                <div className="absolute left-3 top-6 w-6 h-6 rounded-full bg-gradient-to-br from-github-accent to-github-accent/70 border-4 border-github-dark shadow-lg group-hover:scale-110 transition-all duration-300 flex items-center justify-center z-10">
+                  <div className="w-2 h-2 rounded-full bg-white"></div>
+                </div>
+                
+                {/* Enhanced project card */}
+                <div className="ml-16 transform transition-all duration-300 group-hover:translate-x-2">
+                  <Card className="overflow-hidden bg-gradient-to-br from-github-secondary to-github-secondary/90 border-github-border hover:border-github-accent/50 shadow-lg hover:shadow-xl transition-all duration-300 hover-scale">
+                    <div className="md:flex">
+                      <div className="md:w-1/3">
+                        <img 
+                          src={project.imageUrl} 
+                          alt={project.title} 
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                      <div className="md:w-2/3">
+                        <CardHeader>
+                          <CardTitle className="text-github-accent group-hover:text-white transition-colors duration-300">{project.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="mb-4 leading-relaxed">{project.description}</p>
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {project.technologies.map((tech) => (
+                              <span 
+                                key={tech}
+                                className="px-3 py-1 bg-github-dark rounded-full text-xs border border-github-border hover:border-github-accent/50 transition-colors duration-300"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </CardContent>
+                        <CardFooter className="flex gap-4">
+                          {project.comingSoon ? (
+                            <>
+                              <Button 
+                                variant="outline" 
+                                size="sm"
+                                className="flex items-center gap-2"
+                                disabled
+                              >
+                                <Clock size={16} className="mr-2" />
+                                Coming Soon
+                              </Button>
+                              {project.socialLink && (
                                 <Button 
                                   variant="outline" 
                                   size="sm"
-                                  className="flex items-center gap-2"
-                                  disabled
+                                  onClick={() => window.open(project.socialLink, '_blank')}
                                 >
-                                  <Clock size={16} className="mr-2" />
-                                  Coming Soon
+                                  <Twitter size={16} className="mr-2" />
+                                  Social
                                 </Button>
-                                {project.socialLink && (
-                                  <Button 
-                                    variant="outline" 
-                                    size="sm"
-                                    onClick={() => window.open(project.socialLink, '_blank')}
-                                  >
-                                    <Twitter size={16} className="mr-2" />
-                                    Social
-                                  </Button>
-                                )}
-                              </>
-                            ) : (
-                              <>
-                                {project.githubLink && (
-                                  <Button 
-                                    variant="outline" 
-                                    size="sm"
-                                    onClick={() => window.open(project.githubLink, '_blank')}
-                                  >
-                                    <Github size={16} className="mr-2" />
-                                    Code
-                                  </Button>
-                                )}
-                                {project.demoLink && (
-                                  <Button 
-                                    variant="default" 
-                                    size="sm"
-                                    onClick={() => window.open(project.demoLink, '_blank')}
-                                  >
-                                    <ExternalLink size={16} className="mr-2" />
-                                    Live Demo
-                                  </Button>
-                                )}
-                                {project.showcaseLink && (
-                                  <Button 
-                                    variant="outline" 
-                                    size="sm"
-                                    onClick={() => window.open(project.showcaseLink, '_blank')}
-                                  >
-                                    <ExternalLink size={16} className="mr-2" />
-                                    ETHGlobal
-                                  </Button>
-                                )}
-                              </>
-                            )}
-                          </CardFooter>
-                        </div>
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {project.githubLink && (
+                                <Button 
+                                  variant="outline" 
+                                  size="sm"
+                                  onClick={() => window.open(project.githubLink, '_blank')}
+                                >
+                                  <Github size={16} className="mr-2" />
+                                  Code
+                                </Button>
+                              )}
+                              {project.demoLink && (
+                                <Button 
+                                  variant="default" 
+                                  size="sm"
+                                  onClick={() => window.open(project.demoLink, '_blank')}
+                                >
+                                  <ExternalLink size={16} className="mr-2" />
+                                  Live Demo
+                                </Button>
+                              )}
+                              {project.showcaseLink && (
+                                <Button 
+                                  variant="outline" 
+                                  size="sm"
+                                  onClick={() => window.open(project.showcaseLink, '_blank')}
+                                >
+                                  <ExternalLink size={16} className="mr-2" />
+                                  ETHGlobal
+                                </Button>
+                              )}
+                            </>
+                          )}
+                        </CardFooter>
                       </div>
-                    </Card>
-                  </motion.div>
+                    </div>
+                  </Card>
                 </div>
-              </ScrollReveal>
+              </div>
             ))}
           </div>
         </div>
         
         {/* GitHub Repositories */}
-        <ScrollReveal>
-          <div>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-semibold">GitHub Repositories</h2>
-              <Button 
-                variant="link" 
-                className="text-github-accent"
-                onClick={() => window.open('https://github.com/nisargpatel7042lva', '_blank')}
-              >
-                View all <ExternalLink size={16} className="ml-1" />
-              </Button>
-            </div>
-            
-            <RepoCarousel />
+        <div>
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-xl font-semibold">GitHub Repositories</h2>
+            <Button 
+              variant="link" 
+              className="text-github-accent"
+              onClick={() => window.open('https://github.com/nisargpatel7042lva', '_blank')}
+            >
+              View all <ExternalLink size={16} className="ml-1" />
+            </Button>
           </div>
-        </ScrollReveal>
+          
+          <RepoCarousel />
+        </div>
       </div>
     </GitHubLayout>
   );
