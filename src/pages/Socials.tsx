@@ -131,39 +131,6 @@ const Socials = () => {
             ))}
           </div>
         </div>
-        
-        {/* GitHub Activity */}
-        <Card className="p-6 glass backdrop-blur-md border border-github-accent/20 terminal shadow-lg">
-          <div className="flex items-center mb-4">
-            <div className="flex items-center">
-              <div className="w-3 h-3 rounded-full bg-red-500 mr-1.5"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500 mr-1.5"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            </div>
-            <h2 className="text-xl font-mono font-semibold ml-4 text-github-accent">GitHub Activity</h2>
-          </div>
-          <div className="font-mono">
-            <p className="mb-4">
-              <span className="text-github-accent">$</span> git stats --user="nisargpatel7042lva" --visualize
-            </p>
-            <div className="flex justify-center">
-              <img 
-                src={`https://ghchart.rshah.org/2ea043/nisargpatel7042lva`} 
-                alt="Nisarg Patel's GitHub Contribution Chart"
-                className="w-full max-w-3xl"
-              />
-            </div>
-          </div>
-          <div className="mt-4 text-center">
-            <Button 
-              onClick={() => window.open('https://github.com/nisargpatel7042lva', '_blank')}
-              className="bg-github-accent hover:bg-github-accent/80 flex items-center gap-2 font-mono"
-            >
-              <Github size={18} />
-              Visit GitHub Profile
-            </Button>
-          </div>
-        </Card>
       </div>
     </GitHubLayout>
   );
