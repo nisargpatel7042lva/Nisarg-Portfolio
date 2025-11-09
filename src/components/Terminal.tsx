@@ -16,7 +16,6 @@ import {
   AlertDialogAction,
   AlertDialogCancel
 } from "@/components/ui/alert-dialog";
-import JarvisChat from '@/components/JarvisChat';
 
 interface CommandProps {
   label: string;
@@ -322,9 +321,6 @@ const Terminal: React.FC = () => {
           )}
         </form>
       </div>
-      
-      {/* JARVIS AI Chat Assistant */}
-      <JarvisChat />
     </div>
   );
 };
