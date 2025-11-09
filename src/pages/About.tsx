@@ -3,7 +3,7 @@ import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Download, ExternalLink, Code, Palette, TrendingUp, Briefcase, Github, Linkedin, Twitter, Mail, Rocket, PenTool } from 'lucide-react';
+import { Download, ExternalLink, Code, Palette, TrendingUp, Briefcase, Github, Linkedin, Twitter, Mail, Rocket, PenTool, Radio } from 'lucide-react';
 import meImage from '../assets/me3.jpg';
 
 const About = () => {
@@ -42,6 +42,7 @@ const About = () => {
     { icon: Github, url: "https://github.com/nisargpatel7042lva", label: "GitHub" },
     { icon: Linkedin, url: "https://linkedin.com/in/nisargpatel", label: "LinkedIn" },
     { icon: Twitter, url: "https://twitter.com/nisargpatel", label: "Twitter" },
+    { icon: Radio, url: "https://farcaster.xyz/nisargxplores", label: "Farcaster" },
     { icon: Mail, url: "mailto:nisarg@example.com", label: "Email" }
   ];
 

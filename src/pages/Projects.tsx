@@ -25,6 +25,23 @@ const Projects = () => {
       imageUrl: chainCredImage
     },
     {
+      id: 8,
+      title: "Amazon Badge Maker",
+      description: "Upload your photo and it's automatically cropped into the Amazon Community Day badge — ready to download and share on social media.",
+      technologies: ["React", "TypeScript", "Image Processing", "Vercel"],
+      githubLink: "https://github.com/nisargpatel7042lva/ACD-Badge-Maker",
+      demoLink: "https://acd-photo-cropper.vercel.app/",
+      imageUrl: projectImage
+    },
+    {
+      id: 9,
+      title: "ChainShare",
+      description: "A payment split app where all records are stored on-chain. Split bills among friends and store bill receipts directly on the blockchain. Deployed on Base chain for secure, transparent, and immutable payment tracking.",
+      technologies: ["React", "TypeScript", "Base", "Smart Contracts", "Web3", "IPFS"],
+      demoLink: "https://speedrun-project-1762289362002.vercel.app/",
+      imageUrl: projectImage2
+    },
+    {
       id: 6,
       title: "DEX 2.0",
       description: "Built a custom decentralized exchange enabling Token-2022 assets with Transfer Hooks to be traded securely on mobile. Integrated Solana Mobile Wallet Adapter, developed a hook validation layer, and implemented an on-chain AMM with mobile-first UX. Designed to support real-world assets (RWA) and compliant DeFi use cases on Solana.",
@@ -41,14 +58,6 @@ const Projects = () => {
       githubLink: "https://github.com/nisargpatel7042lva/SkillSwap-DAO",
       demoLink: "https://skill-swap-dao.vercel.app/",
       imageUrl: skillSwapImage
-    },
-    {
-      id: 4,
-      title: "Clovia",
-      description: "Clovia is a Web3-native social staking platform built on Solana that transforms social engagement into a decentralized economy. Users can stake value behind the people they follow, turning attention into capital and enabling influencers, creators, and communities to monetize their social presence. By aligning financial incentives with authentic connections, Clovia redefines how trust, influence, and value are exchanged in the digital world.",
-      technologies: ["Solana", "Web3", "React Native", "TypeScript", "Social Staking"],
-      imageUrl: cloviaImage, // Use the newly uploaded Clovia image
-      comingSoon: true
     },
     {
       id: 1,
