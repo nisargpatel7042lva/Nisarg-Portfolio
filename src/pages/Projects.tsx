@@ -7,10 +7,11 @@ import { ExternalLink, Github, Clock, Twitter } from 'lucide-react';
 import projectImage from '../assets/image.png'; // Import the image
 import projectImage2 from '../assets/image2.png'; // Import the image
 import projectImage3 from '../assets/image3.png'; // Import the image
-import cloviaImage from '/lovable-uploads/a8867095-a408-4c3e-99a6-888f0efcdf55.png'; // Import new Clovia image
 import skillSwapImage from '/lovable-uploads/6b3efac9-f6b0-4f5f-8f7a-a3c59b976f2d.png'; // Import Skill Swap DAO image
 import dexImage from '/lovable-uploads/76f90aa6-321b-48b8-8bb0-9670f8e99fe8.png'; // Import DEX 2.0 image
 import chainCredImage from '../assets/chaincred-logo.png'; // Import ChainCred logo
+import chainShareImage from '/lovable-uploads/chainshare.png'; // Import ChainShare image
+import acdBadgeMakerImage from '/lovable-uploads/acd-badge-maker.png'; // Import ACD Badge Maker image
 
 const Projects = () => {
   const featuredProjects = [
@@ -31,7 +32,7 @@ const Projects = () => {
       technologies: ["React", "TypeScript", "Image Processing", "Vercel"],
       githubLink: "https://github.com/nisargpatel7042lva/ACD-Badge-Maker",
       demoLink: "https://acd-photo-cropper.vercel.app/",
-      imageUrl: projectImage
+      imageUrl: acdBadgeMakerImage
     },
     {
       id: 9,
@@ -39,7 +40,7 @@ const Projects = () => {
       description: "A payment split app where all records are stored on-chain. Split bills among friends and store bill receipts directly on the blockchain. Deployed on Base chain for secure, transparent, and immutable payment tracking.",
       technologies: ["React", "TypeScript", "Base", "Smart Contracts", "Web3", "IPFS"],
       demoLink: "https://speedrun-project-1762289362002.vercel.app/",
-      imageUrl: projectImage2
+      imageUrl: chainShareImage
     },
     {
       id: 6,
