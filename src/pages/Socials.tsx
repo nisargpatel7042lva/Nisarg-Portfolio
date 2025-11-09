@@ -1,7 +1,7 @@
 
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Github, ExternalLink, Twitter, Linkedin, Instagram, MessageSquare, Mail, MessagesSquare } from 'lucide-react';
+import { Github, ExternalLink, Twitter, Linkedin, Instagram, MessageSquare, Mail, MessagesSquare, Radio } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import meImage from '../assets/me3.jpg';
 
@@ -62,6 +62,14 @@ const Socials = () => {
       icon: Mail,
       bgColor: "bg-[#ea4335]",
       hoverColor: "hover:text-[#ea4335]"
+    },
+    {
+      name: "Farcaster",
+      username: "@nisargxplores",
+      url: "https://farcaster.xyz/nisargxplores",
+      icon: Radio,
+      bgColor: "bg-[#855DCD]",
+      hoverColor: "hover:text-[#855DCD]"
     }
   ];
 
