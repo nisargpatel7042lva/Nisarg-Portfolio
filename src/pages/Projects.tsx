@@ -12,6 +12,10 @@ import dexImage from '/lovable-uploads/76f90aa6-321b-48b8-8bb0-9670f8e99fe8.png'
 import chainCredImage from '../assets/chaincred-logo.png'; // Import ChainCred logo
 import chainShareImage from '/lovable-uploads/chainshare.png'; // Import ChainShare image
 import acdBadgeMakerImage from '/lovable-uploads/acd-badge-maker.png'; // Import ACD Badge Maker image
+import finwiseImage from '/lovable-uploads/finwise.png'; // Import FinWise image
+import auraloomImage from '/lovable-uploads/auraloom.png'; // Import AuraLoom image
+import tuneCarnivalImage from '/lovable-uploads/tune-carnival.png'; // Import Tune Carnival image
+import quickaidImage from '/lovable-uploads/quickaid.png'; // Import QuickAid image
 
 const Projects = () => {
   const featuredProjects = [
@@ -88,6 +92,42 @@ const Projects = () => {
       githubLink: "https://github.com/nisargpatel7042lva/retro-website",
       demoLink: "https://rewind-ten.vercel.app/",
       imageUrl: projectImage3 // Use the imported image
+    },
+    {
+      id: 10,
+      title: "FinWise",
+      description: "Welcome to FinWise, your smart finance manager app! Whether you want to track your expenses, analyze your spending habits, or keep your finances organized, FinWise is here to simplify money management for you.",
+      technologies: ["React", "TypeScript", "Finance", "Expense Tracking", "Vercel"],
+      githubLink: "https://github.com/nisargpatel7042lva/FinWise",
+      demoLink: "https://finwise-nine.vercel.app/",
+      imageUrl: finwiseImage
+    },
+    {
+      id: 11,
+      title: "AuraLoom",
+      description: "AuraLoom is a sleek and intuitive music player app that offers a visually appealing frontend interface for users to explore and play their favorite tunes. Built with modern web technologies, AuraLoom focuses on delivering an exceptional user experience with an elegant design and seamless functionality.",
+      technologies: ["React", "TypeScript", "Music Player", "Frontend", "Vercel"],
+      githubLink: "https://github.com/nisargpatel7042lva/Auraloom",
+      demoLink: "https://auraloom.vercel.app/",
+      imageUrl: auraloomImage
+    },
+    {
+      id: 12,
+      title: "Tune Carnival",
+      description: "Welcome to Tune Carnival, the official booking platform for our college fest! This platform allows users to explore events, book tickets, and enjoy the vibrant experiences of Malhar Festival with Mohit Chauhan.",
+      technologies: ["React", "TypeScript", "Event Management", "Booking System", "Vercel"],
+      githubLink: "https://github.com/nisargpatel7042lva/malhar-festival",
+      demoLink: "https://malhar-festival.vercel.app/",
+      imageUrl: tuneCarnivalImage
+    },
+    {
+      id: 13,
+      title: "QuickAid",
+      description: "Many people panic during medical emergencies and don't know what first-aid steps to take. QuickAid provides a fast, easy, and accessible way to get real-time guidance, reducing the risk of complications before professional medical assistance arrives.",
+      technologies: ["React", "TypeScript", "Healthcare", "Emergency Response", "First Aid", "Vercel"],
+      githubLink: "https://github.com/nisargpatel7042lva/quickaid",
+      demoLink: "https://quick-aid.vercel.app/",
+      imageUrl: quickaidImage
     }
   ];
 
