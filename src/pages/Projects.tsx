@@ -250,22 +250,6 @@ const Projects = () => {
             ))}
           </div>
         </div>
-        
-        {/* GitHub Repositories */}
-        <div>
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-semibold">GitHub Repositories</h2>
-            <Button 
-              variant="link" 
-              className="text-github-accent"
-              onClick={() => window.open('https://github.com/nisargpatel7042lva', '_blank')}
-            >
-              View all <ExternalLink size={16} className="ml-1" />
-            </Button>
-          </div>
-          
-          <RepoCarousel />
-        </div>
       </div>
     </GitHubLayout>
   );
