@@ -14,7 +14,7 @@ const Experience = () => {
   const experiences: ExperienceItem[] = [
     {
       id: 1,
-      role: "Founder",
+      role: "Shipping",
       company: "DEX 2.0 - Mobile Decentralized Exchange",
       period: "2024 - Present",
       description: [
@@ -24,20 +24,6 @@ const Experience = () => {
         "Implemented an on-chain AMM (Automated Market Maker) with mobile-first UX design principles.",
         "Designed the platform to support real-world assets (RWA) and compliant DeFi use cases on Solana.",
         "Utilized React, TypeScript, Anchor, and Solana Program Library for full-stack blockchain development."
-      ]
-    },
-    {
-      id: 2,
-      role: "Founder",
-      company: "Clovia - Stake, Connect, Grow",
-      period: "May 2025 - Present",
-      description: [
-        "Building a Web3-native social staking platform on Solana, where users can earn rewards by staking behind creators and communities.",
-        "Leading product design, user flow, and feature roadmap from ideation to MVP.",
-        "Collaborating with cross-functional teams of frontend, backend, and blockchain developers.",
-        "Implementing smart staking mechanisms and wallet integrations using Solana tooling.",
-        "Crafting go-to-market content strategies, including branding, social media, and community engagement.",
-        "Presenting the project in pitch competitions and Web3 showcases."
       ]
     },
     {
@@ -116,7 +102,7 @@ const Experience = () => {
     },
     {
       id: 11,
-      role: "Founder",
+      role: "Shipping",
       company: "Mysterio Fashion",
       description: [
         "Designed and launched a print-on-demand e-commerce platform.",
