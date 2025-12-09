@@ -3,7 +3,7 @@ import GitHubLayout from '@/components/layout/GitHubLayout';
 import RepoCarousel from '@/components/RepoCarousel';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Clock, Twitter } from 'lucide-react';
+import { ExternalLink, Github, Clock, Twitter, Youtube } from 'lucide-react';
 import projectImage from '../assets/image.png'; // Import the image
 import projectImage2 from '../assets/image2.png'; // Import the image
 import projectImage3 from '../assets/image3.png'; // Import the image
@@ -16,6 +16,7 @@ import finwiseImage from '/lovable-uploads/finwise.png'; // Import FinWise image
 import auraloomImage from '/lovable-uploads/auraloom.png'; // Import AuraLoom image
 import tuneCarnivalImage from '/lovable-uploads/tune-carnival.png'; // Import Tune Carnival image
 import quickaidImage from '/lovable-uploads/quickaid.png'; // Import QuickAid image
+import safemaskImage from '/lovable-uploads/safemask.png'; // Import SafeMask image
 
 const Projects = () => {
   const featuredProjects = [
@@ -128,6 +129,16 @@ const Projects = () => {
       githubLink: "https://github.com/nisargpatel7042lva/quickaid",
       demoLink: "https://quick-aid.vercel.app/",
       imageUrl: quickaidImage
+    },
+    {
+      id: 14,
+      title: "SafeMask",
+      description: "SafeMask is a privacy-first multi-chain crypto wallet that keeps your funds and activity secure. Manage Ethereum, Solana, Bitcoin, and more with live balances, transaction history, and advanced privacy features, all while your keys stay safely on your device.",
+      technologies: ["React Native", "TypeScript", "Ethereum", "Solana", "Bitcoin", "Web3", "Crypto Wallet"],
+      githubLink: "https://github.com/Kartikvyas1604/SafeMask",
+      demoLink: "https://safemaskweb.vercel.app",
+      videoLink: "https://youtu.be/QXXFGKl47go",
+      imageUrl: safemaskImage
     }
   ];
 
@@ -237,6 +248,16 @@ const Projects = () => {
                                 >
                                   <ExternalLink size={16} className="mr-2" />
                                   ETHGlobal
+                                </Button>
+                              )}
+                              {project.videoLink && (
+                                <Button 
+                                  variant="outline" 
+                                  size="sm"
+                                  onClick={() => window.open(project.videoLink, '_blank')}
+                                >
+                                  <Youtube size={16} className="mr-2" />
+                                  Video
                                 </Button>
                               )}
                             </>
