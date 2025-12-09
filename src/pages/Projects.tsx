@@ -21,6 +21,16 @@ import safemaskImage from '/lovable-uploads/safemask.png'; // Import SafeMask im
 const Projects = () => {
   const featuredProjects = [
     {
+      id: 14,
+      title: "SafeMask",
+      description: "SafeMask is a privacy-first multi-chain crypto wallet that keeps your funds and activity secure. Manage Ethereum, Solana, Bitcoin, and more with live balances, transaction history, and advanced privacy features, all while your keys stay safely on your device.",
+      technologies: ["React Native", "TypeScript", "Ethereum", "Solana", "Bitcoin", "Web3", "Crypto Wallet"],
+      githubLink: "https://github.com/Kartikvyas1604/SafeMask",
+      demoLink: "https://safemaskweb.vercel.app",
+      videoLink: "https://youtu.be/QXXFGKl47go",
+      imageUrl: safemaskImage
+    },
+    {
       id: 7,
       title: "ChainCred",
       description: "A comprehensive Sybil-resistant reputation system built at ETHGlobal that combines on-chain activity analysis with privacy-preserving identity verification. Creates a 'credit score for Web3' using Zero-knowledge proofs and Soulbound Tokens to prove you're a real human with good on-chain behavior—protecting DAOs from governance manipulation and airdrop farming while maintaining user privacy.",
@@ -72,9 +82,8 @@ const Projects = () => {
       technologies: ["Typescript", "Next.js", "Tailwind CSS", "Vercel"],
       githubLink: "https://github.com/nisargpatel7042lva/Nisarg-Portfolio",
       demoLink: "https://nisargxplores-portfolio.vercel.app/",
-      imageUrl: projectImage // Use the imported image
+      imageUrl: projectImage
     },
-    
     {
       id: 2,
       title: "Aura Verify",
@@ -82,9 +91,8 @@ const Projects = () => {
       technologies: ["TypeScript", "Next.js", "Tailwind CSS", "Vercel", "Solana Wallet Adapter", "Flask", "OpenCV", "Biometric Face Scan API", "Jupiter API"],
       githubLink: "https://github.com/nisargpatel7042lva/aura-verify-web3",
       demoLink: "https://aura-verify-web3.vercel.app/",
-      imageUrl: projectImage2 // Use the imported image
-    }, 
-
+      imageUrl: projectImage2
+    },
     {
       id: 3,
       title: "Rewind",
@@ -92,7 +100,7 @@ const Projects = () => {
       technologies: ["TypeScript", "Next.js", "Tailwind CSS", "Vercel", "React", "Google Photos API"],
       githubLink: "https://github.com/nisargpatel7042lva/retro-website",
       demoLink: "https://rewind-ten.vercel.app/",
-      imageUrl: projectImage3 // Use the imported image
+      imageUrl: projectImage3
     },
     {
       id: 10,
@@ -129,16 +137,6 @@ const Projects = () => {
       githubLink: "https://github.com/nisargpatel7042lva/quickaid",
       demoLink: "https://quick-aid.vercel.app/",
       imageUrl: quickaidImage
-    },
-    {
-      id: 14,
-      title: "SafeMask",
-      description: "SafeMask is a privacy-first multi-chain crypto wallet that keeps your funds and activity secure. Manage Ethereum, Solana, Bitcoin, and more with live balances, transaction history, and advanced privacy features, all while your keys stay safely on your device.",
-      technologies: ["React Native", "TypeScript", "Ethereum", "Solana", "Bitcoin", "Web3", "Crypto Wallet"],
-      githubLink: "https://github.com/Kartikvyas1604/SafeMask",
-      demoLink: "https://safemaskweb.vercel.app",
-      videoLink: "https://youtu.be/QXXFGKl47go",
-      imageUrl: safemaskImage
     }
   ];
 
