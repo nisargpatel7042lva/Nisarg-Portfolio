@@ -13,6 +13,19 @@ interface ExperienceItem {
 const Experience = () => {
   const experiences: ExperienceItem[] = [
     {
+      id: 0,
+      role: "Joint Chief Coordinator",
+      company: "ISTE SVIT",
+      period: "2025 - Present",
+      description: [
+        "Leading one of the most active technical communities on campus as Joint Chief Secretary.",
+        "Coordinating student committees and managing event operations for technical and cultural initiatives.",
+        "Organizing workshops, seminars, and college fests like Prakarsh with focus on student engagement and sponsor partnerships.",
+        "Collaborating across tech, non-tech, design, social media, administration, and finance sectors.",
+        "Building leadership, communication, and management skills while fostering innovation and community growth."
+      ]
+    },
+    {
       id: 1,
       role: "Shipping",
       company: "DEX 2.0 - Mobile Decentralized Exchange",
