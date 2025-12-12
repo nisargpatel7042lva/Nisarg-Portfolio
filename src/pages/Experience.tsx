@@ -29,7 +29,7 @@ const Experience = () => {
       id: 1,
       role: "Shipping",
       company: "DEX 2.0 - Mobile Decentralized Exchange",
-      period: "2024 - Present",
+      period: "2025 - Present",
       description: [
         "Built a custom decentralized exchange enabling Token-2022 assets with Transfer Hooks to be traded securely on mobile.",
         "Integrated Solana Mobile Wallet Adapter for seamless mobile wallet connectivity and transaction signing.",
