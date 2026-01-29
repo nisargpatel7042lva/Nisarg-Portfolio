@@ -17,6 +17,8 @@ import auraloomImage from '/lovable-uploads/auraloom.png'; // Import AuraLoom im
 import tuneCarnivalImage from '/lovable-uploads/tune-carnival.png'; // Import Tune Carnival image
 import quickaidImage from '/lovable-uploads/quickaid.png'; // Import QuickAid image
 import safemaskImage from '/lovable-uploads/safemask.png'; // Import SafeMask image
+import strangerShelfImage from '/lovable-uploads/strangershelf.png'; // Import Stranger Shelf image
+import animeHubImage from '/lovable-uploads/animehub.png'; // Import Anime Hub image
 
 const Projects = () => {
   const featuredProjects = [
@@ -137,6 +139,22 @@ const Projects = () => {
       githubLink: "https://github.com/nisargpatel7042lva/quickaid",
       demoLink: "https://quick-aid.vercel.app/",
       imageUrl: quickaidImage
+    },
+    {
+      id: 15,
+      title: "Stranger Shelf",
+      description: "A merch store built for Stranger Things fans, featuring exclusive merchandise from the Upside Down. Created as part of learning affiliate marketing, offering apparel, accessories, home decor, and collectibles for the dedicated fanbase.",
+      technologies: ["React", "TypeScript", "E-commerce", "Affiliate Marketing", "Vercel"],
+      demoLink: "https://strangershelf.vercel.app",
+      imageUrl: strangerShelfImage
+    },
+    {
+      id: 16,
+      title: "The Anime Hub",
+      description: "Your ultimate destination for premium anime merchandise. A curated store featuring rare collectibles, exclusive action figures, and anime-themed apparel. Built as part of exploring affiliate marketing, offering everything from t-shirts to collectibles for otaku enthusiasts.",
+      technologies: ["React", "TypeScript", "E-commerce", "Affiliate Marketing", "Vercel"],
+      demoLink: "https://theanimehub.vercel.app",
+      imageUrl: animeHubImage
     }
   ];
 
