@@ -3,7 +3,7 @@ import GitHubLayout from '@/components/layout/GitHubLayout';
 import RepoCarousel from '@/components/RepoCarousel';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Clock, Twitter, Youtube } from 'lucide-react';
+import { ExternalLink, Github, Clock, Twitter, Youtube, Trophy } from 'lucide-react';
 import projectImage from '../assets/image.png'; // Import the image
 import projectImage2 from '../assets/image2.png'; // Import the image
 import projectImage3 from '../assets/image3.png'; // Import the image
@@ -23,6 +23,22 @@ import animeHubImage from '/lovable-uploads/animehub.png'; // Import Anime Hub i
 const Projects = () => {
   const featuredProjects = [
     {
+      id: 15,
+      title: "Stranger Shelf",
+      description: "A merch store built for Stranger Things fans, featuring exclusive merchandise from the Upside Down. Created as part of learning affiliate marketing, offering apparel, accessories, home decor, and collectibles for the dedicated fanbase.",
+      technologies: ["React", "TypeScript", "E-commerce", "Affiliate Marketing", "Vercel"],
+      demoLink: "https://strangershelf.vercel.app",
+      imageUrl: strangerShelfImage
+    },
+    {
+      id: 16,
+      title: "The Anime Hub",
+      description: "Your ultimate destination for premium anime merchandise. A curated store featuring rare collectibles, exclusive action figures, and anime-themed apparel. Built as part of exploring affiliate marketing, offering everything from t-shirts to collectibles for otaku enthusiasts.",
+      technologies: ["React", "TypeScript", "E-commerce", "Affiliate Marketing", "Vercel"],
+      demoLink: "https://theanimehub.vercel.app",
+      imageUrl: animeHubImage
+    },
+    {
       id: 14,
       title: "SafeMask",
       description: "SafeMask is a privacy-first multi-chain crypto wallet that keeps your funds and activity secure. Manage Ethereum, Solana, Bitcoin, and more with live balances, transaction history, and advanced privacy features, all while your keys stay safely on your device.",
@@ -30,7 +46,12 @@ const Projects = () => {
       githubLink: "https://github.com/Kartikvyas1604/SafeMask",
       demoLink: "https://safemaskweb.vercel.app",
       videoLink: "https://youtu.be/QXXFGKl47go",
-      imageUrl: safemaskImage
+      imageUrl: safemaskImage,
+      isHackathonWinner: true,
+      hackathonLinks: [
+        { name: "ZypherPunk", url: "https://zypherpunk.d4mr.com/project/safemask-e909/" },
+        { name: "Devfolio", url: "https://devfolio.co/projects/safemask-04d4" }
+      ]
     },
     {
       id: 7,
@@ -139,22 +160,6 @@ const Projects = () => {
       githubLink: "https://github.com/nisargpatel7042lva/quickaid",
       demoLink: "https://quick-aid.vercel.app/",
       imageUrl: quickaidImage
-    },
-    {
-      id: 15,
-      title: "Stranger Shelf",
-      description: "A merch store built for Stranger Things fans, featuring exclusive merchandise from the Upside Down. Created as part of learning affiliate marketing, offering apparel, accessories, home decor, and collectibles for the dedicated fanbase.",
-      technologies: ["React", "TypeScript", "E-commerce", "Affiliate Marketing", "Vercel"],
-      demoLink: "https://strangershelf.vercel.app",
-      imageUrl: strangerShelfImage
-    },
-    {
-      id: 16,
-      title: "The Anime Hub",
-      description: "Your ultimate destination for premium anime merchandise. A curated store featuring rare collectibles, exclusive action figures, and anime-themed apparel. Built as part of exploring affiliate marketing, offering everything from t-shirts to collectibles for otaku enthusiasts.",
-      technologies: ["React", "TypeScript", "E-commerce", "Affiliate Marketing", "Vercel"],
-      demoLink: "https://theanimehub.vercel.app",
-      imageUrl: animeHubImage
     }
   ];
 
@@ -196,7 +201,15 @@ const Projects = () => {
                       </div>
                       <div className="md:w-2/3">
                         <CardHeader>
-                          <CardTitle className="text-github-accent group-hover:text-white transition-colors duration-300">{project.title}</CardTitle>
+                          <div className="flex items-center gap-3">
+                            <CardTitle className="text-github-accent group-hover:text-white transition-colors duration-300">{project.title}</CardTitle>
+                            {project.isHackathonWinner && (
+                              <span className="flex items-center gap-1 px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-semibold border border-yellow-500/30">
+                                <Trophy size={12} />
+                                Hackathon Winner
+                              </span>
+                            )}
+                          </div>
                         </CardHeader>
                         <CardContent>
                           <p className="mb-4 leading-relaxed">{project.description}</p>
@@ -276,6 +289,18 @@ const Projects = () => {
                                   Video
                                 </Button>
                               )}
+                              {project.hackathonLinks && project.hackathonLinks.map((link) => (
+                                <Button 
+                                  key={link.name}
+                                  variant="outline" 
+                                  size="sm"
+                                  onClick={() => window.open(link.url, '_blank')}
+                                  className="border-yellow-500/30 text-yellow-400 hover:bg-yellow-500/10"
+                                >
+                                  <Trophy size={16} className="mr-2" />
+                                  {link.name}
+                                </Button>
+                              ))}
                             </>
                           )}
                         </CardFooter>
