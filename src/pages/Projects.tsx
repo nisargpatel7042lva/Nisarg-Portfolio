@@ -23,20 +23,20 @@ import animeHubImage from '/lovable-uploads/animehub.png'; // Import Anime Hub i
 const Projects = () => {
   const featuredProjects = [
     {
-      id: 15,
-      title: "Stranger Shelf",
-      description: "A merch store built for Stranger Things fans, featuring exclusive merchandise from the Upside Down. Created as part of learning affiliate marketing, offering apparel, accessories, home decor, and collectibles for the dedicated fanbase.",
-      technologies: ["React", "TypeScript", "E-commerce", "Affiliate Marketing", "Vercel"],
-      demoLink: "https://strangershelf.vercel.app",
-      imageUrl: strangerShelfImage
-    },
-    {
       id: 16,
       title: "The Anime Hub",
       description: "Your ultimate destination for premium anime merchandise. A curated store featuring rare collectibles, exclusive action figures, and anime-themed apparel. Built as part of exploring affiliate marketing, offering everything from t-shirts to collectibles for otaku enthusiasts.",
       technologies: ["React", "TypeScript", "E-commerce", "Affiliate Marketing", "Vercel"],
       demoLink: "https://theanimehub.vercel.app",
       imageUrl: animeHubImage
+    },
+    {
+      id: 15,
+      title: "Stranger Shelf",
+      description: "A merch store built for Stranger Things fans, featuring exclusive merchandise from the Upside Down. Created as part of learning affiliate marketing, offering apparel, accessories, home decor, and collectibles for the dedicated fanbase.",
+      technologies: ["React", "TypeScript", "E-commerce", "Affiliate Marketing", "Vercel"],
+      demoLink: "https://strangershelf.vercel.app",
+      imageUrl: strangerShelfImage
     },
     {
       id: 14,
