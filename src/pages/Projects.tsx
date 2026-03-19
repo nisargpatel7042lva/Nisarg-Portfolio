@@ -19,9 +19,19 @@ import quickaidImage from '/lovable-uploads/quickaid.png'; // Import QuickAid im
 import safemaskImage from '/lovable-uploads/safemask.png'; // Import SafeMask image
 import strangerShelfImage from '/lovable-uploads/strangershelf.png'; // Import Stranger Shelf image
 import animeHubImage from '/lovable-uploads/animehub.png'; // Import Anime Hub image
+import lazorkitImage from '/lovable-uploads/lazorkit.png'; // Import Lazorkit image
 
 const Projects = () => {
   const featuredProjects = [
+    {
+      id: 17,
+      title: "Lazorkit",
+      description: "A Solana smart wallet powered by WebAuthn passkeys — no seed phrases, no gas fees. Users can sign in with a passkey to access gasless SOL and USDC transfers on Devnet. Built using the Lazorkit SDK for seamless Web3 onboarding.",
+      technologies: ["Next.js", "TypeScript", "Solana", "WebAuthn", "Lazorkit SDK", "Vercel"],
+      demoLink: "https://lazorkit-xi.vercel.app",
+      githubLink: "https://github.com/nisargpatel7042lva/Lazorkit",
+      imageUrl: lazorkitImage
+    },
     {
       id: 16,
       title: "The Anime Hub",
