@@ -43,9 +43,14 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-github-dark text-github-text;
-    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, "Liberation Mono", monospace;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace;
+    overflow-x: hidden;
   }
 
   /* Conic gradient for radar effect */
