@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ExternalLink, LogOut } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { 
   AlertDialog,
@@ -16,6 +16,9 @@ import {
 import { toast } from "sonner";
 import { useIsMobile } from "@/hooks/use-mobile";
 import MobileNav from '@/components/MobileNav';
+import FloatingParticles from '@/components/FloatingParticles';
+import PageTransition from '@/components/PageTransition';
+import { motion } from 'framer-motion';
 
 interface GitHubLayoutProps {
   children: React.ReactNode;
@@ -51,24 +54,18 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
     
     const typingTimeout = setTimeout(() => {
       if (isTyping && !isDeleting) {
-        // Typing forward
         if (displayText === textOptions[textIndex]) {
-          // Finished typing current text, wait and then delete
           setTimeout(() => {
             setIsDeleting(true);
           }, pauseDuration);
         } else {
-          // Continue typing
           setDisplayText(textOptions[textIndex].substring(0, displayText.length + 1));
         }
       } else if (isDeleting) {
-        // Deleting
         if (displayText === '') {
-          // Finished deleting, move to next text
           setIsDeleting(false);
           setTextIndex((textIndex + 1) % textOptions.length);
         } else {
-          // Continue deleting
           setDisplayText(displayText.substring(0, displayText.length - 1));
         }
       }
@@ -82,7 +79,6 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
     toast.success("Signing out. See you soon!", {
       duration: 2000,
       onAutoClose: () => {
-        // Close the tab after toast is shown
         setTimeout(() => {
           window.close();
         }, 500);
@@ -93,7 +89,9 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
   const isHomePage = location.pathname === '/home';
   
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-github-dark via-github-dark/95 to-github-dark">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-github-dark via-github-dark/95 to-github-dark relative">
+      <FloatingParticles />
+      
       {/* Loading Overlay */}
       {isLoading && (
         <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
@@ -101,8 +99,13 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
         </div>
       )}
       
-      {/* GitHub Header */}
-      <header className="github-header sticky top-0 z-20">
+      {/* GitHub Header - Glass effect */}
+      <motion.header 
+        className="github-header sticky top-0 z-20 backdrop-blur-xl bg-github-dark/80 border-b border-github-border/50"
+        initial={{ y: -60, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
+      >
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <h1 className={`font-semibold text-github-accent flex items-center ${isMobile ? 'text-sm' : 'text-lg'}`}>
@@ -129,7 +132,7 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
                         Exit
                       </Button>
                     </AlertDialogTrigger>
-                    <AlertDialogContent className="bg-github-secondary border-github-border glass">
+                    <AlertDialogContent className="bg-github-secondary border-github-border glass-card">
                       <AlertDialogHeader>
                         <AlertDialogTitle className="text-github-accent">Exit Website</AlertDialogTitle>
                         <AlertDialogDescription className="text-github-text">
@@ -152,35 +155,47 @@ const GitHubLayout: React.FC<GitHubLayoutProps> = ({ children }) => {
             )}
           </div>
         </div>
-      </header>
+      </motion.header>
       
-      {/* GitHub Nav - Hide on mobile */}
+      {/* GitHub Nav */}
       {!isMobile && (
-        <div className="border-b border-github-border sticky top-[60px] bg-github-dark/90 backdrop-blur-sm z-10">
+        <motion.div 
+          className="border-b border-github-border/50 sticky top-[60px] bg-github-dark/80 backdrop-blur-xl z-10"
+          initial={{ y: -40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.4, 0.25, 1] }}
+        >
           <nav className="container mx-auto px-4">
             <ul className="flex overflow-x-auto">
-              {navItems.map((item) => (
-                <li key={item.path}>
+              {navItems.map((item, index) => (
+                <motion.li 
+                  key={item.path}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 + index * 0.05 }}
+                >
                   <Link 
                     to={item.path} 
                     className={`tab terminal-tab ${location.pathname === item.path ? 'active' : ''}`}
                   >
                     {item.label}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </nav>
-        </div>
+        </motion.div>
       )}
       
-      {/* Main Content */}
-      <main className="flex-1 container mx-auto px-4 py-8">
-        {children}
+      {/* Main Content with page transition */}
+      <main className="flex-1 container mx-auto px-4 py-8 relative z-[1]">
+        <PageTransition key={location.pathname}>
+          {children}
+        </PageTransition>
       </main>
       
-      {/* GitHub Footer */}
-      <footer className="border-t border-github-border py-6 bg-github-dark/80 backdrop-blur-sm">
+      {/* Footer */}
+      <footer className="border-t border-github-border/50 py-6 bg-github-dark/80 backdrop-blur-xl relative z-[1]">
         <div className="container mx-auto px-4 text-sm text-center text-github-text">
           <div className="flex items-center justify-center gap-2 mb-2">
             <span>© {new Date().getFullYear()} Nisarg Patel</span>
