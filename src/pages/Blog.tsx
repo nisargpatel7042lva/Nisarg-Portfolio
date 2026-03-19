@@ -1,7 +1,10 @@
 import GitHubLayout from '@/components/layout/GitHubLayout';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Calendar, BookOpen } from 'lucide-react';
+import ScrollReveal from '@/components/ScrollReveal';
+import GlassCard from '@/components/GlassCard';
+import { motion } from 'framer-motion';
 
 const Blog = () => {
   const blogPosts = [
@@ -54,104 +57,104 @@ const Blog = () => {
   return (
     <GitHubLayout>
       <div className="space-y-12">
-        <div>
-          <h1 className="text-2xl font-bold mb-6 flex items-center gap-2">
-            <BookOpen className="text-github-accent" />
-            Blog & Articles
-          </h1>
-          <p className="mb-8 text-github-text/90">
-            My thoughts and insights on blockchain technology, Web3 innovations, and the future of decentralized finance.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div>
+            <h1 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <BookOpen className="text-github-accent" />
+              Blog & Articles
+            </h1>
+            <p className="mb-8 text-github-text/80">
+              My thoughts and insights on blockchain technology, Web3 innovations, and the future of decentralized finance.
+            </p>
+          </div>
+        </ScrollReveal>
         
-        {/* Blog Posts Section */}
         <div className="space-y-6">
-          <h2 className="text-xl font-semibold text-github-accent">Substack Articles</h2>
-          <p className="text-github-text/80 mb-6">
-            These articles are originally published on my{' '}
-            <a 
-              href="https://nisargxplores.substack.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-github-accent hover:underline"
-            >
-              Substack newsletter
-            </a>.
-          </p>
+          <ScrollReveal>
+            <h2 className="text-xl font-semibold text-github-accent">Substack Articles</h2>
+            <p className="text-github-text/80 mb-6">
+              These articles are originally published on my{' '}
+              <a href="https://nisargxplores.substack.com" target="_blank" rel="noopener noreferrer" className="text-github-accent hover:underline">
+                Substack newsletter
+              </a>.
+            </p>
+          </ScrollReveal>
           
           <div className="relative">
-            {/* Timeline Line */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-github-accent via-github-accent/50 to-transparent"></div>
             
             <div className="space-y-12">
               {blogPosts.map((post, index) => (
-                <div key={post.id} className="relative">
-                  {/* Timeline Marker */}
-                  <div className="absolute left-6 top-8 w-4 h-4 bg-github-accent rounded-full border-4 border-github-dark shadow-lg animate-pulse"></div>
-                  
-                   <Card className="ml-16 overflow-hidden bg-github-secondary border-github-border hover:border-github-accent transition-all duration-500 glass shadow-2xl hover:shadow-github-accent/20 hover:-translate-y-2 hover:scale-[1.02] backdrop-blur-sm">
-                    <div className="md:flex">
-                      <div className="md:w-1/3">
-                        <img 
-                          src={post.imageUrl} 
-                          alt={post.title} 
-                          className="h-full w-full object-cover min-h-[200px]"
-                        />
-                      </div>
-                      <div className="md:w-2/3">
-                        <CardHeader>
-                          <div className="flex items-center gap-2 text-sm text-github-text/70 mb-2">
-                            <Calendar size={14} />
-                            <span>{post.date}</span>
-                            <span>•</span>
-                            <span>{post.readTime}</span>
+                <ScrollReveal key={post.id} delay={index * 0.1} direction={index % 2 === 0 ? 'left' : 'right'}>
+                  <div className="relative">
+                    <motion.div 
+                      className="absolute left-6 top-8 w-4 h-4 bg-github-accent rounded-full border-4 border-github-dark shadow-lg z-10"
+                      whileInView={{ scale: [0.5, 1.3, 1] }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, duration: 0.4 }}
+                    />
+                    
+                    <div className="ml-16">
+                      <GlassCard className="overflow-hidden">
+                        <div className="md:flex">
+                          <div className="md:w-1/3 overflow-hidden">
+                            <motion.img 
+                              src={post.imageUrl} 
+                              alt={post.title} 
+                              className="h-full w-full object-cover min-h-[200px]"
+                              whileHover={{ scale: 1.05 }}
+                              transition={{ duration: 0.4 }}
+                            />
                           </div>
-                          <CardTitle className="text-github-accent text-xl mb-2">
-                            {post.title}
-                          </CardTitle>
-                          <p className="text-github-text/80 font-medium">
-                            {post.subtitle}
-                          </p>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="mb-4 text-github-text/90 leading-relaxed">
-                            {post.description}
-                          </p>
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {post.tags.map((tag) => (
-                              <span 
-                                key={tag}
-                                className="px-2 py-1 bg-github-dark rounded-full text-xs border border-github-accent/30 text-github-accent"
+                          <div className="md:w-2/3">
+                            <CardHeader>
+                              <div className="flex items-center gap-2 text-sm text-github-text/70 mb-2">
+                                <Calendar size={14} />
+                                <span>{post.date}</span>
+                                <span>•</span>
+                                <span>{post.readTime}</span>
+                              </div>
+                              <CardTitle className="text-github-accent text-xl mb-2">{post.title}</CardTitle>
+                              <p className="text-github-text/80 font-medium">{post.subtitle}</p>
+                            </CardHeader>
+                            <CardContent>
+                              <p className="mb-4 text-github-text/90 leading-relaxed text-sm">{post.description}</p>
+                              <div className="flex flex-wrap gap-2 mb-4">
+                                {post.tags.map((tag) => (
+                                  <motion.span 
+                                    key={tag}
+                                    className="px-2 py-1 bg-github-dark rounded-full text-xs border border-github-accent/30 text-github-accent"
+                                    whileHover={{ scale: 1.08 }}
+                                  >
+                                    {tag}
+                                  </motion.span>
+                                ))}
+                              </div>
+                              <Button 
+                                variant="outline" 
+                                size="sm"
+                                onClick={() => window.open(post.substackUrl, '_blank')}
+                                className="flex items-center gap-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white"
                               >
-                                {tag}
-                              </span>
-                            ))}
+                                <ExternalLink size={16} />
+                                Read on Substack
+                              </Button>
+                            </CardContent>
                           </div>
-                          <Button 
-                            variant="outline" 
-                            size="sm"
-                            onClick={() => window.open(post.substackUrl, '_blank')}
-                            className="flex items-center gap-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white"
-                          >
-                            <ExternalLink size={16} />
-                            Read on Substack
-                          </Button>
-                        </CardContent>
-                      </div>
+                        </div>
+                      </GlassCard>
                     </div>
-                  </Card>
-                </div>
+                  </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
         </div>
         
         {/* Newsletter CTA */}
-        <div className="text-center py-8">
-          <Card className="bg-github-secondary border-github-accent glass p-8">
-            <h3 className="text-xl font-semibold mb-4 text-github-accent">
-              Stay Updated
-            </h3>
+        <ScrollReveal direction="none">
+          <GlassCard className="p-8 text-center" glow>
+            <h3 className="text-xl font-semibold mb-4 text-github-accent">Stay Updated</h3>
             <p className="mb-6 text-github-text/90">
               Subscribe to my Substack newsletter for the latest insights on blockchain, Web3, and emerging technologies.
             </p>
@@ -161,8 +164,8 @@ const Blog = () => {
             >
               Subscribe to Newsletter
             </Button>
-          </Card>
-        </div>
+          </GlassCard>
+        </ScrollReveal>
       </div>
     </GitHubLayout>
   );

@@ -1,6 +1,8 @@
-
 import GitHubLayout from '@/components/layout/GitHubLayout';
 import { Card } from '@/components/ui/card';
+import ScrollReveal from '@/components/ScrollReveal';
+import GlassCard from '@/components/GlassCard';
+import { motion } from 'framer-motion';
 
 interface ExperienceItem {
   id: number;
@@ -136,70 +138,78 @@ const Experience = () => {
   return (
     <GitHubLayout>
       <div className="space-y-8">
-        <div>
-          <h1 className="text-2xl font-bold mb-6">Work Experience</h1>
-          <p className="mb-8">
-            My professional journey spans various roles in design, development, and community management,
-            where I've honed my skills across different technologies and domains.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div>
+            <h1 className="text-2xl font-bold mb-6">Work Experience</h1>
+            <p className="mb-8 text-github-text/80">
+              My professional journey spans various roles in design, development, and community management,
+              where I've honed my skills across different technologies and domains.
+            </p>
+          </div>
+        </ScrollReveal>
         
         {/* Timeline */}
         <div className="relative space-y-12">
-          {/* Modern gradient timeline line */}
           <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-gradient-to-b from-github-accent via-github-border to-transparent opacity-60"></div>
           
           {experiences.map((exp, index) => (
-            <div key={exp.id} className="relative group animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-              {/* Enhanced timeline marker */}
-              <div className="absolute left-3 top-4 w-6 h-6 rounded-full bg-gradient-to-br from-github-accent to-github-accent/70 border-4 border-github-dark shadow-lg group-hover:scale-110 transition-all duration-300 flex items-center justify-center z-10">
-                <div className="w-2 h-2 rounded-full bg-white"></div>
-              </div>
-              
-              {/* Enhanced card with hover effects */}
-              <div className="ml-16 transform transition-all duration-300 group-hover:translate-x-2">
-                <Card className="p-6 bg-gradient-to-br from-github-secondary to-github-secondary/90 border-github-border hover:border-github-accent/50 shadow-lg hover:shadow-xl transition-all duration-300 hover-scale">
-                  <div className="mb-4">
-                    <h2 className="text-xl font-semibold text-github-accent mb-1 group-hover:text-white transition-colors duration-300">{exp.role}</h2>
-                    <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-                      <h3 className="font-medium text-lg">{exp.company}</h3>
-                      {exp.period && (
-                        <span className="text-github-text text-sm bg-github-dark px-3 py-1 rounded-full border border-github-border">
-                          {exp.period}
-                        </span>
-                      )}
+            <ScrollReveal key={exp.id} delay={index * 0.06} direction="left">
+              <div className="relative group">
+                <motion.div 
+                  className="absolute left-3 top-4 w-6 h-6 rounded-full bg-gradient-to-br from-github-accent to-github-accent/70 border-4 border-github-dark shadow-lg flex items-center justify-center z-10"
+                  whileInView={{ scale: [0.5, 1.2, 1] }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.06, duration: 0.4 }}
+                >
+                  <div className="w-2 h-2 rounded-full bg-white"></div>
+                </motion.div>
+                
+                <div className="ml-16">
+                  <GlassCard className="p-6">
+                    <div className="mb-4">
+                      <h2 className="text-xl font-semibold text-github-accent mb-1">{exp.role}</h2>
+                      <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <h3 className="font-medium text-lg">{exp.company}</h3>
+                        {exp.period && (
+                          <span className="text-github-text text-sm bg-github-dark px-3 py-1 rounded-full border border-github-border">
+                            {exp.period}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <h4 className="font-medium text-github-accent">Key Achievements:</h4>
-                    <ul className="space-y-2">
-                      {exp.description.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3 text-sm leading-relaxed">
-                          <div className="w-1.5 h-1.5 rounded-full bg-github-accent flex-shrink-0 mt-2"></div>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Card>
+                    
+                    <div className="space-y-3">
+                      <h4 className="font-medium text-github-accent">Key Achievements:</h4>
+                      <ul className="space-y-2">
+                        {exp.description.map((item, i) => (
+                          <li key={i} className="flex items-start gap-3 text-sm leading-relaxed">
+                            <div className="w-1.5 h-1.5 rounded-full bg-github-accent flex-shrink-0 mt-2"></div>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </GlassCard>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
         
         {/* Education */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Education</h2>
-          <Card className="p-6 bg-github-secondary border-github-border">
-            <h3 className="font-semibold text-lg">Bachelor of Engineering in Computer Science</h3>
-            <p className="text-github-text">SVIT Vasad</p>
-            <p className="mt-2">
-              Specialized in web development and UI/UX design.
-              Participated in various coding competitions and hackathons.
-            </p>
-          </Card>
-        </div>
+        <ScrollReveal>
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Education</h2>
+            <GlassCard className="p-6">
+              <h3 className="font-semibold text-lg">Bachelor of Engineering in Computer Science</h3>
+              <p className="text-github-text">SVIT Vasad</p>
+              <p className="mt-2">
+                Specialized in web development and UI/UX design.
+                Participated in various coding competitions and hackathons.
+              </p>
+            </GlassCard>
+          </div>
+        </ScrollReveal>
       </div>
     </GitHubLayout>
   );
