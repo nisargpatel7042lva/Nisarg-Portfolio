@@ -9,6 +9,17 @@ import { motion } from 'framer-motion';
 const Blog = () => {
   const blogPosts = [
     {
+      id: 5,
+      title: "Unlocking Web3 Payments: How PayRam's Crypto Onramp and MCP Payments Bring Blockchain to Everyone",
+      subtitle: "From card payments to stablecoins and AI agents that can transact on their own, PayRam is building the rails for the next era of Web3 commerce",
+      date: "2025",
+      readTime: "10 min read",
+      imageUrl: "/lovable-uploads/payrams-blog.webp",
+      substackUrl: "https://nisargxplores.substack.com/p/unlocking-web3-payments-how-payrams",
+      description: "Exploring how PayRam is solving the crypto payment problem with fiat onramps, stablecoin settlements, and AI-powered MCP payments that bring blockchain commerce to everyone.",
+      tags: ["Web3", "Payments", "Crypto", "Stablecoins", "AI", "PayRam"]
+    },
+    {
       id: 1,
       title: "From Overwhelmed to On-Chain: How Solana Became the Ultimate Developer Playground",
       subtitle: "A comprehensive guide to the best tools that make Solana development accessible and enjoyable",
