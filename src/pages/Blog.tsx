@@ -92,49 +92,49 @@ const Blog = () => {
           </ScrollReveal>
           
           <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-github-accent via-github-accent/50 to-transparent"></div>
+            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-github-accent via-github-accent/50 to-transparent"></div>
             
-            <div className="space-y-12">
+            <div className="space-y-8 sm:space-y-12">
               {blogPosts.map((post, index) => (
                 <ScrollReveal key={post.id} delay={index * 0.1} direction={index % 2 === 0 ? 'left' : 'right'}>
                   <div className="relative">
                     <motion.div 
-                      className="absolute left-6 top-8 w-4 h-4 bg-github-accent rounded-full border-4 border-github-dark shadow-lg z-10"
+                      className="absolute left-2 sm:left-6 top-6 sm:top-8 w-3 h-3 sm:w-4 sm:h-4 bg-github-accent rounded-full border-2 sm:border-4 border-github-dark shadow-lg z-10"
                       whileInView={{ scale: [0.5, 1.3, 1] }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1, duration: 0.4 }}
                     />
                     
-                    <div className="ml-16">
+                    <div className="ml-10 sm:ml-16">
                       <GlassCard className="overflow-hidden">
-                        <div className="md:flex">
-                          <div className="md:w-1/3 overflow-hidden">
+                        <div className="flex flex-col md:flex-row">
+                          <div className="w-full md:w-2/5 flex-shrink-0 overflow-hidden">
                             <motion.img 
                               src={post.imageUrl} 
                               alt={post.title} 
-                              className="h-full w-full object-cover min-h-[200px]"
+                              className="w-full h-48 sm:h-56 md:h-full object-contain md:object-cover bg-github-dark/50"
                               whileHover={{ scale: 1.05 }}
                               transition={{ duration: 0.4 }}
                             />
                           </div>
-                          <div className="md:w-2/3">
-                            <CardHeader>
-                              <div className="flex items-center gap-2 text-sm text-github-text/70 mb-2">
-                                <Calendar size={14} />
+                          <div className="w-full md:w-3/5">
+                            <CardHeader className="p-4 sm:p-6">
+                              <div className="flex items-center gap-2 text-xs sm:text-sm text-github-text/70 mb-1 sm:mb-2">
+                                <Calendar size={12} />
                                 <span>{post.date}</span>
                                 <span>•</span>
                                 <span>{post.readTime}</span>
                               </div>
-                              <CardTitle className="text-github-accent text-xl mb-2">{post.title}</CardTitle>
-                              <p className="text-github-text/80 font-medium">{post.subtitle}</p>
+                              <CardTitle className="text-github-accent text-base sm:text-lg md:text-xl mb-1 sm:mb-2 leading-tight">{post.title}</CardTitle>
+                              <p className="text-github-text/80 font-medium text-xs sm:text-sm">{post.subtitle}</p>
                             </CardHeader>
-                            <CardContent>
-                              <p className="mb-4 text-github-text/90 leading-relaxed text-sm">{post.description}</p>
-                              <div className="flex flex-wrap gap-2 mb-4">
+                            <CardContent className="p-4 sm:p-6 pt-0 sm:pt-0">
+                              <p className="mb-3 sm:mb-4 text-github-text/90 leading-relaxed text-xs sm:text-sm line-clamp-3">{post.description}</p>
+                              <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                                 {post.tags.map((tag) => (
                                   <motion.span 
                                     key={tag}
-                                    className="px-2 py-1 bg-github-dark rounded-full text-xs border border-github-accent/30 text-github-accent"
+                                    className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-github-dark rounded-full text-[10px] sm:text-xs border border-github-accent/30 text-github-accent"
                                     whileHover={{ scale: 1.08 }}
                                   >
                                     {tag}
@@ -145,9 +145,9 @@ const Blog = () => {
                                 variant="outline" 
                                 size="sm"
                                 onClick={() => window.open(post.substackUrl, '_blank')}
-                                className="flex items-center gap-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white"
+                                className="flex items-center gap-2 border-github-accent text-github-accent hover:bg-github-accent hover:text-white text-xs sm:text-sm"
                               >
-                                <ExternalLink size={16} />
+                                <ExternalLink size={14} />
                                 Read on Substack
                               </Button>
                             </CardContent>
