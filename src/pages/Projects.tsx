@@ -19,6 +19,7 @@ import safemaskImage from '/lovable-uploads/safemask.png';
 import strangerShelfImage from '/lovable-uploads/strangershelf.png';
 import animeHubImage from '/lovable-uploads/animehub.png';
 import lazorkitImage from '/lovable-uploads/lazorkit.png';
+import hustl3Image from '/lovable-uploads/hustl3.png';
 import ScrollReveal from '@/components/ScrollReveal';
 import GlassCard from '@/components/GlassCard';
 import { motion } from 'framer-motion';
