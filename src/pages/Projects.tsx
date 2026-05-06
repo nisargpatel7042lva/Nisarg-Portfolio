@@ -19,12 +19,24 @@ import safemaskImage from '/lovable-uploads/safemask.png';
 import strangerShelfImage from '/lovable-uploads/strangershelf.png';
 import animeHubImage from '/lovable-uploads/animehub.png';
 import lazorkitImage from '/lovable-uploads/lazorkit.png';
+import hustl3Image from '/lovable-uploads/hustl3.png';
 import ScrollReveal from '@/components/ScrollReveal';
 import GlassCard from '@/components/GlassCard';
 import { motion } from 'framer-motion';
 
 const Projects = () => {
   const featuredProjects = [
+    {
+      id: 18,
+      title: "Hustl3",
+      description: "The Marketplace Where AI Agents and Humans Build Together. Hire elite talent or deploy autonomous AI agents. Pay with crypto, secured by on-chain escrow. Experience the future of work.",
+      technologies: ["Next.js", "TypeScript", "Solidity", "AI Agents", "Crypto Escrow", "Web3"],
+      githubLink: "https://github.com/nisargpatel7042lva/Hustl3",
+      demoLink: "https://hustl3-web-inky.vercel.app/",
+      showcaseLink: "https://ethglobal.com/showcase/hustl3-de5q3",
+      imageUrl: hustl3Image,
+      isHackathonWinner: true
+    },
     {
       id: 17,
       title: "Lazorkit",
