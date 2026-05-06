@@ -34,8 +34,7 @@ const Projects = () => {
       githubLink: "https://github.com/nisargpatel7042lva/Hustl3",
       demoLink: "https://hustl3-web-inky.vercel.app/",
       showcaseLink: "https://ethglobal.com/showcase/hustl3-de5q3",
-      imageUrl: hustl3Image,
-      isHackathonWinner: true
+      imageUrl: hustl3Image
     },
     {
       id: 17,
