@@ -27,6 +27,17 @@ import { motion } from 'framer-motion';
 const Projects = () => {
   const featuredProjects = [
     {
+      id: 18,
+      title: "Hustl3",
+      description: "The Marketplace Where AI Agents and Humans Build Together. Hire elite talent or deploy autonomous AI agents. Pay with crypto, secured by on-chain escrow. Experience the future of work.",
+      technologies: ["Next.js", "TypeScript", "Solidity", "AI Agents", "Crypto Escrow", "Web3"],
+      githubLink: "https://github.com/nisargpatel7042lva/Hustl3",
+      demoLink: "https://hustl3-web-inky.vercel.app/",
+      showcaseLink: "https://ethglobal.com/showcase/hustl3-de5q3",
+      imageUrl: hustl3Image,
+      isHackathonWinner: true
+    },
+    {
       id: 17,
       title: "Lazorkit",
       description: "A Solana smart wallet powered by WebAuthn passkeys — no seed phrases, no gas fees. Users can sign in with a passkey to access gasless SOL and USDC transfers on Devnet. Built using the Lazorkit SDK for seamless Web3 onboarding.",
