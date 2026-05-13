@@ -20,12 +20,22 @@ import strangerShelfImage from '/lovable-uploads/strangershelf.png';
 import animeHubImage from '/lovable-uploads/animehub.png';
 import lazorkitImage from '/lovable-uploads/lazorkit.png';
 import hustl3Image from '/lovable-uploads/hustl3.png';
+import rugradarImage from '/lovable-uploads/rugradar.png';
 import ScrollReveal from '@/components/ScrollReveal';
 import GlassCard from '@/components/GlassCard';
 import { motion } from 'framer-motion';
 
 const Projects = () => {
   const featuredProjects = [
+    {
+      id: 19,
+      title: "RugRadar",
+      description: "Solana Rug Pull Early Warning System. Monitors new Solana token listings in real-time and scores every token on a 0–100 risk scale before you can get rugged. Built on 7 Birdeye Data endpoints, every new listing is run through the RugScore™ algorithm — a 6-signal risk pipeline checking mint authority, holder concentration, freeze authority, liquidity depth, token age, and 24h volume. Tokens scoring 80+ trigger instant Telegram alerts.",
+      technologies: ["Next.js", "TypeScript", "Solana", "Birdeye API", "Telegram Bot", "Web3"],
+      githubLink: "https://github.com/nisargpatel7042lva/RugRadar",
+      demoLink: "https://rugradar-birdeye.vercel.app/",
+      imageUrl: rugradarImage
+    },
     {
       id: 18,
       title: "Hustl3",
