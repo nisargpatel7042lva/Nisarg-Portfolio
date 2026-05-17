@@ -1,214 +1,194 @@
 import GitHubLayout from '@/components/layout/GitHubLayout';
-import { Card } from '@/components/ui/card';
 import ScrollReveal from '@/components/ScrollReveal';
 import GlassCard from '@/components/GlassCard';
 import { motion } from 'framer-motion';
+import { GraduationCap } from 'lucide-react';
 
 interface ExperienceItem {
   id: number;
   role: string;
   company: string;
   period?: string;
-  description: string[];
+  highlights: string[];
 }
 
-const Experience = () => {
-  const experiences: ExperienceItem[] = [
-    {
-      id: 0,
-      role: "Joint Chief Coordinator",
-      company: "ISTE SVIT",
-      period: "2025 - Present",
-      description: [
-        "Leading one of the most active technical communities on campus as Joint Chief Secretary.",
-        "Coordinating student committees and managing event operations for technical and cultural initiatives.",
-        "Organizing workshops, seminars, and college fests like Prakarsh with focus on student engagement and sponsor partnerships.",
-        "Collaborating across tech, non-tech, design, social media, administration, and finance sectors.",
-        "Building leadership, communication, and management skills while fostering innovation and community growth."
-      ]
-    },
-    {
-      id: 1,
-      role: "Shipping",
-      company: "DEX 2.0 - Mobile Decentralized Exchange",
-      period: "2025 - Present",
-      description: [
-        "Built a custom decentralized exchange enabling Token-2022 assets with Transfer Hooks to be traded securely on mobile.",
-        "Integrated Solana Mobile Wallet Adapter for seamless mobile wallet connectivity and transaction signing.",
-        "Developed a comprehensive hook validation layer to ensure secure and compliant token transfers.",
-        "Implemented an on-chain AMM (Automated Market Maker) with mobile-first UX design principles.",
-        "Designed the platform to support real-world assets (RWA) and compliant DeFi use cases on Solana.",
-        "Utilized React, TypeScript, Anchor, and Solana Program Library for full-stack blockchain development."
-      ]
-    },
-    {
-      id: 3,
-      role: "Community Volunteer",
-      company: "The Hackers Meetup",
-      period: "May 2025 - Present",
-      description: [
-        "Supporting community initiatives and events for technology enthusiasts.",
-        "Facilitating networking and knowledge sharing among developers and cybersecurity professionals."
-      ]
-    },
-    {
-      id: 4,
-      role: "Student Ambassador",
-      company: "Designare",
-      description: [
-        "Represent and contribute to a community of designers and innovators.",
-        "Engage with the Designare ecosystem to build and nurture connections.",
-        "Promote Designare's initiatives through branding, content creation, and event participation."
-      ]
-    },
-    {
-      id: 5,
-      role: "Joint Finance Secretary",
-      company: "Students' Central Committee, SVIT-Vasad",
-      description: [
-        "Oversee financial operations, budget tracking, and expenditure monitoring.",
-        "Ensure transparency in financial transactions for student-driven initiatives."
-      ]
-    },
-    {
-      id: 6,
-      role: "Joint Web Designer",
-      company: "Indian Society for Technical Education (ISTE)",
-      description: [
-        "Design and maintain ISTE's student chapter website, ensuring an intuitive UI/UX.",
-        "Collaborate with teams to optimize web performance and content management."
-      ]
-    },
-    {
-      id: 7,
-      role: "Social Media Manager & Customer Relations Manager",
-      company: "The A.I.M. Club",
-      description: [
-        "Develop and manage strategic social media campaigns to increase engagement.",
-        "Lead customer relations efforts, ensuring exceptional service and retention."
-      ]
-    },
-    {
-      id: 8,
-      role: "UI/UX Designer Intern",
-      company: "CoderOne",
-      description: [
-        "Create user-centric interface designs, prototypes, and wireframes.",
-        "Conduct user research and usability testing for improved design experiences."
-      ]
-    },
-    {
-      id: 9,
-      role: "Open-Source Contributor",
-      company: "GirlScript Summer of Code",
-      description: [
-        "Collaborate with global teams on real-world open-source projects.",
-        "Enhance project functionality, UI, and overall user experience."
-      ]
-    },
-    {
-      id: 10,
-      role: "Social Media Manager",
-      company: "AWS User Group Vadodara",
-      description: [
-        "Manage and optimize AWS community outreach via social media.",
-        "Organize AWS events, meetups, and workshops for knowledge sharing."
-      ]
-    },
-    {
-      id: 11,
-      role: "Shipping",
-      company: "Mysterio Fashion",
-      description: [
-        "Designed and launched a print-on-demand e-commerce platform.",
-        "Managed digital marketing, branding, and creative product design."
-      ]
-    },
-    {
-      id: 12,
-      role: "Community Growth Associate",
-      company: "PhicsIT",
-      description: [
-        "Analyzed website traffic and audience behavior to optimize growth strategies.",
-        "Targeted specific demographics and communities to drive traffic to GeekClash."
-      ]
-    }
-  ];
+const experiences: ExperienceItem[] = [
+  {
+    id: 0,
+    role: 'Joint Chief Coordinator',
+    company: 'ISTE SVIT',
+    period: '2025 – Present',
+    highlights: [
+      'Leading one of the most active technical communities on campus as Joint Chief Secretary.',
+      'Organizing workshops, seminars, and college fests like Prakarsh with sponsor partnerships.',
+      'Collaborating across tech, design, social media, and finance sectors.',
+    ],
+  },
+  {
+    id: 1,
+    role: 'Shipping',
+    company: 'DEX 2.0 — Mobile Decentralized Exchange',
+    period: '2025 – Present',
+    highlights: [
+      'Built a custom DEX enabling Token-2022 assets with Transfer Hooks on mobile.',
+      'Integrated Solana Mobile Wallet Adapter and implemented an on-chain AMM.',
+      'Designed for real-world assets (RWA) and compliant DeFi use cases on Solana.',
+    ],
+  },
+  {
+    id: 2,
+    role: 'UI/UX Designer Intern',
+    company: 'CoderOne',
+    highlights: [
+      'Created user-centric interface designs, prototypes, and wireframes.',
+      'Conducted user research and usability testing for improved design experiences.',
+    ],
+  },
+  {
+    id: 3,
+    role: 'Open-Source Contributor',
+    company: 'GirlScript Summer of Code',
+    highlights: [
+      'Collaborated with global teams on real-world open-source projects.',
+      'Enhanced project functionality, UI, and overall user experience.',
+    ],
+  },
+  {
+    id: 4,
+    role: 'Joint Finance Secretary',
+    company: "Students' Central Committee, SVIT-Vasad",
+    highlights: [
+      'Oversaw financial operations, budget tracking, and expenditure monitoring.',
+      'Ensured transparency in financial transactions for student-driven initiatives.',
+    ],
+  },
+  {
+    id: 5,
+    role: 'Community Volunteer',
+    company: 'The Hackers Meetup',
+    period: 'May 2025 – Present',
+    highlights: [
+      'Supporting community initiatives and events for technology enthusiasts.',
+      'Facilitating networking among developers and cybersecurity professionals.',
+    ],
+  },
+  {
+    id: 6,
+    role: 'Student Ambassador',
+    company: 'Designare',
+    highlights: [
+      'Represented and promoted the Designare design community.',
+      'Engaged with the ecosystem through branding, content, and events.',
+    ],
+  },
+  {
+    id: 7,
+    role: 'Joint Web Designer',
+    company: 'Indian Society for Technical Education (ISTE)',
+    highlights: [
+      'Designed and maintained the ISTE student chapter website.',
+      'Optimized web performance and content management workflows.',
+    ],
+  },
+  {
+    id: 8,
+    role: 'Social Media Manager',
+    company: 'AWS User Group Vadodara',
+    highlights: [
+      'Managed AWS community outreach and social media channels.',
+      'Organized AWS events, meetups, and knowledge-sharing workshops.',
+    ],
+  },
+  {
+    id: 9,
+    role: 'Community Growth Associate',
+    company: 'PhicsIT',
+    highlights: [
+      'Analyzed traffic and audience behavior to optimize growth strategies.',
+      'Targeted communities to drive engagement on GeekClash.',
+    ],
+  },
+];
 
+const Experience = () => {
   return (
     <GitHubLayout>
-      <div className="space-y-8">
+      <div className="space-y-10">
+
+        {/* Header */}
         <ScrollReveal>
-          <div>
-            <h1 className="text-2xl font-bold mb-6">Work Experience</h1>
-            <p className="mb-8 text-github-text/80">
-              My professional journey spans various roles in design, development, and community management,
-              where I've honed my skills across different technologies and domains.
+          <div className="space-y-2">
+            <h1 className="text-2xl font-bold text-github-accent">Experience</h1>
+            <p className="text-github-text/60 text-sm max-w-xl">
+              My journey across technical leadership, development, design, and community roles.
             </p>
           </div>
         </ScrollReveal>
-        
+
         {/* Timeline */}
-        <div className="relative space-y-12">
-          <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-gradient-to-b from-github-accent via-github-border to-transparent opacity-60"></div>
-          
+        <div className="relative space-y-8">
+          <div className="absolute left-5 top-6 bottom-6 w-px bg-gradient-to-b from-github-accent via-github-border/60 to-transparent opacity-50" />
+
           {experiences.map((exp, index) => (
-            <ScrollReveal key={exp.id} delay={index * 0.06} direction="left">
+            <ScrollReveal key={exp.id} delay={index * 0.05} direction="left">
               <div className="relative group">
-                <motion.div 
-                  className="absolute left-3 top-4 w-6 h-6 rounded-full bg-gradient-to-br from-github-accent to-github-accent/70 border-4 border-github-dark shadow-lg flex items-center justify-center z-10"
-                  whileInView={{ scale: [0.5, 1.2, 1] }}
+                <motion.div
+                  className="absolute left-2.5 top-5 w-5 h-5 rounded-full bg-gradient-to-br from-github-accent to-github-accent/60 border-4 border-github-dark shadow-md flex items-center justify-center z-10"
+                  whileInView={{ scale: [0.5, 1.15, 1] }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.06, duration: 0.4 }}
+                  transition={{ delay: index * 0.05, duration: 0.35 }}
                 >
-                  <div className="w-2 h-2 rounded-full bg-white"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-white" />
                 </motion.div>
-                
-                <div className="ml-16">
-                  <GlassCard className="p-6">
-                    <div className="mb-4">
-                      <h2 className="text-xl font-semibold text-github-accent mb-1">{exp.role}</h2>
-                      <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-                        <h3 className="font-medium text-lg">{exp.company}</h3>
-                        {exp.period && (
-                          <span className="text-github-text text-sm bg-github-dark px-3 py-1 rounded-full border border-github-border">
-                            {exp.period}
-                          </span>
-                        )}
+
+                <div className="ml-14">
+                  <GlassCard className="p-5">
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+                      <div>
+                        <h2 className="text-base font-semibold text-github-accent">{exp.role}</h2>
+                        <p className="text-sm text-github-text/75 mt-0.5">{exp.company}</p>
                       </div>
+                      {exp.period && (
+                        <span className="text-xs text-github-text/55 bg-github-dark px-3 py-1 rounded-full border border-github-border self-start whitespace-nowrap">
+                          {exp.period}
+                        </span>
+                      )}
                     </div>
-                    
-                    <div className="space-y-3">
-                      <h4 className="font-medium text-github-accent">Key Achievements:</h4>
-                      <ul className="space-y-2">
-                        {exp.description.map((item, i) => (
-                          <li key={i} className="flex items-start gap-3 text-sm leading-relaxed">
-                            <div className="w-1.5 h-1.5 rounded-full bg-github-accent flex-shrink-0 mt-2"></div>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+
+                    <ul className="space-y-2">
+                      {exp.highlights.map((point, i) => (
+                        <li key={i} className="flex items-start gap-2.5 text-xs text-github-text/65 leading-relaxed">
+                          <div className="w-1 h-1 rounded-full bg-github-accent flex-shrink-0 mt-1.5" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </GlassCard>
                 </div>
               </div>
             </ScrollReveal>
           ))}
         </div>
-        
+
         {/* Education */}
-        <ScrollReveal>
-          <div>
-            <h2 className="text-xl font-semibold mb-4">Education</h2>
-            <GlassCard className="p-6">
-              <h3 className="font-semibold text-lg">Bachelor of Engineering in Computer Science</h3>
-              <p className="text-github-text">SVIT Vasad</p>
-              <p className="mt-2">
-                Specialized in web development and UI/UX design.
-                Participated in various coding competitions and hackathons.
-              </p>
-            </GlassCard>
-          </div>
+        <ScrollReveal direction="up">
+          <GlassCard className="p-6" glow>
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 rounded-full bg-github-accent/10 border border-github-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <GraduationCap size={18} className="text-github-accent" />
+              </div>
+              <div>
+                <h2 className="text-lg font-semibold text-github-accent mb-1">Education</h2>
+                <p className="font-medium text-sm text-github-text">
+                  Bachelor of Engineering — Computer Science
+                </p>
+                <p className="text-sm text-github-text/60 mt-0.5">SVIT Vasad</p>
+                <p className="text-xs text-github-text/50 mt-2 leading-relaxed">
+                  Specialized in web development and UI/UX. Active participant in coding competitions and hackathons.
+                </p>
+              </div>
+            </div>
+          </GlassCard>
         </ScrollReveal>
       </div>
     </GitHubLayout>
