@@ -22,6 +22,7 @@ import lazorkitImage from '/lovable-uploads/lazorkit.png';
 import hustl3Image from '/lovable-uploads/hustl3.png';
 import rugradarImage from '/lovable-uploads/rugradar.png';
 import epochImage from '/lovable-uploads/epoch.png';
+import axiomImage from '/lovable-uploads/axiom.png';
 import ScrollReveal from '@/components/ScrollReveal';
 import GlassCard from '@/components/GlassCard';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -29,6 +30,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 const FEATURED_COUNT = 8;
 
 const featuredProjects = [
+  {
+    id: 21,
+    title: 'AXIOM Vaults',
+    description: 'The first prediction market ETF on Solana. Users deposit USDC into risk-tiered vaults and an autonomous strategy engine manages the full position lifecycle — scanning markets, entering positions, managing exits, and routing idle capital to earn yield between trades. No monitoring required.',
+    technologies: ['Solana', 'USDC', 'Prediction Markets', 'DeFi', 'TypeScript'],
+    demoLink: 'https://axiom-vaults.vercel.app/',
+    videoLink: 'https://youtu.be/T0padefbSQI',
+    imageUrl: axiomImage,
+  },
   {
     id: 20,
     title: 'EPOCH',
@@ -69,6 +79,7 @@ const featuredProjects = [
     technologies: ['Next.js', 'TypeScript', 'Solana', 'WebAuthn', 'Lazorkit SDK'],
     demoLink: 'https://lazorkit-xi.vercel.app',
     githubLink: 'https://github.com/nisargpatel7042lva/Lazorkit',
+    videoLink: 'https://youtu.be/F6tpJH6h-7o',
     imageUrl: lazorkitImage,
   },
   {
