@@ -21,6 +21,7 @@ import animeHubImage from '/lovable-uploads/animehub.png';
 import lazorkitImage from '/lovable-uploads/lazorkit.png';
 import hustl3Image from '/lovable-uploads/hustl3.png';
 import rugradarImage from '/lovable-uploads/rugradar.png';
+import epochImage from '/lovable-uploads/epoch.png';
 import ScrollReveal from '@/components/ScrollReveal';
 import GlassCard from '@/components/GlassCard';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -28,6 +29,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 const FEATURED_COUNT = 8;
 
 const featuredProjects = [
+  {
+    id: 20,
+    title: 'EPOCH',
+    description: 'A real-time prediction market protocol on Solana where each market runs as a MagicBlock Ephemeral Rollup session. Users take YES/NO positions at zero fees with sub-second updates, and Pyth-confirmed outcomes trigger atomic Magic Action settlement back to Solana mainnet.',
+    technologies: ['Solana', 'MagicBlock', 'Ephemeral Rollups', 'Pyth', 'Anchor', 'TypeScript'],
+    githubLink: 'https://github.com/nisargpatel7042lva/EPOCH',
+    demoLink: 'https://epoch-solana.vercel.app/',
+    imageUrl: epochImage,
+    isHackathonWinner: true,
+    hackathonLinks: [
+      { name: 'Solana Blitz Announcement', url: 'https://x.com/magicblock/status/2069074056826294544' },
+    ],
+  },
   {
     id: 19,
     title: 'RugRadar',
