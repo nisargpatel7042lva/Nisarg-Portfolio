@@ -36,6 +36,7 @@ const featuredProjects = [
     technologies: ['Solana', 'MagicBlock', 'Ephemeral Rollups', 'Pyth', 'Anchor', 'TypeScript'],
     githubLink: 'https://github.com/nisargpatel7042lva/EPOCH',
     demoLink: 'https://epoch-solana.vercel.app/',
+    videoLink: 'https://youtu.be/xN_nANGTdS4',
     imageUrl: epochImage,
     isHackathonWinner: true,
     hackathonLinks: [
