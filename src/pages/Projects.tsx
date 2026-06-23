@@ -36,7 +36,7 @@ const featuredProjects = [
     description: 'The first prediction market ETF on Solana. Users deposit USDC into risk-tiered vaults and an autonomous strategy engine manages the full position lifecycle — scanning markets, entering positions, managing exits, and routing idle capital to earn yield between trades. No monitoring required.',
     technologies: ['Solana', 'USDC', 'Prediction Markets', 'DeFi', 'TypeScript'],
     demoLink: 'https://axiom-vaults.vercel.app/',
-    videoLink: 'https://youtu.be/T0padefbSQI',
+    videoLink: 'https://x.com/Axiom_vaults/status/2053185406343225423?s=20',
     imageUrl: axiomImage,
   },
   {
